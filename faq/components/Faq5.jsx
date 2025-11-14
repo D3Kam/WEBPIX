@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import React from "react";
-import { Add } from "relume-icons";
+import { Plus } from "lucide-react";
 
 export function Faq5() {
   return (
@@ -31,7 +31,7 @@ export function Faq5() {
               >
                 <AccordionTrigger
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                 >
@@ -52,7 +52,7 @@ export function Faq5() {
               >
                 <AccordionTrigger
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                 >
@@ -73,7 +73,7 @@ export function Faq5() {
               >
                 <AccordionTrigger
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                 >
@@ -93,7 +93,7 @@ export function Faq5() {
               >
                 <AccordionTrigger
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                 >
@@ -113,7 +113,7 @@ export function Faq5() {
               >
                 <AccordionTrigger
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                 >

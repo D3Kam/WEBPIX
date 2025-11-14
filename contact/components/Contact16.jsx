@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Call, LocationOn, Mail } from "relume-icons";
+import { Phone, MapPin, Mail } from "lucide-react";
 
 export function Contact16() {
   return (
@@ -34,7 +34,7 @@ export function Contact16() {
                 </div>
                 <div className="flex flex-row">
                   <div className="mr-4 md:mb-4">
-                    <Call className="size-6 text-scheme-text" />
+                    <Phone className="size-6 text-scheme-text" />
                   </div>
                   <div>
                     <h3 className="mb-2 text-h6 font-bold">Phone</h3>
@@ -45,7 +45,7 @@ export function Contact16() {
                 </div>
                 <div className="flex flex-row">
                   <div className="mr-4 md:mb-4">
-                    <LocationOn className="size-6 text-scheme-text" />
+                    <MapPin className="size-6 text-scheme-text" />
                   </div>
                   <div>
                     <h3 className="mb-2 text-h6 font-bold">Office</h3>

@@ -14,8 +14,8 @@ export function Header62() {
         </p>
         <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
           <Button title="Email">Email</Button>
-          <Button title="Call" variant="secondary">
-            Call
+          <Button title="Phone" variant="secondary">
+            Phone
           </Button>
         </div>
       </div>

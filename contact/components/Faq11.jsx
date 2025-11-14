@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import React from "react";
-import { Add } from "relume-icons";
+import { Plus } from "lucide-react";
 
 export function Faq11() {
   return (
@@ -31,7 +31,7 @@ export function Faq11() {
                 <AccordionTrigger
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                 >
                   How do I buy pixels?
@@ -50,7 +50,7 @@ export function Faq11() {
                 <AccordionTrigger
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                 >
                   What payment methods work?
@@ -69,7 +69,7 @@ export function Faq11() {
                 <AccordionTrigger
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                 >
                   Can I change my artwork?
@@ -88,7 +88,7 @@ export function Faq11() {
                 <AccordionTrigger
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                 >
                   Are there content restrictions?
@@ -107,7 +107,7 @@ export function Faq11() {
                 <AccordionTrigger
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                 >
                   How secure is my purchase?
@@ -126,7 +126,7 @@ export function Faq11() {
                 <AccordionTrigger
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                 >
                   Question text goes here
@@ -149,7 +149,7 @@ export function Faq11() {
                 <AccordionTrigger
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                 >
                   Question text goes here
@@ -172,7 +172,7 @@ export function Faq11() {
                 <AccordionTrigger
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                 >
                   Question text goes here
@@ -195,7 +195,7 @@ export function Faq11() {
                 <AccordionTrigger
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                 >
                   Question text goes here
@@ -218,7 +218,7 @@ export function Faq11() {
                 <AccordionTrigger
                   className="text-medium md:py-5 [&[data-state=open]>svg]:rotate-45"
                   icon={
-                    <Add className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
+                    <Plus className="size-7 shrink-0 text-scheme-text transition-transform duration-300 md:size-8" />
                   }
                 >
                   Question text goes here

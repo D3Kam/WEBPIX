@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { ChevronRight, RelumeIcon } from "relume-icons";
+import { ChevronRight, Image } from "lucide-react";
 
 export function Layout105() {
   return (
@@ -24,7 +24,7 @@ export function Layout105() {
               <ul className="grid grid-cols-1 gap-4 py-2">
                 <li className="flex self-start">
                   <div className="mr-4 flex-none self-start">
-                    <RelumeIcon className="size-6 text-scheme-text" />
+                    <Image className="size-6 text-scheme-text" />
                   </div>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -32,7 +32,7 @@ export function Layout105() {
                 </li>
                 <li className="flex self-start">
                   <div className="mr-4 flex-none self-start">
-                    <RelumeIcon className="size-6 text-scheme-text" />
+                    <Image className="size-6 text-scheme-text" />
                   </div>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -40,7 +40,7 @@ export function Layout105() {
                 </li>
                 <li className="flex self-start">
                   <div className="mr-4 flex-none self-start">
-                    <RelumeIcon className="size-6 text-scheme-text" />
+                    <Image className="size-6 text-scheme-text" />
                   </div>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.

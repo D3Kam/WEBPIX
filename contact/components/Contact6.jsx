@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import React from "react";
-import { Call, LocationOn, Mail } from "lucide-react";
+import { Phone, MapPin, Mail } from "lucide-react";
 
 export function Contact6() {
   return (
@@ -34,11 +34,11 @@ export function Contact6() {
               <p>email@example.com</p>
             </div>
             <div className="flex items-center gap-4">
-              <Call className="size-6 flex-none text-scheme-text" />
+              <Phone className="size-6 flex-none text-scheme-text" />
               <p>+1 (555) 000-0000</p>
             </div>
             <div className="flex items-center gap-4">
-              <LocationOn className="size-6 flex-none text-scheme-text" />
+              <MapPin className="size-6 flex-none text-scheme-text" />
               <p>123 Sample St, Sydney NSW 2000 AU</p>
             </div>
           </div>

@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import React from "react";
-import { ChevronRight } from "relume-icons";
+import { ChevronRight } from "lucide-react";
 
 export function Layout386() {
   return (

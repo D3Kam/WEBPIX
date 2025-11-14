@@ -1,9 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import React, { useRef } from "react";
-import { ChevronRight } from "relume-icons";
+import { ChevronRight } from "lucide-react";
 
 const useRelume = () => {
   const sectionRef = useRef(null);

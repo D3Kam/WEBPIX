@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { VideoIframe } from "@/components/ui/video-iframe";
 import React from "react";
-import { PlayCircle } from "relume-icons";
+import { PlayCircle } from "lucide-react";
 
 export function Stats47() {
   return (

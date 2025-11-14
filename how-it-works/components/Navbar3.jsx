@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { KeyboardArrowDown } from "relume-icons";
+import { ChevronDown } from "lucide-react";
 
 const ConditionalRender = ({ condition, children }) => {
   return condition ? <>{children}</> : null;
@@ -108,7 +108,7 @@ export function Navbar3() {
               animate={useActive.animateDropdownIcon}
               transition={{ duration: 0.3 }}
             >
-              <KeyboardArrowDown className="text-scheme-text" />
+              <ChevronDown className="text-scheme-text" />
             </motion.span>
           </p>
           <ConditionalRender condition={useActive.isDropdownOpen}>
