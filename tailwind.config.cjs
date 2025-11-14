@@ -17,7 +17,28 @@ module.exports = {
     ],
     presets: [require("@relume_io/relume-tailwind")],
     theme: {
-      extend: {},
+      extend: {
+        fontSize: {
+          'h1': ['3.5rem', { lineHeight: '1.2', fontWeight: '700' }],
+          'h2': ['3rem', { lineHeight: '1.2', fontWeight: '700' }],
+          'h3': ['2.5rem', { lineHeight: '1.2', fontWeight: '700' }],
+          'h4': ['2rem', { lineHeight: '1.3', fontWeight: '700' }],
+          'h5': ['1.5rem', { lineHeight: '1.4', fontWeight: '700' }],
+          'h6': ['1.25rem', { lineHeight: '1.4', fontWeight: '700' }],
+          'medium': ['1rem', { lineHeight: '1.5' }],
+        },
+        borderRadius: {
+          'image': '0.5rem',
+        },
+        colors: {
+          scheme: {
+            'text': '#000000',
+            'background': '#ffffff',
+            'foreground': '#000000',
+            'border': '#000000',
+          },
+        },
+      },
     },
     plugins: [],
   }
