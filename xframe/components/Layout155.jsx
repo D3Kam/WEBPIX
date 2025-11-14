@@ -1,0 +1,47 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import React from "react";
+import { ChevronRight } from "relume-icons";
+
+export function Layout155() {
+  return (
+    <section className="px-[5%] py-16 md:py-24 lg:py-28">
+      <div className="container flex flex-col items-center text-center">
+        <div className="w-full">
+          <img
+            src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+            className="aspect-video size-full rounded-image object-cover"
+            alt="Relume placeholder image"
+          />
+        </div>
+        <div className="mt-12 md:mt-18 lg:mt-20">
+          <div className="mx-auto w-full max-w-lg">
+            <p className="mb-3 font-semibold md:mb-4">Canvas</p>
+            <h2 className="mb-5 text-h2 font-bold md:mb-6">
+              Create your digital artwork on the blockchain
+            </h2>
+            <p className="text-medium">
+              Drag and place your pixels with precision. Select your sector,
+              resize your block, and watch your vision come to life on the
+              Solana network.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
+              <Button title="Select" variant="secondary">
+                Select
+              </Button>
+              <Button
+                title="Zoom"
+                variant="link"
+                size="link"
+                iconRight={<ChevronRight className="text-scheme-text" />}
+              >
+                Zoom
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
