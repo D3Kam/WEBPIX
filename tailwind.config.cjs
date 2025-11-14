@@ -37,6 +37,12 @@ module.exports = {
             'foreground': '#000000',
             'border': '#000000',
           },
+          brand: {
+            primary: '#03FFCE',    // Main cyan/turquoise
+            blue: '#3366CC',       // Blue
+            orange: '#FF6600',     // Orange
+            red: '#ED3B5A',        // Red/Pink
+          },
         },
       },
     },
@@ -69,6 +75,19 @@ module.exports = {
       'border-neutral-dark',
       'border-neutral-darker',
       'border-neutral-darkest',
+      // Brand colors
+      'bg-brand-primary',
+      'bg-brand-blue',
+      'bg-brand-orange',
+      'bg-brand-red',
+      'text-brand-primary',
+      'text-brand-blue',
+      'text-brand-orange',
+      'text-brand-red',
+      'border-brand-primary',
+      'border-brand-blue',
+      'border-brand-orange',
+      'border-brand-red',
     ],
     plugins: [],
   }
