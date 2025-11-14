@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { Call, ChevronRight, LocationOn, Mail } from "relume-icons";
+import { Phone, ChevronRight, MapPin, Mail } from "lucide-react";
 
 export function Contact14() {
   return (
@@ -29,7 +29,7 @@ export function Contact14() {
             </div>
             <div>
               <div className="mb-3 md:mb-4">
-                <Call className="size-8 text-scheme-text" />
+                <Phone className="size-8 text-scheme-text" />
               </div>
               <h3 className="mb-2 text-h6 font-bold">Phone</h3>
               <p className="mb-2">Quick support for urgent matters</p>
@@ -39,7 +39,7 @@ export function Contact14() {
             </div>
             <div>
               <div className="mb-3 md:mb-4">
-                <LocationOn className="size-8 text-scheme-text" />
+                <MapPin className="size-8 text-scheme-text" />
               </div>
               <h3 className="mb-2 text-h6 font-bold">Office</h3>
               <p className="mb-2">

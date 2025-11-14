@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { DribbbleLogo, LinkedinLogo, XLogo } from "relume-icons";
+import { Dribbble, Linkedin, Twitter } from "lucide-react";
 
 export function Team6() {
   return (
@@ -36,13 +36,13 @@ export function Team6() {
             </p>
             <div className="mt-5 grid grid-flow-col grid-cols-[max-content] gap-3.5 self-center md:mt-6">
               <a href="#">
-                <LinkedinLogo className="size-6 text-scheme-text" />
+                <Linkedin className="size-6 text-scheme-text" />
               </a>
               <a href="#">
-                <XLogo className="size-6 p-0.5 text-scheme-text" />
+                <Twitter className="size-6 p-0.5 text-scheme-text" />
               </a>
               <a href="#">
-                <DribbbleLogo className="size-6 text-scheme-text" />
+                <Dribbble className="size-6 text-scheme-text" />
               </a>
             </div>
           </div>
@@ -66,13 +66,13 @@ export function Team6() {
             </p>
             <div className="mt-5 grid grid-flow-col grid-cols-[max-content] gap-3.5 self-center md:mt-6">
               <a href="#">
-                <LinkedinLogo className="size-6 text-scheme-text" />
+                <Linkedin className="size-6 text-scheme-text" />
               </a>
               <a href="#">
-                <XLogo className="size-6 p-0.5 text-scheme-text" />
+                <Twitter className="size-6 p-0.5 text-scheme-text" />
               </a>
               <a href="#">
-                <DribbbleLogo className="size-6 text-scheme-text" />
+                <Dribbble className="size-6 text-scheme-text" />
               </a>
             </div>
           </div>
@@ -96,13 +96,13 @@ export function Team6() {
             </p>
             <div className="mt-5 grid grid-flow-col grid-cols-[max-content] gap-3.5 self-center md:mt-6">
               <a href="#">
-                <LinkedinLogo className="size-6 text-scheme-text" />
+                <Linkedin className="size-6 text-scheme-text" />
               </a>
               <a href="#">
-                <XLogo className="size-6 p-0.5 text-scheme-text" />
+                <Twitter className="size-6 p-0.5 text-scheme-text" />
               </a>
               <a href="#">
-                <DribbbleLogo className="size-6 text-scheme-text" />
+                <Dribbble className="size-6 text-scheme-text" />
               </a>
             </div>
           </div>
@@ -126,13 +126,13 @@ export function Team6() {
             </p>
             <div className="mt-5 grid grid-flow-col grid-cols-[max-content] gap-3.5 self-center md:mt-6">
               <a href="#">
-                <LinkedinLogo className="size-6 text-scheme-text" />
+                <Linkedin className="size-6 text-scheme-text" />
               </a>
               <a href="#">
-                <XLogo className="size-6 p-0.5 text-scheme-text" />
+                <Twitter className="size-6 p-0.5 text-scheme-text" />
               </a>
               <a href="#">
-                <DribbbleLogo className="size-6 text-scheme-text" />
+                <Dribbble className="size-6 text-scheme-text" />
               </a>
             </div>
           </div>
@@ -156,13 +156,13 @@ export function Team6() {
             </p>
             <div className="mt-5 grid grid-flow-col grid-cols-[max-content] gap-3.5 self-center md:mt-6">
               <a href="#">
-                <LinkedinLogo className="size-6 text-scheme-text" />
+                <Linkedin className="size-6 text-scheme-text" />
               </a>
               <a href="#">
-                <XLogo className="size-6 p-0.5 text-scheme-text" />
+                <Twitter className="size-6 p-0.5 text-scheme-text" />
               </a>
               <a href="#">
-                <DribbbleLogo className="size-6 text-scheme-text" />
+                <Dribbble className="size-6 text-scheme-text" />
               </a>
             </div>
           </div>
@@ -186,13 +186,13 @@ export function Team6() {
             </p>
             <div className="mt-5 grid grid-flow-col grid-cols-[max-content] gap-3.5 self-center md:mt-6">
               <a href="#">
-                <LinkedinLogo className="size-6 text-scheme-text" />
+                <Linkedin className="size-6 text-scheme-text" />
               </a>
               <a href="#">
-                <XLogo className="size-6 p-0.5 text-scheme-text" />
+                <Twitter className="size-6 p-0.5 text-scheme-text" />
               </a>
               <a href="#">
-                <DribbbleLogo className="size-6 text-scheme-text" />
+                <Dribbble className="size-6 text-scheme-text" />
               </a>
             </div>
           </div>

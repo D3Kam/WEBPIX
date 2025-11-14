@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import {
-  FacebookLogo,
-  InstagramLogo,
-  LinkedinLogo,
-  XLogo,
-  YoutubeLogo,
-} from "relume-icons";
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 
 const useForm = () => {
   const [email, setEmail] = useState("");
@@ -132,31 +132,31 @@ export function Footer1() {
               <ul className="flex flex-col items-start">
                 <li className="text-small py-2">
                   <a href="#" className="flex items-center gap-3">
-                    <FacebookLogo className="size-6 text-scheme-text" />
+                    <Facebook className="size-6 text-scheme-text" />
                     <span>Facebook</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
                   <a href="#" className="flex items-center gap-3">
-                    <InstagramLogo className="size-6 text-scheme-text" />
+                    <Instagram className="size-6 text-scheme-text" />
                     <span>Instagram</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
                   <a href="#" className="flex items-center gap-3">
-                    <XLogo className="size-6 p-0.5 text-scheme-text" />
+                    <Twitter className="size-6 p-0.5 text-scheme-text" />
                     <span>X</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
                   <a href="#" className="flex items-center gap-3">
-                    <LinkedinLogo className="size-6 text-scheme-text" />
+                    <Linkedin className="size-6 text-scheme-text" />
                     <span>LinkedIn</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
                   <a href="#" className="flex items-center gap-3">
-                    <YoutubeLogo className="size-6 text-scheme-text" />
+                    <Youtube className="size-6 text-scheme-text" />
                     <span>Discord</span>
                   </a>
                 </li>

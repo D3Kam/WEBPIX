@@ -25,4 +25,13 @@ const CardContent = React.forwardRef(({ className, ...props }, ref) => (
 ))
 CardContent.displayName = "CardContent"
 
-export { Card, CardHeader, CardTitle, CardContent }
+const BackgroundCard = React.forwardRef(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={clsx("rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 shadow-lg", className)}
+    {...props}
+  />
+))
+BackgroundCard.displayName = "BackgroundCard"
+
+export { Card, CardHeader, CardTitle, CardContent, BackgroundCard }

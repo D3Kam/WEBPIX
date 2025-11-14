@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React from "react";
 import {
-  FacebookLogo,
-  InstagramLogo,
-  LinkedinLogo,
-  XLogo,
-  YoutubeLogo,
-} from "relume-icons";
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 
 export function Footer2() {
   return (
@@ -159,19 +159,19 @@ export function Footer2() {
           </ul>
           <div className="mb-8 flex items-center justify-center gap-3 lg:mb-0">
             <a href="#">
-              <FacebookLogo className="size-6 text-scheme-text" />
+              <Facebook className="size-6 text-scheme-text" />
             </a>
             <a href="#">
-              <InstagramLogo className="size-6 text-scheme-text" />
+              <Instagram className="size-6 text-scheme-text" />
             </a>
             <a href="#">
-              <XLogo className="size-6 p-0.5 text-scheme-text" />
+              <Twitter className="size-6 p-0.5 text-scheme-text" />
             </a>
             <a href="#">
-              <LinkedinLogo className="size-6 text-scheme-text" />
+              <Linkedin className="size-6 text-scheme-text" />
             </a>
             <a href="#">
-              <YoutubeLogo className="size-6 text-scheme-text" />
+              <Youtube className="size-6 text-scheme-text" />
             </a>
           </div>
         </div>

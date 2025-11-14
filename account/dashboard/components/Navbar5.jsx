@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { ChevronRight, KeyboardArrowDown } from "relume-icons";
+import { ChevronRight, ChevronDown } from "lucide-react";
 
 const useRelume = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -141,7 +141,7 @@ export function Navbar5() {
                   animate={useActive.animateDropdownMenuIcon}
                   transition={{ duration: 0.3 }}
                 >
-                  <KeyboardArrowDown className="text-scheme-text" />
+                  <ChevronDown className="text-scheme-text" />
                 </motion.span>
               </p>
               <motion.div

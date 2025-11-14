@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { ChevronRight } from "relume-icons";
+import { ChevronRight } from "lucide-react";
 
 export function Layout109() {
   return (

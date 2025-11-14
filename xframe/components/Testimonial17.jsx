@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import React from "react";
-import { StarFull } from "relume-icons";
+import { Star } from "lucide-react";
 
 export function Testimonial17() {
   return (
@@ -16,19 +16,19 @@ export function Testimonial17() {
           <Card className="flex w-full flex-col items-start justify-between p-6 md:p-8">
             <div className="mb-5 flex gap-1 md:mb-6">
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
             </div>
             <h5 className="text-medium">
@@ -51,19 +51,19 @@ export function Testimonial17() {
           <Card className="flex w-full flex-col items-start justify-between p-6 md:p-8">
             <div className="mb-5 flex gap-1 md:mb-6">
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
             </div>
             <h5 className="text-medium">
@@ -86,19 +86,19 @@ export function Testimonial17() {
           <Card className="flex w-full flex-col items-start justify-between p-6 md:p-8">
             <div className="mb-5 flex gap-1 md:mb-6">
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
               <div className="shrink-0">
-                <StarFull className="size-6 text-scheme-text" />
+                <Star className="size-6 text-scheme-text" />
               </div>
             </div>
             <h5 className="text-medium">
