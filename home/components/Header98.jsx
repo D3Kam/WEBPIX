@@ -3,11 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { BackgroundCard } from "@/components/ui/card";
 import React from "react";
+import Spline from '@splinetool/react-spline';
 
 export function Header98() {
   return (
-    <section className="px-[5%] py-12 md:py-16 lg:py-20">
+    <section className="bg-neutral-darker text-white px-[5%] py-12 md:py-16 lg:py-20">
       <BackgroundCard className="relative container">
+      <Spline scene="https://prod.spline.design/vjLftE5r-WDNIKfk/scene.splinecode" />
         <div className="relative z-10 flex min-h-[32rem] flex-col items-center justify-center p-8 text-center md:min-h-[40rem] md:p-16">
           <div className="w-full max-w-lg">
             <h1 className="mb-5 text-h1 font-bold text-white md:mb-6">

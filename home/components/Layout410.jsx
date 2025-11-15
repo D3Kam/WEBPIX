@@ -7,7 +7,7 @@ import { ChevronRight } from "lucide-react";
 
 export function Layout410() {
   return (
-    <section className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section className="bg-brand-primary px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="md:mb-18 mx-auto mb-12 w-full max-w-lg text-center lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4">Claim</p>

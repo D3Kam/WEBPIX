@@ -15,7 +15,7 @@ export default function Page() {
       <Navbar3 />
       <Header98 />
       <Logo1 />
-      <Layout410 />
+      <Layout410  />
       <Layout399 />
       <Layout22 />
       <Cta2 />
