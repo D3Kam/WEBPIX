@@ -35,7 +35,7 @@ export function Header98() {
             className="size-full"
           />
           {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-neutral-darkest/30" />
+          {/* <div className="absolute inset-0 bg-neutral-darkest/30" /> */}
         </div>
       </BackgroundCard>
     </section>

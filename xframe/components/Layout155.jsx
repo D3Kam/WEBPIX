@@ -9,11 +9,20 @@ export function Layout155() {
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container flex flex-col items-center text-center">
         <div className="w-full">
-          <img
+          {/* <img
             src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
             className="aspect-video size-full rounded-image object-cover"
             alt="Relume placeholder image"
+          /> */}
+          {/* Spline 3D Background */}
+        <div className="absolute inset-0 z-0">
+          <Spline
+            scene="https://prod.spline.design/vjLftE5r-WDNIKfk/scene.splinecode"
+            className="size-full"
           />
+          {/* Overlay for better text readability */}
+          {/* <div className="absolute inset-0 bg-neutral-darkest/30" /> */}
+        </div>
         </div>
         <div className="mt-12 md:mt-18 lg:mt-20">
           <div className="mx-auto w-full max-w-lg">

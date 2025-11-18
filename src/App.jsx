@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from '../home/index.jsx'
+import Xframe from '../xframe/index.jsx'
 import About from '../about/index.jsx'
 import Contact from '../contact/index.jsx'
 import Faq from '../faq/index.jsx'
@@ -13,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/xframe" element={<Xframe />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<Faq />} />

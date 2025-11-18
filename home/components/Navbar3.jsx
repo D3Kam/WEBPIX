@@ -81,13 +81,13 @@ export function Navbar3() {
         }}
         className="absolute top-0 left-0 z-50 flex h-dvh w-[90%] flex-col border-r border-scheme-border bg-scheme-background px-[5%] pb-4 md:w-[80%] lg:visible lg:static lg:-ml-4 lg:flex lg:h-auto lg:w-auto lg:flex-row lg:border-none lg:px-0 lg:pb-0 lg:[--opacity-closed:100%] lg:[--x-closed:0%]"
       >
-        <a href="#" className="mt-10 mb-8 flex shrink-0 lg:hidden">
+        <a href="/" className="mt-10 mb-8 flex shrink-0 lg:hidden">
           <img
             src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
             alt="Logo image"
           />
         </a>
-        <a href="#" className="relative block py-3 text-base lg:px-4 lg:py-2">
+        <a href="/xframe" className="relative block py-3 text-base lg:px-4 lg:py-2">
           Xframe
         </a>
         <a href="#" className="relative block py-3 text-base lg:px-4 lg:py-2">
