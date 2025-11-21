@@ -84,7 +84,7 @@ export function Navbar3() {
       >
         <Link to="/" className="mt-10 mb-8 flex shrink-0 lg:hidden">
           <img
-            src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
+            src="../../public/media/images/LOGO-X-main.png"
             alt="Logo image"
           />
         </Link>

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { ChevronRight } from "lucide-react";
+import Spline from '@splinetool/react-spline';
 
 export function Layout22() {
   return (
@@ -37,13 +38,22 @@ export function Layout22() {
               </Button>
             </div>
           </div>
-          <div>
+          <div className="">
+            <Spline
+              scene="https://prod.spline.design/vjLftE5r-WDNIKfk/scene.splinecode"
+              className="w-full rounded-image object-cover"
+            />
+            {/* Overlay for better text readability */}
+            {/* <div className="absolute inset-0 bg-neutral-darkest/30" /> */}
+          </div>
+          {/* <div>
             <img
               src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
               className="w-full rounded-image object-cover"
               alt="Relume placeholder image"
             />
-          </div>
+          </div> */}
+          
         </div>
       </div>
     </section>
