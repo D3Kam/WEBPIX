@@ -5,6 +5,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ConditionalRender = ({ condition, children }) => {
   return condition ? <>{children}</> : null;
@@ -81,30 +82,30 @@ export function Navbar3() {
         }}
         className="absolute top-0 left-0 z-50 flex h-dvh w-[90%] flex-col border-r border-scheme-border bg-scheme-background px-[5%] pb-4 md:w-[80%] lg:visible lg:static lg:-ml-4 lg:flex lg:h-auto lg:w-auto lg:flex-row lg:border-none lg:px-0 lg:pb-0 lg:[--opacity-closed:100%] lg:[--x-closed:0%]"
       >
-        <a href="/" className="mt-10 mb-8 flex shrink-0 lg:hidden">
+        <Link to="/" className="mt-10 mb-8 flex shrink-0 lg:hidden">
           <img
             src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
             alt="Logo image"
           />
-        </a>
-        <a href="/xframe" className="relative block py-3 text-base lg:px-4 lg:py-2">
+        </Link>
+        <Link to="/xframe" className="relative block py-3 text-base lg:px-4 lg:py-2">
           Xframe
-        </a>
-        <a href="/about" className="relative block py-3 text-base lg:px-4 lg:py-2">
+        </Link>
+        <Link to="/about" className="relative block py-3 text-base lg:px-4 lg:py-2">
           About
-        </a>
-        <a href="/contact" className="relative block py-3 text-base lg:px-4 lg:py-2">
+        </Link>
+        <Link to="/contact" className="relative block py-3 text-base lg:px-4 lg:py-2">
           Contact
-        </a>
-        <a href="/how-it-works" className="relative block py-3 text-base lg:px-4 lg:py-2">
+        </Link>
+        <Link to="/how-it-works" className="relative block py-3 text-base lg:px-4 lg:py-2">
           How it Works
-        </a>
-        <a href="/faq" className="relative block py-3 text-base lg:px-4 lg:py-2">
+        </Link>
+        <Link to="/faq" className="relative block py-3 text-base lg:px-4 lg:py-2">
           FAQ
-        </a>
-        <a href="/account" className="relative block py-3 text-base lg:px-4 lg:py-2">
+        </Link>
+        <Link to="/account" className="relative block py-3 text-base lg:px-4 lg:py-2">
           Account
-        </a>
+        </Link>
         <Button className="mt-6 w-full lg:hidden" title="Menu" size="sm">
           Menu
         </Button>
@@ -119,12 +120,12 @@ export function Navbar3() {
           onClick={useActive.toggleMobileMenu}
         />
       </ConditionalRender>
-      <a href="/" className="flex min-h-16 shrink-0 items-center">
+      <Link to="/" className="flex min-h-16 shrink-0 items-center">
         <img
           src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
           alt="Logo image"
         />
-      </a>
+      </Link>
       <div className="flex min-h-16 items-center justify-end gap-x-4">
         <div>
           <Button
