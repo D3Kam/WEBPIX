@@ -1,5 +1,5 @@
 import User from '../models/User.js';
-import pool from '../config/database.js';
+import db from '../config/database.js';
 
 // Get user profile
 export const getProfile = async (req, res) => {
@@ -54,9 +54,9 @@ export const getUserStats = async (req, res) => {
 // Get global statistics
 export const getGlobalStats = async (req, res) => {
   try {
-    const [stats] = await pool.query('SELECT * FROM statistics LIMIT 1');
+    const stats = db.prepare('SELECT * FROM statistics LIMIT 1').get();
 
-    if (stats.length === 0) {
+    if (!stats) {
       return res.json({
         totalXpixelsBought: 0,
         totalXpixelsAvailable: 1000000,
@@ -65,9 +65,9 @@ export const getGlobalStats = async (req, res) => {
     }
 
     res.json({
-      totalXpixelsBought: stats[0].total_xpixels_bought,
-      totalXpixelsAvailable: stats[0].total_xpixels_available,
-      fillPercentage: parseFloat(stats[0].fill_percentage)
+      totalXpixelsBought: stats.total_xpixels_bought,
+      totalXpixelsAvailable: stats.total_xpixels_available,
+      fillPercentage: parseFloat(stats.fill_percentage)
     });
   } catch (error) {
     console.error('Get global stats error:', error);
