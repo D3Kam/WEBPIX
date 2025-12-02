@@ -13,29 +13,22 @@ export function Layout22() {
           <div>
             <div className="mb-5 md:mb-6">
               <img
-                className="size-20 text-scheme-text"
-                src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/preview.svg"
+                className="size-40 text-scheme-text max-h-40"
+                src="/public/media/images/Xpixel_Logo.svg"
               />
             </div>
             <h2 className="mb-5 text-h2 font-bold md:mb-6">
-              Preview your digital canvas
+              Preview Xpixel digital canvas
             </h2>
             <p className="text-medium">
-              See how artists are transforming a million pixels into a living
+              See how people are transforming a million pixels into a living
               artwork.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button title="Explore" variant="secondary">
-                Explore
+              <Button title="Xframe" variant="secondary">
+                Xframe
               </Button>
-              <Button
-                title="Details"
-                variant="link"
-                size="link"
-                iconRight={<ChevronRight className="text-scheme-text" />}
-              >
-                Details
-              </Button>
+              
             </div>
           </div>
           <div className="">

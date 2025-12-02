@@ -13,7 +13,7 @@ export function Header98() {
             {/* Spline 3D Background */}
           <div className="absolute inset-0 z-0">
             <Spline
-              scene="https://prod.spline.design/vjLftE5r-WDNIKfk/scene.splinecode"
+              scene="https://prod.spline.design/fGdQtMAacVCY6vbv/scene.splinecode"
               className="size-full"
             />
             {/* Overlay for better text readability */}
