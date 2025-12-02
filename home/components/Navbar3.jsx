@@ -103,12 +103,6 @@ export function Navbar3() {
         <Link to="/faq" className="relative block py-3 text-base lg:px-4 lg:py-2">
           FAQ
         </Link>
-        <Link to="/account" className="relative block py-3 text-base lg:px-4 lg:py-2">
-          Account
-        </Link>
-        <Button className="mt-6 w-full lg:hidden" title="Menu" size="sm">
-          Menu
-        </Button>
       </motion.div>
       <ConditionalRender condition={useActive.isMobileMenuOpen}>
         <motion.div
@@ -128,20 +122,9 @@ export function Navbar3() {
       </Link>
       <div className="flex min-h-16 items-center justify-end gap-x-4">
         <div>
-          <Button
-            title="Sign up"
-            size="sm"
-            className="px-4 py-1 md:px-6 md:py-2"
-          >
-            Sign up
-          </Button>
-          <Button
-            title="Log in"
-            size="sm"
-            className="px-4 py-1 md:px-6 md:py-2"
-          >
-            Log in
-          </Button>
+        <Link to="/account" className="relative block py-3 text-base lg:px-4 lg:py-2">
+          Account
+        </Link>
         </div>
       </div>
     </section>

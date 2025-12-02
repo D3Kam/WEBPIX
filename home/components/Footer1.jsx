@@ -36,9 +36,9 @@ export function Footer1() {
           <div className="flex flex-col">
             <a href="#" className="mb-5 md:mb-6">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
-                alt="Logo image"
-                className="inline-block"
+                src="/public/media/images/Xpixel_Logo.svg"
+                alt="Xpixel logo image"
+                className="inline-block max-h-40"
               />
             </a>
             <p className="mb-5 md:mb-6">
@@ -167,7 +167,7 @@ export function Footer1() {
         <div className="h-px w-full bg-scheme-border" />
         <div className="text-small flex flex-col-reverse items-start justify-between pt-6 pb-4 md:flex-row md:items-center md:pt-8 md:pb-0">
           <p className="mt-6 md:mt-0">
-            © 2024 Xpixel. Digital art on the blockchain
+            © 2026 Xpixel
           </p>
           <ul className="text-small grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 md:grid-flow-col md:gap-x-6 md:gap-y-0">
             <li className="underline">
