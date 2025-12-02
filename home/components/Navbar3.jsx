@@ -121,19 +121,26 @@ export function Navbar3() {
         />
       </ConditionalRender>
       <Link to="/" className="flex min-h-16 shrink-0 items-center">
-        <img
-          src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
-          alt="Logo image"
+        <img className="max-h-40"
+          src="/public/media/images/Xpixel_Logo.svg"
+          alt="Logo Xpixel"
         />
       </Link>
       <div className="flex min-h-16 items-center justify-end gap-x-4">
         <div>
           <Button
-            title="Create"
+            title="Sign up"
             size="sm"
             className="px-4 py-1 md:px-6 md:py-2"
           >
-            Create
+            Sign up
+          </Button>
+          <Button
+            title="Log in"
+            size="sm"
+            className="px-4 py-1 md:px-6 md:py-2"
+          >
+            Log in
           </Button>
         </div>
       </div>
