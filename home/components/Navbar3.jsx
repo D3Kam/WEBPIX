@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { User, X, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ConditionalRender = ({ condition, children }) => {
@@ -13,129 +13,262 @@ const ConditionalRender = ({ condition, children }) => {
 
 const useRelume = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isAccountDropdownOpen, setIsAccountDropdownOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
-  const toggleDropdownMenu = () => setIsDropdownOpen((prev) => !prev);
-  const openDropdownOnHover = () => !isMobile && setIsDropdownOpen(true);
-  const closeDropdownOnLeave = () => !isMobile && setIsDropdownOpen(false);
+  const toggleAccountDropdown = () => setIsAccountDropdownOpen((prev) => !prev);
+  const openAccountDropdownOnHover = () => !isMobile && setIsAccountDropdownOpen(true);
+  const closeAccountDropdownOnLeave = () => !isMobile && setIsAccountDropdownOpen(false);
 
   const animateMobileMenu = isMobileMenuOpen ? "open" : "closed";
-  const animateDropdownMenu = isDropdownOpen ? "open" : "close";
-  const animateDropdownIcon = isDropdownOpen ? "rotated" : "initial";
+  const animateAccountDropdown = isAccountDropdownOpen ? "open" : "close";
 
   return {
     isMobileMenuOpen,
-    isDropdownOpen,
+    isAccountDropdownOpen,
     toggleMobileMenu,
-    toggleDropdownMenu,
-    openDropdownOnHover,
-    closeDropdownOnLeave,
+    toggleAccountDropdown,
+    openAccountDropdownOnHover,
+    closeAccountDropdownOnLeave,
     animateMobileMenu,
-    animateDropdownMenu,
-    animateDropdownIcon,
+    animateAccountDropdown,
   };
-};
-
-const ConditionalCard = () => {
-  const Component = ({ children, ...props }) => {
-    const isMobile = useMediaQuery("(max-width: 991px)");
-    const MotionCard = isMobile ? motion.div : motion.create(Card);
-    return React.createElement(MotionCard, props, children);
-  };
-  return Component;
 };
 
 export function Navbar3() {
-  const ConditionalRenderedCard = ConditionalCard();
   const useActive = useRelume();
+  const isMobile = useMediaQuery("(max-width: 991px)");
+
   return (
-    <section className="z-[999] grid w-full grid-cols-[1fr_max-content_1fr] items-center justify-between bg-scheme-background px-[5%] md:min-h-18">
-      <button
-        className="flex size-12 flex-col justify-center lg:hidden"
-        onClick={useActive.toggleMobileMenu}
-      >
-        <span className="my-[3px] h-0.5 w-6 bg-scheme-text lg:hidden" />
-        <span className="my-[3px] h-0.5 w-6 bg-scheme-text lg:hidden" />
-        <span className="my-[3px] h-0.5 w-6 bg-scheme-text lg:hidden" />
-      </button>
-      <motion.div
-        initial="closed"
-        animate={useActive.animateMobileMenu}
-        exit="closed"
-        variants={{
-          closed: {
-            x: "-100%",
-            opacity: 1,
-            transition: { type: "spring", duration: 0.6, bounce: 0 },
-            transitionEnd: {
-              opacity: "var(--opacity-closed, 0%)",
-              x: "var(--x-closed, -100%)",
-            },
-          },
-          open: {
-            x: 0,
-            opacity: 1,
-            transition: { type: "spring", duration: 0.4, bounce: 0 },
-          },
-        }}
-        className="absolute top-0 left-0 z-50 flex h-dvh w-[90%] flex-col border-r border-scheme-border bg-scheme-background px-[5%] pb-4 md:w-[80%] lg:visible lg:static lg:-ml-4 lg:flex lg:h-auto lg:w-auto lg:flex-row lg:border-none lg:px-0 lg:pb-0 lg:[--opacity-closed:100%] lg:[--x-closed:0%]"
-      >
-        <Link to="/" className="mt-10 mb-8 flex shrink-0 lg:hidden">
+    <section className="sticky top-0 z-[999] w-full bg-white shadow-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        {/* Mobile Menu Button */}
+        <button
+          className="flex items-center justify-center p-2 text-scheme-text lg:hidden"
+          onClick={useActive.toggleMobileMenu}
+          aria-label="Toggle menu"
+        >
+          {useActive.isMobileMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
+        </button>
+
+        {/* Logo - Center on mobile, left on desktop */}
+        <Link to="/" className="flex items-center lg:order-first">
           <img
-            src="../../public/media/images/LOGO-X-main.png"
-            alt="Logo image"
+            src="/media/icons/Xpixel_Logo.svg"
+            alt="Xpixel Logo"
+            className="h-8 w-auto sm:h-10"
           />
         </Link>
-        <Link to="/xframe" className="relative block py-3 text-base lg:px-4 lg:py-2">
-          Xframe
-        </Link>
-        <Link to="/about" className="relative block py-3 text-base lg:px-4 lg:py-2">
-          About
-        </Link>
-        <Link to="/contact" className="relative block py-3 text-base lg:px-4 lg:py-2">
-          Contact
-        </Link>
-        <Link to="/how-it-works" className="relative block py-3 text-base lg:px-4 lg:py-2">
-          How it Works
-        </Link>
-        <Link to="/faq" className="relative block py-3 text-base lg:px-4 lg:py-2">
-          FAQ
-        </Link>
-        <Link to="/account" className="relative block py-3 text-base lg:px-4 lg:py-2">
-          Account
-        </Link>
-        <Button className="mt-6 w-full lg:hidden" title="Menu" size="sm">
-          Menu
-        </Button>
-      </motion.div>
-      <ConditionalRender condition={useActive.isMobileMenuOpen}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-          animate={{ opacity: 0.5 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-40 bg-scheme-text lg:hidden"
-          onClick={useActive.toggleMobileMenu}
-        />
-      </ConditionalRender>
-      <Link to="/" className="flex min-h-16 shrink-0 items-center">
-        <img
-          src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
-          alt="Logo image"
-        />
-      </Link>
-      <div className="flex min-h-16 items-center justify-end gap-x-4">
-        <div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:space-x-8">
+          <Link
+            to="/xframe"
+            className="text-base font-medium text-scheme-text hover:text-brand-primary transition-colors"
+          >
+            Xframe
+          </Link>
+          <Link
+            to="/about"
+            className="text-base font-medium text-scheme-text hover:text-brand-primary transition-colors"
+          >
+            About
+          </Link>
+          <Link
+            to="/contact"
+            className="text-base font-medium text-scheme-text hover:text-brand-primary transition-colors"
+          >
+            Contact
+          </Link>
+          <Link
+            to="/how-it-works"
+            className="text-base font-medium text-scheme-text hover:text-brand-primary transition-colors"
+          >
+            How it Works
+          </Link>
+          <Link
+            to="/faq"
+            className="text-base font-medium text-scheme-text hover:text-brand-primary transition-colors"
+          >
+            FAQ
+          </Link>
+        </nav>
+
+        {/* Account Icon with Dropdown */}
+        <div className="flex items-center gap-3">
           <Button
-            title="Create"
             size="sm"
-            className="px-4 py-1 md:px-6 md:py-2"
+            className="hidden bg-brand-primary hover:bg-brand-primary/90 sm:inline-flex"
           >
             Create
           </Button>
+
+          <div
+            className="relative"
+            onMouseEnter={useActive.openAccountDropdownOnHover}
+            onMouseLeave={useActive.closeAccountDropdownOnLeave}
+          >
+            <button
+              onClick={useActive.toggleAccountDropdown}
+              className="flex items-center justify-center rounded-full p-2 text-scheme-text hover:bg-neutral-lightest transition-colors"
+              aria-label="Account"
+            >
+              <User className="h-6 w-6" />
+            </button>
+
+            {/* Account Dropdown */}
+            {useActive.isAccountDropdownOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute right-0 mt-2 w-48 rounded-lg border border-neutral-light bg-white shadow-lg"
+              >
+                <div className="py-1">
+                  <Link
+                    to="/login"
+                    className="block px-4 py-2 text-sm text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                  >
+                    Log In
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="block px-4 py-2 text-sm text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                  >
+                    Sign Up
+                  </Link>
+                  <div className="my-1 border-t border-neutral-light"></div>
+                  <Link
+                    to="/account"
+                    className="block px-4 py-2 text-sm text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                  >
+                    My Account
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        <ConditionalRender condition={useActive.isMobileMenuOpen}>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black lg:hidden"
+              onClick={useActive.toggleMobileMenu}
+            />
+
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 z-50 h-full w-[280px] bg-white shadow-xl lg:hidden"
+            >
+              <div className="flex flex-col h-full">
+                {/* Mobile Header */}
+                <div className="flex items-center justify-between border-b border-neutral-light px-4 py-4">
+                  <img
+                    src="/media/icons/Xpixel_Logo.svg"
+                    alt="Xpixel Logo"
+                    className="h-8"
+                  />
+                  <button
+                    onClick={useActive.toggleMobileMenu}
+                    className="p-2 text-scheme-text"
+                    aria-label="Close menu"
+                  >
+                    <X className="h-6 w-6" />
+                  </button>
+                </div>
+
+                {/* Mobile Navigation Links */}
+                <nav className="flex-1 overflow-y-auto px-4 py-6">
+                  <div className="space-y-1">
+                    <Link
+                      to="/xframe"
+                      className="block rounded-lg px-4 py-3 text-base font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                      onClick={useActive.toggleMobileMenu}
+                    >
+                      Xframe
+                    </Link>
+                    <Link
+                      to="/about"
+                      className="block rounded-lg px-4 py-3 text-base font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                      onClick={useActive.toggleMobileMenu}
+                    >
+                      About
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="block rounded-lg px-4 py-3 text-base font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                      onClick={useActive.toggleMobileMenu}
+                    >
+                      Contact
+                    </Link>
+                    <Link
+                      to="/how-it-works"
+                      className="block rounded-lg px-4 py-3 text-base font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                      onClick={useActive.toggleMobileMenu}
+                    >
+                      How it Works
+                    </Link>
+                    <Link
+                      to="/faq"
+                      className="block rounded-lg px-4 py-3 text-base font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                      onClick={useActive.toggleMobileMenu}
+                    >
+                      FAQ
+                    </Link>
+                  </div>
+
+                  <div className="mt-6 space-y-2 border-t border-neutral-light pt-6">
+                    <Link
+                      to="/login"
+                      className="block rounded-lg px-4 py-3 text-base font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                      onClick={useActive.toggleMobileMenu}
+                    >
+                      Log In
+                    </Link>
+                    <Link
+                      to="/signup"
+                      className="block rounded-lg px-4 py-3 text-base font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                      onClick={useActive.toggleMobileMenu}
+                    >
+                      Sign Up
+                    </Link>
+                    <Link
+                      to="/account"
+                      className="block rounded-lg px-4 py-3 text-base font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                      onClick={useActive.toggleMobileMenu}
+                    >
+                      My Account
+                    </Link>
+                  </div>
+                </nav>
+
+                {/* Mobile Footer */}
+                <div className="border-t border-neutral-light px-4 py-4">
+                  <Button className="w-full bg-brand-primary hover:bg-brand-primary/90">
+                    Create
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        </ConditionalRender>
       </div>
     </section>
   );
