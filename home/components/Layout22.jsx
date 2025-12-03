@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { ChevronRight } from "lucide-react";
 import Spline from '@splinetool/react-spline';
+import { Link } from "react-router-dom";
 
 export function Layout22() {
   return (
@@ -25,10 +26,11 @@ export function Layout22() {
               artwork.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button title="Xframe" variant="secondary">
-                Xframe
-              </Button>
-              
+              <Link to="/xframe">
+                <Button title="Xframe" variant="secondary">
+                  Xframe
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="">

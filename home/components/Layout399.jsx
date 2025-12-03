@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import React from "react";
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Layout399() {
   return (
@@ -29,14 +30,16 @@ export function Layout399() {
                 <p>Intuitive grid system for precise pixel selection</p>
               </div>
               <div className="mt-5 md:mt-6">
-                <Button
-                  title="Xframe"
-                  variant="link"
-                  size="link"
-                  iconRight={<ChevronRight className="text-scheme-text" />}
-                >
-                  Xframe
-                </Button>
+                <Link to="/xframe">
+                  <Button
+                    title="Xframe"
+                    variant="link"
+                    size="link"
+                    iconRight={<ChevronRight className="text-scheme-text" />}
+                  >
+                    Xframe
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
@@ -54,14 +57,16 @@ export function Layout399() {
                 <p>Drag and preview your artwork with ease</p>
               </div>
               <div className="mt-5 md:mt-6">
-                <Button
-                  title="Xframe"
-                  variant="link"
-                  size="link"
-                  iconRight={<ChevronRight className="text-scheme-text" />}
-                >
-                  Xframe
-                </Button>
+                <Link to="/xframe">
+                  <Button
+                    title="Xframe"
+                    variant="link"
+                    size="link"
+                    iconRight={<ChevronRight className="text-scheme-text" />}
+                  >
+                    Xframe
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
@@ -79,14 +84,16 @@ export function Layout399() {
                 <p>Get rewarded for collaboration</p>
               </div>
               <div className="mt-5 md:mt-6">
-                <Button
-                  title="How it works"
-                  variant="link"
-                  size="link"
-                  iconRight={<ChevronRight className="text-scheme-text" />}
-                >
-                  How it works
-                </Button>
+                <Link to="/how-it-works">
+                  <Button
+                    title="How it works"
+                    variant="link"
+                    size="link"
+                    iconRight={<ChevronRight className="text-scheme-text" />}
+                  >
+                    How it works
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
@@ -104,14 +111,16 @@ export function Layout399() {
                 <p>Undergoing Phase 0</p>
               </div>
               <div className="mt-5 md:mt-6">
-                <Button
-                  title="Xframe"
-                  variant="link"
-                  size="link"
-                  iconRight={<ChevronRight className="text-scheme-text" />}
-                >
-                  Xframe
-                </Button>
+                <Link to="/xframe">
+                  <Button
+                    title="Xframe"
+                    variant="link"
+                    size="link"
+                    iconRight={<ChevronRight className="text-scheme-text" />}
+                  >
+                    Xframe
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">

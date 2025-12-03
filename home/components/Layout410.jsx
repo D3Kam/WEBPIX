@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import React from "react";
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Layout410() {
   return (
@@ -33,14 +34,18 @@ export function Layout410() {
                 blockchain. Immutable. Permanent.
               </p>
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                <Button variant="secondary">Xframe</Button>
-                <Button
-                  variant="link"
-                  size="link"
-                  iconRight={<ChevronRight className="text-scheme-text" />}
-                >
-                  How it works
-                </Button>
+                <Link to="/xframe">
+                  <Button variant="secondary">Xframe</Button>
+                </Link>
+                <Link to="/how-it-works">
+                  <Button
+                    variant="link"
+                    size="link"
+                    iconRight={<ChevronRight className="text-scheme-text" />}
+                  >
+                    How it works
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="order-last flex flex-col items-center justify-center md:order-first">
@@ -64,14 +69,18 @@ export function Layout410() {
                 blockchain. Immutable. Permanent.
               </p>
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                <Button variant="secondary">Xframe</Button>
-                <Button
-                  variant="link"
-                  size="link"
-                  iconRight={<ChevronRight className="text-scheme-text" />}
-                >
-                  How it works
-                </Button>
+                <Link to="/xframe">
+                  <Button variant="secondary">Xframe</Button>
+                </Link>
+                <Link to="/how-it-works">
+                  <Button
+                    variant="link"
+                    size="link"
+                    iconRight={<ChevronRight className="text-scheme-text" />}
+                  >
+                    How it works
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="order-last flex flex-col items-center justify-center md:order-last">
@@ -95,14 +104,18 @@ export function Layout410() {
                 blockchain. Immutable. Permanent.
               </p>
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                <Button variant="secondary">Xframe</Button>
-                <Button
-                  variant="link"
-                  size="link"
-                  iconRight={<ChevronRight className="text-scheme-text" />}
-                >
-                  How it works
-                </Button>
+                <Link to="/xframe">
+                  <Button variant="secondary">Xframe</Button>
+                </Link>
+                <Link to="/how-it-works">
+                  <Button
+                    variant="link"
+                    size="link"
+                    iconRight={<ChevronRight className="text-scheme-text" />}
+                  >
+                    How it works
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="order-last flex flex-col items-center justify-center md:order-first">
@@ -126,14 +139,18 @@ export function Layout410() {
                 blockchain. Immutable. Permanent.
               </p>
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                <Button variant="secondary">Xframe</Button>
-                <Button
-                  variant="link"
-                  size="link"
-                  iconRight={<ChevronRight className="text-scheme-text" />}
-                >
-                  How it works
-                </Button>
+                <Link to="/xframe">
+                  <Button variant="secondary">Xframe</Button>
+                </Link>
+                <Link to="/how-it-works">
+                  <Button
+                    variant="link"
+                    size="link"
+                    iconRight={<ChevronRight className="text-scheme-text" />}
+                  >
+                    How it works
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="order-last flex flex-col items-center justify-center md:order-last">
@@ -157,14 +174,18 @@ export function Layout410() {
                 blockchain. Immutable. Permanent.
               </p>
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                <Button variant="secondary">Xframe</Button>
-                <Button
-                  variant="link"
-                  size="link"
-                  iconRight={<ChevronRight className="text-scheme-text" />}
-                >
-                  How it works
-                </Button>
+                <Link to="/xframe">
+                  <Button variant="secondary">Xframe</Button>
+                </Link>
+                <Link to="/how-it-works">
+                  <Button
+                    variant="link"
+                    size="link"
+                    iconRight={<ChevronRight className="text-scheme-text" />}
+                  >
+                    How it works
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="order-last flex flex-col items-center justify-center md:order-first">

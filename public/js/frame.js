@@ -13,8 +13,8 @@
   // 2 -> unlock S1+S2     (lock S3+Center)
   // 3 -> unlock S1+S2+S3  (lock Center)
   // 4 -> unlock ALL       (no lock)
-  let UNLOCK_LEVEL = 1;
-  let LOCK_SIDE = S_S2_OUT;
+  let UNLOCK_LEVEL = 3;
+  let LOCK_SIDE = S_CENTER;
 
   const BASE = 1000;             // design space 1000×1000
   let MOVE_STEP_DESIGN = 10;    // default step; adjustable
