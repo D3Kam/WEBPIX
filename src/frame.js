@@ -1,4 +1,4 @@
-/* assets/js/frame.js */
+
 (() => {
   "use strict";
 
@@ -13,8 +13,8 @@
   // 2 -> unlock S1+S2     (lock S3+Center)
   // 3 -> unlock S1+S2+S3  (lock Center)
   // 4 -> unlock ALL       (no lock)
-  let UNLOCK_LEVEL = 1;
-  let LOCK_SIDE = S_S2_OUT;
+  let UNLOCK_LEVEL = 3;
+  let LOCK_SIDE = S_CENTER;
 
   const BASE = 1000;             // design space 1000×1000
   let MOVE_STEP_DESIGN = 10;    // default step; adjustable
@@ -133,9 +133,9 @@
 
   function buildOverlaysOnce() {
     if (!frame.querySelector(".boundary")) {
-      addBoundary(S_S2_OUT, "Sector 2 – 33% (locked)");
-      addBoundary(S_S3_OUT, "Sector 3 – 33% (locked)");
-      addBoundary(S_CENTER, "Center – 1%");
+      addBoundary(S_S2_OUT, "Sector 2 ");
+      addBoundary(S_S3_OUT, "Sector 3 ");
+      addBoundary(S_CENTER, "Center ");
     }
     updateLockOverlay();
   }
@@ -148,61 +148,41 @@
   function apply() { setSel(sel.x, sel.y, sel.w, sel.h); }
 
   function validateOrSnapOutside() {
-    const lb = lockBounds(LOCK_SIDE);
-    if (!lb) { lastGood = { ...sel }; return true; }
-
-    const mark = ensureMark();
-    const r = rectFromMark(mark);
-
-    if (!intersects(r, lb)) {
+    // Only lock the center when UNLOCK_LEVEL === 3
+    if (UNLOCK_LEVEL !== 3) {
       lastGood = { ...sel };
       return true;
     }
-
-    const ring = lb.margin;
-    if (sel.w > ring && sel.h > ring) {
-      Object.assign(sel, lastGood);
-      apply();
-      mark.classList.add("is-invalid");
-      setTimeout(() => mark.classList.remove("is-invalid"), 420);
-      toast("Selection is too large to fit in Sector 1.");
-      return false;
-    }
-
-    const candidates = [];
-    if (sel.h <= ring) {
-      candidates.push({ x: clamp(sel.x, 0, 100 - sel.w), y: clamp(sel.y, 0, lb.top - sel.h) }); // top
-      candidates.push({ x: clamp(sel.x, 0, 100 - sel.w), y: clamp(Math.max(sel.y, lb.bottom), lb.bottom, 100 - sel.h) }); // bottom
-    }
-    if (sel.w <= ring) {
-      candidates.push({ x: clamp(sel.x, 0, lb.left - sel.w), y: clamp(sel.y, 0, 100 - sel.h) }); // left
-      candidates.push({ x: clamp(Math.max(sel.x, lb.right), lb.right, 100 - sel.w), y: clamp(sel.y, 0, 100 - sel.h) }); // right
-    }
-
-    const ox = sel.x, oy = sel.y;
-    let best = null, bestD = Infinity;
-    for (const c of candidates) {
-      const test = { left: c.x, top: c.y, right: c.x + sel.w, bottom: c.y + sel.h };
-      if (!intersects(test, lb)) {
-        const d = Math.hypot(c.x - ox, c.y - oy);
-        if (d < bestD) { bestD = d; best = c; }
-      }
-    }
-
-    if (best) {
-      sel.x = best.x; sel.y = best.y; apply();
+  
+    // Locked center square: S_CENTER × S_CENTER, centered in frame
+    const centerSide = S_CENTER;          // 10% side
+    const m = (100 - centerSide) / 2;     // 45 if S_CENTER = 10
+    const left = m;
+    const top = m;
+    const right = 100 - m;
+    const bottom = 100 - m;
+  
+    // Use selection center for a simple check
+    const cx = sel.x + sel.w / 2;
+    const cy = sel.y + sel.h / 2;
+  
+    // If the center of selection is OUTSIDE the locked area → OK
+    if (cx < left || cx > right || cy < top || cy > bottom) {
       lastGood = { ...sel };
-      toast("Position adjusted to Sector 1.");
       return true;
     }
-
+  
+    // Otherwise: center is locked → revert to last valid position
     Object.assign(sel, lastGood);
     apply();
+    const mark = ensureMark();
     mark.classList.add("is-invalid");
     setTimeout(() => mark.classList.remove("is-invalid"), 420);
-    toast("Only Sector 1 (outer ring) is available.");
+    toast("Center is locked.");
     return false;
   }
+  
+  
 
   function nudge(dxPct, dyPct) {
     sel.x = clamp(sel.x + dxPct, 0, 100 - sel.w);
@@ -266,6 +246,7 @@
   };
 
   // Unlock commands
+ 
   function setUnlockLevel(level){
     UNLOCK_LEVEL = clamp(level|0, 1, 4);
     LOCK_SIDE =
@@ -456,6 +437,7 @@
     if (!needFab && !frame.querySelector(".position-pad")) buildAnchoredPad();
   });
 })();
+
 // setXpixelStage(1) → unlock Sector 1 only (lock S2+S3+Center)
 
 // setXpixelStage(2) → unlock Sectors 1–2 (lock S3+Center)
