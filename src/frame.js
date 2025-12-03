@@ -1,6 +1,7 @@
 
 (() => {
   "use strict";
+  console.log("frame.js INIT", { UNLOCK_LEVEL, LOCK_SIDE: LOCK_SIDE });
 
   // ===== Sector math by AREA =====
   const S_CENTER = 10.0;                           // 10% side (center = 1% area)
@@ -193,18 +194,20 @@
 
   /* ---------- public API ---------- */
   window.markArea = (wDesign, hDesign) => {
-    const w = toPct(wDesign), h = toPct(hDesign);
-    const lb = lockBounds(LOCK_SIDE);
+    const w = toPct(wDesign);
+    const h = toPct(hDesign);
+  
+    // Start near top-left with a small padding
     const pad = 1;
-    let x = pad, y = pad;
-    if (lb) {
-      x = clamp((lb.left - w) / 2, pad, lb.left - w);
-      y = clamp((lb.top  - h) / 2, pad, lb.top  - h);
-    }
-    sel.w = w; sel.h = h; sel.x = clamp(x, 0, 100 - w); sel.y = clamp(y, 0, 100 - h);
+    sel.w = w;
+    sel.h = h;
+    sel.x = clamp(pad, 0, 100 - w);
+    sel.y = clamp(pad, 0, 100 - h);
+  
     apply();
     validateOrSnapOutside();
   };
+  
 
   window.markCustom = () => {
     const w = parseInt(document.getElementById("customWidth")?.value, 10);
