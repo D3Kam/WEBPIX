@@ -1,11 +1,11 @@
 import React from "react";
-import { Navbar3 } from "./components/Navbar3";
+import { Navbar3 } from "@/components/shared/Navbar3";
 import { Header62 } from "./components/Header62";
 import { Faq5 } from "./components/Faq5";
 import { Faq5_1 } from "./components/Faq5_1";
 import { Faq5_2 } from "./components/Faq5_2";
 import { Faq5_3 } from "./components/Faq5_3";
-import { Footer2 } from "./components/Footer2";
+import { Footer1 } from "@/components/shared/Footer1";
 
 export default function Page() {
   return (
@@ -16,7 +16,7 @@ export default function Page() {
       <Faq5_1 />
       <Faq5_2 />
       <Faq5_3 />
-      <Footer2 />
+      <Footer1 />
     </div>
   );
 }
