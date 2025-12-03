@@ -1,70 +1,105 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import React from "react";
-import { ChevronRight } from "lucide-react";
-import { Spline } from "lucide-react";
+import React, { useEffect } from "react";
+import { ChevronRight, Upload } from "lucide-react";
 
 export function Layout155() {
+  useEffect(() => {
+    // Load and initialize frame.js
+    const script = document.createElement('script');
+    script.src = '/js/frame.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+  const handleReposition = (position) => {
+    if (window.repositionArea) {
+      window.repositionArea(position);
+    }
+  };
+
+  const handleMarkCustom = () => {
+    if (window.markCustom) {
+      window.markCustom();
+    }
+  };
+
+  const handleImageUpload = (event) => {
+    if (window.uploadImage) {
+      window.uploadImage(event);
+    }
+  };
+
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container flex flex-col items-center text-center">
         <div className="w-full">
-        
-          <xframe>
-            
+
+          <div>
+
             <div className="section-title" data-aos="fade-up">
-              <h2>Xframe</h2>
-              <p><span>Try Xframe </span> <span className="description-title">of Xpixel</span></p>
+              <h2 className="text-h2 font-bold mb-4">Xframe</h2>
+              <p className="text-medium">
+                <span>Try Xframe </span>
+                <span className="description-title font-semibold">of Xpixel</span>
+              </p>
             </div>
-            
+
             <div id="frame"></div>
               <div className="preview-settings">
                 <div className="controls">
-                
+
                 <div className="positions">
                   <h2>Position</h2>
                   <div>
-                    <button onclick="repositionArea('top-left')">↖️</button>
-                    <button onclick="repositionArea('top-middle')">⬆️</button>
-                    <button onclick="repositionArea('top-right')">↗️</button>
-                    <button onclick="repositionArea('middle-left')">⬅️</button>
-                    <button onclick="repositionArea('middle-middle')">⏺️</button>
-                    <button onclick="repositionArea('middle-right')">➡️</button>
-                    <button onclick="repositionArea('bottom-left')">↙️</button>
-                    <button onclick="repositionArea('bottom-middle')">⬇️</button>
-                    <button onclick="repositionArea('bottom-right')">↘️</button>
+                    <button onClick={() => handleReposition('top-left')}>↖️</button>
+                    <button onClick={() => handleReposition('top-middle')}>⬆️</button>
+                    <button onClick={() => handleReposition('top-right')}>↗️</button>
+                    <button onClick={() => handleReposition('middle-left')}>⬅️</button>
+                    <button onClick={() => handleReposition('middle-middle')}>⏺️</button>
+                    <button onClick={() => handleReposition('middle-right')}>➡️</button>
+                    <button onClick={() => handleReposition('bottom-left')}>↙️</button>
+                    <button onClick={() => handleReposition('bottom-middle')}>⬇️</button>
+                    <button onClick={() => handleReposition('bottom-right')}>↘️</button>
                   </div>
                 </div>
-              
-                
+
+
                 <div className="controls">
                   <div className="area-size">
                     <h2>Custom Size</h2>
                     <p>Width: <input type="number" id="customWidth" placeholder="Width"/></p>
                     <p>Height: <input type="number" id="customHeight" placeholder="Height"/></p>
-                    
-                    <button onclick="markCustom()">Show custom area</button>
+
+                    <button onClick={handleMarkCustom}>Show custom area</button>
                   </div>
-                  
+
                 </div>
-                
+
                 <div className="upload-section">
                   <input
                     type="file"
                     id="imageUpload"
                     className="file-input-visually-hidden"
                     accept="image/*"
-                    onchange="uploadImage(event)"
+                    onChange={handleImageUpload}
                   />
-                  <label for="imageUpload" className="btn btn-accent btn-upload">
-                    <i className="bi bi-upload" aria-hidden="true"></i>
+                  <label htmlFor="imageUpload" className="btn btn-accent btn-upload">
+                    <Upload className="inline-block mr-2" aria-hidden="true" />
                     <span>Upload image</span>
                   </label>
                   <span id="fileName" className="file-name" aria-live="polite"></span>
                 </div>
               </div>
-          </xframe>
+          </div>
         </div>
         
         </div>
