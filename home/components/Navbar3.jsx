@@ -42,7 +42,7 @@ export function Navbar3() {
 
   return (
     <section className="sticky top-0 z-[999] w-full bg-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
         {/* Mobile Menu Button */}
         <button
           className="flex items-center justify-center p-2 text-scheme-text lg:hidden"
@@ -61,7 +61,7 @@ export function Navbar3() {
           <img
             src="/media/icons/Xpixel_Logo.svg"
             alt="Xpixel Logo"
-            className="h-8 w-auto sm:h-10"
+            className="h-32 w-auto "
           />
         </Link>
 
@@ -101,12 +101,6 @@ export function Navbar3() {
 
         {/* Account Icon with Dropdown */}
         <div className="flex items-center gap-3">
-          <Button
-            size="sm"
-            className="hidden bg-brand-primary hover:bg-brand-primary/90 sm:inline-flex"
-          >
-            Create
-          </Button>
 
           <div
             className="relative"
