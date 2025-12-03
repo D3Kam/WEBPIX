@@ -5,6 +5,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const useRelume = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -45,12 +46,12 @@ export function Navbar5() {
       <div className="size-full lg:flex lg:items-center lg:justify-between">
         <div className="lg:flex">
           <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-            <a href="#">
+            <Link to="/">
               <img
                 src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
                 alt="Logo image"
               />
-            </a>
+            </Link>
             <button
               className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
               onClick={useActive.toggleMobileMenu}
@@ -111,12 +112,12 @@ export function Navbar5() {
             >
               canvas
             </a>
-            <a
-              href="#"
+            <Link
+              to="/xframe"
               className="block py-3 text-base first:pt-7 lg:px-4 lg:py-6 first:lg:pt-6"
             >
               xframe
-            </a>
+            </Link>
             <a
               href="#"
               className="block py-3 text-base first:pt-7 lg:px-4 lg:py-6 first:lg:pt-6"
@@ -243,8 +244,8 @@ export function Navbar5() {
                         <h4 className="text-small leading-[1.3] font-semibold">
                           community resources
                         </h4>
-                        <a
-                          href="#"
+                        <Link
+                          to="/how-it-works"
                           className="grid w-full grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                         >
                           <div className="flex size-6 flex-col items-center justify-center">
@@ -259,9 +260,9 @@ export function Navbar5() {
                               learn about pixel art creation
                             </p>
                           </div>
-                        </a>
-                        <a
-                          href="#"
+                        </Link>
+                        <Link
+                          to="/faq"
                           className="grid w-full grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                         >
                           <div className="flex size-6 flex-col items-center justify-center">
@@ -276,9 +277,9 @@ export function Navbar5() {
                               common questions answered
                             </p>
                           </div>
-                        </a>
-                        <a
-                          href="#"
+                        </Link>
+                        <Link
+                          to="/about"
                           className="grid w-full grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                         >
                           <div className="flex size-6 flex-col items-center justify-center">
@@ -293,9 +294,9 @@ export function Navbar5() {
                               our digital art mission
                             </p>
                           </div>
-                        </a>
-                        <a
-                          href="#"
+                        </Link>
+                        <Link
+                          to="/contact"
                           className="grid w-full grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                         >
                           <div className="flex size-6 flex-col items-center justify-center">
@@ -310,7 +311,7 @@ export function Navbar5() {
                               get in touch with our team
                             </p>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="relative flex max-w-none flex-1 p-6 md:py-8 md:pr-0 md:pl-8 lg:max-w-md">

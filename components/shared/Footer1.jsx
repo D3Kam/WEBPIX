@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Facebook,
   Instagram,
@@ -34,13 +35,13 @@ export function Footer1() {
       <div className="container">
         <div className="grid grid-cols-1 gap-x-[8vw] gap-y-12 pb-12 md:gap-y-16 md:pb-18 lg:grid-cols-[0.75fr_1fr] lg:gap-y-4 lg:pb-20">
           <div className="flex flex-col">
-            <a href="#" className="mb-5 md:mb-6">
+            <Link to="/" className="mb-5 md:mb-6">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
-                alt="Logo image"
-                className="inline-block"
+                src="/media/icons/Xpixel_Logo.svg"
+                alt="Xpixel logo image"
+                className="inline-block max-h-40"
               />
-            </a>
+            </Link>
             <p className="mb-5 md:mb-6">
               Stay connected with our evolving digital canvas project
             </p>
@@ -71,29 +72,29 @@ export function Footer1() {
               <h2 className="mb-3 font-semibold md:mb-4">Explore xpixel</h2>
               <ul>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
+                  <Link to="/how-it-works" className="flex items-center gap-3">
                     <span>How it works</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
+                  <Link to="/xframe" className="flex items-center gap-3">
                     <span>Pricing</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
+                  <Link to="/faq" className="flex items-center gap-3">
                     <span>FAQ</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
+                  <Link to="/about" className="flex items-center gap-3">
                     <span>About us</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
+                  <Link to="/contact" className="flex items-center gap-3">
                     <span>Contact</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -167,17 +168,17 @@ export function Footer1() {
         <div className="h-px w-full bg-scheme-border" />
         <div className="text-small flex flex-col-reverse items-start justify-between pt-6 pb-4 md:flex-row md:items-center md:pt-8 md:pb-0">
           <p className="mt-6 md:mt-0">
-            © 2024 Xpixel. Digital art on the blockchain
+            © 2026 Xpixel
           </p>
           <ul className="text-small grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 md:grid-flow-col md:gap-x-6 md:gap-y-0">
             <li className="underline">
-              <a href="#">Privacy policy</a>
+              <Link to="/legal">Privacy policy</Link>
             </li>
             <li className="underline">
-              <a href="#">Terms of service</a>
+              <Link to="/legal">Terms of service</Link>
             </li>
             <li className="underline">
-              <a href="#">Cookie settings</a>
+              <Link to="/legal">Cookie settings</Link>
             </li>
           </ul>
         </div>

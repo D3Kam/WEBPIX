@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { BackgroundCard } from "@/components/ui/card";
 import React from "react";
+import { Spline } from "lucide-react";
 
 export function Header98() {
   return (

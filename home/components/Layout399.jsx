@@ -16,7 +16,7 @@ export function Layout399() {
               How we make digital art simple
             </h2>
             <p className="text-medium">
-              Powerful tools for creators of all levels
+              Comfortable tool for creators of all levels
             </p>
           </div>
         </div>
@@ -25,23 +25,23 @@ export function Layout399() {
             <div className="flex flex-1 flex-col justify-center p-6">
               <div>
                 <p className="mb-2 text-small font-semibold">Select</p>
-                <h3 className="mb-2 text-h5 font-bold">Canvas selector</h3>
-                <p>Intuitive grid system for precise pixel placement</p>
+                <h3 className="mb-2 text-h5 font-bold">Xpixel selector</h3>
+                <p>Intuitive grid system for precise pixel selection</p>
               </div>
               <div className="mt-5 md:mt-6">
                 <Button
-                  title="Explore"
+                  title="Xframe"
                   variant="link"
                   size="link"
                   iconRight={<ChevronRight className="text-scheme-text" />}
                 >
-                  Explore
+                  Xframe
                 </Button>
               </div>
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src="/public/media/images/square_frame_with_pixels.png"
                 alt="Relume placeholder image 1"
               />
             </div>
@@ -50,23 +50,23 @@ export function Layout399() {
             <div className="flex flex-1 flex-col justify-center p-6">
               <div>
                 <p className="mb-2 text-small font-semibold">Upload</p>
-                <h3 className="mb-2 text-h5 font-bold">Upload tools</h3>
-                <p>Drag, resize, and position your artwork with ease</p>
+                <h3 className="mb-2 text-h5 font-bold">Own and control your digital space</h3>
+                <p>Drag and preview your artwork with ease</p>
               </div>
               <div className="mt-5 md:mt-6">
                 <Button
-                  title="Learn"
+                  title="Xframe"
                   variant="link"
                   size="link"
                   iconRight={<ChevronRight className="text-scheme-text" />}
                 >
-                  Learn
+                  Xframe
                 </Button>
               </div>
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src="/public/media/images/uploading_it_to_web.png"
                 alt="Relume placeholder image 1"
               />
             </div>
@@ -74,24 +74,24 @@ export function Layout399() {
           <Card className="flex flex-col">
             <div className="flex flex-1 flex-col justify-center p-6">
               <div>
-                <p className="mb-2 text-small font-semibold">Crypto</p>
-                <h3 className="mb-2 text-h5 font-bold">Solana payments</h3>
-                <p>Fast, secure blockchain transactions for global creators</p>
+                <p className="mb-2 text-small font-semibold">Xpixel tokens</p>
+                <h3 className="mb-2 text-h5 font-bold">Additional value</h3>
+                <p>Get rewarded for collaboration</p>
               </div>
               <div className="mt-5 md:mt-6">
                 <Button
-                  title="Connect"
+                  title="How it works"
                   variant="link"
                   size="link"
                   iconRight={<ChevronRight className="text-scheme-text" />}
                 >
-                  Connect
+                  How it works
                 </Button>
               </div>
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src="/public/media/images/Xpixel_crypto_token.png"
                 alt="Relume placeholder image 1"
               />
             </div>
@@ -99,24 +99,24 @@ export function Layout399() {
           <Card className="flex flex-col">
             <div className="flex flex-1 flex-col justify-center p-6">
               <div>
-                <p className="mb-2 text-small font-semibold">Card</p>
-                <h3 className="mb-2 text-h5 font-bold">Stripe checkout</h3>
-                <p>Simple, secure payment method for everyone</p>
+                <p className="mb-2 text-small font-semibold">Maturity</p>
+                <h3 className="mb-2 text-h5 font-bold">Rise of Xpixel</h3>
+                <p>Undergoing Phase 0</p>
               </div>
               <div className="mt-5 md:mt-6">
                 <Button
-                  title="Pay"
+                  title="Xframe"
                   variant="link"
                   size="link"
                   iconRight={<ChevronRight className="text-scheme-text" />}
                 >
-                  Pay
+                  Xframe
                 </Button>
               </div>
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src="/public/media/images/phase_0.png"
                 alt="Relume placeholder image 1"
               />
             </div>

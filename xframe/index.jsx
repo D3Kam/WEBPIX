@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar3 } from "./components/Navbar3";
+import { Navbar3 } from "@/components/shared/Navbar3";
 import { Layout155 } from "./components/Layout155";
 import { Layout105 } from "./components/Layout105";
 import { Layout109 } from "./components/Layout109";
@@ -10,7 +10,7 @@ import { Layout138 } from "./components/Layout138";
 import { Layout109_1 } from "./components/Layout109_1";
 import { Testimonial17 } from "./components/Testimonial17";
 import { Layout163 } from "./components/Layout163";
-import { Footer1 } from "./components/Footer1";
+import { Footer1 } from "@/components/shared/Footer1";
 
 export default function Page() {
   return (

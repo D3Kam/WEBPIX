@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { ChevronRight } from "lucide-react";
+import Spline from '@splinetool/react-spline';
 
 export function Layout22() {
   return (
@@ -12,38 +13,40 @@ export function Layout22() {
           <div>
             <div className="mb-5 md:mb-6">
               <img
-                className="size-20 text-scheme-text"
-                src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/preview.svg"
+                className="size-40 text-scheme-text max-h-40"
+                src="/public/media/images/Xpixel_Logo.svg"
               />
             </div>
             <h2 className="mb-5 text-h2 font-bold md:mb-6">
-              Preview your digital canvas
+              Preview Xpixel digital canvas
             </h2>
             <p className="text-medium">
-              See how artists are transforming a million pixels into a living
+              See how people are transforming a million pixels into a living
               artwork.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button title="Explore" variant="secondary">
-                Explore
+              <Button title="Xframe" variant="secondary">
+                Xframe
               </Button>
-              <Button
-                title="Details"
-                variant="link"
-                size="link"
-                iconRight={<ChevronRight className="text-scheme-text" />}
-              >
-                Details
-              </Button>
+              
             </div>
           </div>
-          <div>
+          <div className="">
+            <Spline
+              scene="https://prod.spline.design/vjLftE5r-WDNIKfk/scene.splinecode"
+              className="w-full rounded-image object-cover"
+            />
+            {/* Overlay for better text readability */}
+            {/* <div className="absolute inset-0 bg-neutral-darkest/30" /> */}
+          </div>
+          {/* <div>
             <img
               src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
               className="w-full rounded-image object-cover"
               alt="Relume placeholder image"
             />
-          </div>
+          </div> */}
+          
         </div>
       </div>
     </section>
