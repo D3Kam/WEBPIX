@@ -202,7 +202,7 @@
   position:absolute; top:-14px; left:-2px;
   transform: translateY(-100%);
   background: #0f1012;
-  color: var(--accent-color);
+  color: #03ffce;
   padding: 2px 6px;
   font: 600 12px/1.1 var(--heading-font);
   border-radius: 6px;

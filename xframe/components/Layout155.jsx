@@ -26,12 +26,6 @@ export function Layout155() {
     }
   };
 
-  const handleMarkCustom = () => {
-    if (window.markCustom) {
-      window.markCustom();
-    }
-  };
-
   const handleImageUpload = (event) => {
     if (window.uploadImage) {
       window.uploadImage(event);
@@ -47,10 +41,7 @@ export function Layout155() {
 
             <div className="section-title" data-aos="fade-up">
               <h2 className="text-h2 font-bold mb-4">Xframe</h2>
-              <p className="text-medium">
-                <span>Try Xframe </span>
-                <span className="description-title font-semibold">of Xpixel</span>
-              </p>
+              
             </div>
 
             <div id="frame"></div>
@@ -72,17 +63,6 @@ export function Layout155() {
                   </div>
                 </div>
 
-
-                <div className="controls">
-                  <div className="area-size">
-                    <h2>Custom Size</h2>
-                    <p>Width: <input type="number" id="customWidth" placeholder="Width"/></p>
-                    <p>Height: <input type="number" id="customHeight" placeholder="Height"/></p>
-
-                    <button onClick={handleMarkCustom}>Show custom area</button>
-                  </div>
-
-                </div>
 
                 <div className="upload-section">
                   <input
