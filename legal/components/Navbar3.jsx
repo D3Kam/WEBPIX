@@ -123,35 +123,37 @@ export function Navbar3() {
 
             {/* Account Dropdown */}
             {useActive.isAccountDropdownOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="absolute right-0 mt-2 w-48 rounded-lg border border-neutral-light bg-white shadow-lg"
-              >
-                <div className="py-1">
-                  <Link
-                    to="/login"
-                    className="block px-4 py-2 text-sm text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
-                  >
-                    Log In
-                  </Link>
-                  <Link
-                    to="/signup"
-                    className="block px-4 py-2 text-sm text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
-                  >
-                    Sign Up
-                  </Link>
-                  <div className="my-1 border-t border-neutral-light"></div>
-                  <Link
-                    to="/account"
-                    className="block px-4 py-2 text-sm text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
-                  >
-                    My Account
-                  </Link>
-                </div>
-              </motion.div>
+              <div className="absolute right-0 pt-2">
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-48 rounded-lg border border-neutral-light bg-white shadow-lg"
+                >
+                  <div className="py-1">
+                    <Link
+                      to="/login"
+                      className="block px-4 py-2 text-sm text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                    >
+                      Log In
+                    </Link>
+                    <Link
+                      to="/signup"
+                      className="block px-4 py-2 text-sm text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                    >
+                      Sign Up
+                    </Link>
+                    <div className="my-1 border-t border-neutral-light"></div>
+                    <Link
+                      to="/account"
+                      className="block px-4 py-2 text-sm text-scheme-text hover:bg-brand-primary hover:text-white transition-colors"
+                    >
+                      My Account
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
             )}
           </div>
         </div>
