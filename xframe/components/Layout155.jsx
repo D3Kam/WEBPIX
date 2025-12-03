@@ -13,16 +13,16 @@ export function Layout155() {
         
           <xframe>
             
-            <div class="section-title" data-aos="fade-up">
+            <div className="section-title" data-aos="fade-up">
               <h2>Xframe</h2>
-              <p><span>Try Xframe </span> <span class="description-title">of Xpixel</span></p>
+              <p><span>Try Xframe </span> <span className="description-title">of Xpixel</span></p>
             </div>
             
             <div id="frame"></div>
-              <div class="preview-settings">
-                <div class="controls">
+              <div className="preview-settings">
+                <div className="controls">
                 
-                <div class="positions">
+                <div className="positions">
                   <h2>Position</h2>
                   <div>
                     <button onclick="repositionArea('top-left')">↖️</button>
@@ -38,8 +38,8 @@ export function Layout155() {
                 </div>
               
                 
-                <div class="controls">
-                  <div class="area-size">
+                <div className="controls">
+                  <div className="area-size">
                     <h2>Custom Size</h2>
                     <p>Width: <input type="number" id="customWidth" placeholder="Width"/></p>
                     <p>Height: <input type="number" id="customHeight" placeholder="Height"/></p>
@@ -49,19 +49,19 @@ export function Layout155() {
                   
                 </div>
                 
-                <div class="upload-section">
+                <div className="upload-section">
                   <input
                     type="file"
                     id="imageUpload"
-                    class="file-input-visually-hidden"
+                    className="file-input-visually-hidden"
                     accept="image/*"
                     onchange="uploadImage(event)"
                   />
-                  <label for="imageUpload" class="btn btn-accent btn-upload">
-                    <i class="bi bi-upload" aria-hidden="true"></i>
+                  <label for="imageUpload" className="btn btn-accent btn-upload">
+                    <i className="bi bi-upload" aria-hidden="true"></i>
                     <span>Upload image</span>
                   </label>
-                  <span id="fileName" class="file-name" aria-live="polite"></span>
+                  <span id="fileName" className="file-name" aria-live="polite"></span>
                 </div>
               </div>
           </xframe>
