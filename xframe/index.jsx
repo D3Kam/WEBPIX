@@ -20,9 +20,10 @@ export default function Page() {
       <Layout105 />
       <Layout109 />
       <Pricing6 />
-      <Logo1 />
-      <Cta52 />
       <Layout138 />
+      
+      <Cta52 />
+      
       <Layout109_1 />
       <Testimonial17 />
       <Layout163 />

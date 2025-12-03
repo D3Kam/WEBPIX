@@ -11,10 +11,10 @@ export function Pricing6() {
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container max-w-lg">
         <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-          <p className="mb-3 font-semibold md:mb-4">Tagline</p>
-          <h1 className="mb-5 text-h2 font-bold md:mb-6">Pricing plan</h1>
+          <p className="mb-3 font-semibold md:mb-4">Own</p>
+          <h1 className="mb-5 text-h2 font-bold md:mb-6">Xprice</h1>
           <p className="text-medium">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            What does it take to be a unique
           </p>
         </div>
         <Tabs defaultValue="monthly">
@@ -38,8 +38,8 @@ export function Pricing6() {
           >
             <Card className="h-full px-6 py-8 md:p-8">
               <div className="mb-6 text-center md:mb-8">
-                <h6 className="text-h6 font-bold">Basic plan</h6>
-                <h1 className="my-2 text-h1 font-bold">$19/mo</h1>
+                <h6 className="text-h6 font-bold">Sector 0</h6>
+                <h1 className="my-2 text-h1 font-bold">$19</h1>
               </div>
               <div className="mb-8 grid grid-cols-1 gap-4 py-2">
                 <div className="flex self-start">
@@ -84,7 +84,7 @@ export function Pricing6() {
           >
             <Card className="h-full px-6 py-8 md:p-8">
               <div className="mb-6 text-center md:mb-8">
-                <h6 className="text-h6 font-bold">Basic plan</h6>
+                <h6 className="text-h6 font-bold">Sector 1</h6>
                 <h1 className="my-2 text-h1 font-bold">$180/yr</h1>
                 <p className="mt-2 font-medium">
                   Save 20% with the annual plan

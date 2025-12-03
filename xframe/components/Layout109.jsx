@@ -12,13 +12,13 @@ export function Layout109() {
           <div>
             <p className="mb-3 font-semibold md:mb-4">Upload</p>
             <h3 className="text-h2 font-bold">
-              Bring your vision to the digital canvas
+              Bring your piece to the digital canvas
             </h3>
           </div>
           <div>
             <p className="mb-5 text-medium md:mb-6">
-              Upload your image with ease. Preview and confirm your artwork
-              before placing.
+              Upload your image with ease. Preview your piece
+              in Xpixel.
             </p>
             <ul className="my-4 list-disc pl-5">
               <li className="my-1 self-start pl-2">
@@ -30,11 +30,11 @@ export function Layout109() {
               <li className="my-1 self-start pl-2">
                 <p>Max file size 10MB</p>
               </li>
+              <li className="my-1 self-start pl-2">
+                <p>No harmful content</p>
+              </li>
             </ul>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button title="Upload" variant="secondary">
-                Upload
-              </Button>
               <Button
                 title="Preview"
                 variant="link"
@@ -46,11 +46,11 @@ export function Layout109() {
             </div>
           </div>
         </div>
-        <img
+        {/* <img
           src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
           className="w-full rounded-image object-cover"
           alt="Relume placeholder image"
-        />
+        /> */}
       </div>
     </section>
   );
