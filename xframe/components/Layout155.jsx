@@ -85,26 +85,22 @@ export function Layout155() {
         </div>
         <div className="mt-12 md:mt-18 lg:mt-20">
           <div className="mx-auto w-full max-w-lg">
-            <p className="mb-3 font-semibold md:mb-4">Canvas</p>
+            <p className="mb-3 font-semibold md:mb-4">Xpixel</p>
             <h2 className="mb-5 text-h2 font-bold md:mb-6">
-              Create your digital artwork on the blockchain
+              Be a part of digital artwork on the blockchain
             </h2>
             <p className="text-medium">
-              Drag and place your pixels with precision. Select your sector,
-              resize your block, and watch your vision come to life on the
-              Solana network.
+              Select your sector,
+              upload your piece, and watch the Digital Mona Lisa come to life .
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-              <Button title="Select" variant="secondary">
-                Select
-              </Button>
               <Button
-                title="Zoom"
+                title="GetXpixel"
                 variant="link"
                 size="link"
                 iconRight={<ChevronRight className="text-scheme-text" />}
               >
-                Zoom
+                Get Xpixel
               </Button>
             </div>
           </div>

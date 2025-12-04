@@ -22,35 +22,36 @@ export function Layout109_1() {
             </p>
             <ul className="my-4 list-disc pl-5">
               <li className="my-1 self-start pl-2">
-                <p>Blocks selected</p>
+                <p>Select the sector</p>
               </li>
               <li className="my-1 self-start pl-2">
-                <p>Countdown active</p>
+                <p>Get your Xpixels</p>
               </li>
               <li className="my-1 self-start pl-2">
-                <p>Secure placement</p>
+                <p>Get Xpixel Token</p>
+              </li>
+              <li className="my-1 self-start pl-2">
+                <p>Upload your piece within 30 days</p>
               </li>
             </ul>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button title="Confirm" variant="secondary">
-                Confirm
-              </Button>
+              
               <Button
-                title="Details"
+                title="BuyXpixel"
                 variant="link"
                 size="link"
                 iconRight={<ChevronRight className="text-scheme-text" />}
               >
-                Details
+                I want Xpixel
               </Button>
             </div>
           </div>
         </div>
-        <img
+        {/* <img
           src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
           className="w-full rounded-image object-cover"
           alt="Relume placeholder image"
-        />
+        /> */}
       </div>
     </section>
   );
