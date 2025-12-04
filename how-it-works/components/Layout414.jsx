@@ -21,10 +21,10 @@ const useRelume = () => {
 };
 
 export function Layout414() {
-  const useRelume = useRelume();
+  const relumeData = useRelume();
   return (
     <section
-      ref={useRelume.sectionRef}
+      ref={relumeData.sectionRef}
       className="overflow-hidden px-[5%] py-16 md:py-24 lg:py-28"
     >
       <div className="container">
@@ -61,7 +61,7 @@ export function Layout414() {
           <div className="flex w-screen flex-col items-center gap-4 overflow-hidden">
             <motion.div
               className="flex size-full flex-nowrap items-center justify-center gap-4"
-              style={{ translateX: useRelume.xPartOne }}
+              style={{ translateX: relumeData.xPartOne }}
             >
               <div className="w-[40vw] flex-none md:w-[30vw]">
                 <img
@@ -94,7 +94,7 @@ export function Layout414() {
             </motion.div>
             <motion.div
               className="flex size-full flex-nowrap items-center justify-center gap-4"
-              style={{ translateX: useRelume.xPartTwo }}
+              style={{ translateX: relumeData.xPartTwo }}
             >
               <div className="w-[40vw] flex-none md:w-[30vw]">
                 <img
