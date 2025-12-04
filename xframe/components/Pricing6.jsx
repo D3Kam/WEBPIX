@@ -12,7 +12,7 @@ export function Pricing6() {
       <div className="container max-w-4xl">
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4">Sector Selection</p>
-          <h1 className="mb-5 text-h2 font-bold md:mb-6">Choose Your Canvas Sector</h1>
+          <h1 className="mb-5 text-h2 font-bold md:mb-6">Choose Your Xpixel Sector</h1>
           <p className="text-medium">
             Each sector offers unique positioning and visibility on the Xpixel canvas.
             Select the sector that best fits your creative vision.
@@ -67,7 +67,7 @@ export function Pricing6() {
                 </div>
                 <h1 className="my-4 text-h1 font-bold">Maximum Exposure</h1>
                 <p className="text-medium text-neutral-dark">
-                  The outermost sector with the largest area. Perfect for bold statements and high visibility.
+                  The outermost sector 10px wide - the outer edge of Xpixel. 
                 </p>
               </div>
               <div className="mb-8 grid grid-cols-1 gap-4 py-2">

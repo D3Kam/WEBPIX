@@ -3,13 +3,21 @@
 import { Button } from "@/components/ui/button";
 import { BackgroundCard } from "@/components/ui/card";
 import React from "react";
-import { Spline } from "lucide-react";
+import Spline from '@splinetool/react-spline';
 
 export function Header98() {
   return (
     <section className="px-[5%] py-12 md:py-16 lg:py-20">
       <BackgroundCard className="relative container">
         <div className="relative z-10 flex min-h-[32rem] flex-col items-center justify-center p-8 text-center md:min-h-[40rem] md:p-16">
+            <div className="w-full">
+                <Spline
+                  scene="https://prod.spline.design/vjLftE5r-WDNIKfk/scene.splinecode"
+                  className="w-full rounded-image object-cover"
+                />
+                {/* Overlay for better text readability */}
+                {/* <div className="absolute inset-0 bg-neutral-darkest/30" /> */}
+              </div>
           <div className="w-full max-w-lg">
             <h1 className="mb-5 text-h1 font-bold text-white md:mb-6">
               Create your digital art legacy
@@ -29,14 +37,14 @@ export function Header98() {
             </Button>
           </div>
         </div>
-        <div className="absolute inset-0 z-0">
+        {/* <div className="absolute inset-0 z-0">
           <img
             src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
             className="size-full object-cover"
             alt="Relume placeholder background image"
           />
           <div className="absolute inset-0 bg-neutral-darkest/50" />
-        </div>
+        </div> */}
       </BackgroundCard>
     </section>
   );

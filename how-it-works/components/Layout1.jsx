@@ -10,17 +10,16 @@ export function Layout1() {
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
-            <p className="mb-3 font-semibold md:mb-4">Watch</p>
+            <p className="mb-3 font-semibold md:mb-4">Extra</p>
             <h1 className="mb-5 text-h2 font-bold md:mb-6">
-              See the entire process in motion
+              Additional piece of Xpixel
             </h1>
             <p className="text-medium">
-              A quick video walkthrough revealing the magic of collaborative
-              digital art creation.
+              Get rewarded Xpixel tokens.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
               <Button title="Play" variant="secondary">
-                Play
+                I want Xpixel
               </Button>
               <Button
                 title="Details"
@@ -34,7 +33,7 @@ export function Layout1() {
           </div>
           <div>
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+              src="/public/media/images/Xpixel_token.png"
               className="w-full rounded-image object-cover"
               alt="Relume placeholder image"
             />

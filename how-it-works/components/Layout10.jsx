@@ -60,7 +60,7 @@ export function Layout10() {
           </div>
           <div>
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+              src="/public/media/images/select_upload.png"
               className="w-full rounded-image object-cover"
               alt="Relume placeholder image"
             />

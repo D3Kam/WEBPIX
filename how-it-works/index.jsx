@@ -14,12 +14,13 @@ export default function Page() {
     <div>
       <Navbar3 />
       <Header98 />
-      <Layout414 />
-      <Layout10 />
-      <Layout16 />
-      <Layout1 />
       <Layout10_1 />
+      <Layout16 />
+      <Layout10 />
+      <Layout1 />
+      
       <Layout105 />
+      <Layout414 />
       <Footer1 />
     </div>
   );

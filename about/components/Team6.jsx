@@ -197,17 +197,7 @@ export function Team6() {
             </div>
           </div>
         </div>
-        <div className="mx-auto mt-14 w-full max-w-md text-center md:mt-20 lg:mt-24">
-          <h4 className="mb-3 text-h4 font-bold md:mb-4">We're hiring</h4>
-          <p className="text-medium">
-            Join our mission to revolutionize digital art
-          </p>
-          <div className="mt-5 grid grid-flow-col grid-cols-[max-content] gap-3.5 self-center md:mt-6">
-            <Button title="Open positions" variant="secondary">
-              Open positions
-            </Button>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

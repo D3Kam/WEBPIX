@@ -7,9 +7,9 @@ export function Header62() {
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container max-w-lg text-center">
-        <p className="mb-3 font-semibold md:mb-4">Pixel</p>
+        <p className="mb-3 font-semibold md:mb-4">ART</p>
         <h1 className="mb-5 text-h1 font-bold md:mb-6">
-          Digital art reimagined
+          What is art?
         </h1>
         <p className="text-medium">
           We create collaborative art on the blockchain, transforming one
