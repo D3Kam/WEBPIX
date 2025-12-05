@@ -24,11 +24,10 @@ export function Layout10() {
                   <Image className="size-12 text-scheme-text" />
                 </div>
                 <h6 className="mb-3 text-h6 font-bold md:mb-4">
-                  Subheading one
+                  Quality Guaranteed
                 </h6>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse varius enim in eros.
+                  Upload PNG, JPG, or GIF files up to 10MB. Your artwork is optimized for the blockchain while preserving every detail of your creative vision.
                 </p>
               </div>
               <div>
@@ -36,11 +35,10 @@ export function Layout10() {
                   <Image className="size-12 text-scheme-text" />
                 </div>
                 <h6 className="mb-3 text-h6 font-bold md:mb-4">
-                  Subheading two
+                  Instant Preview
                 </h6>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse varius enim in eros.
+                  See exactly how your pixels will appear on the canvas before committing. Adjust position and size in real-time with our interactive preview tool.
                 </p>
               </div>
             </div>

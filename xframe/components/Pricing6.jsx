@@ -5,17 +5,20 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import React from "react";
 import { Check, Lock, Circle } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Pricing6() {
+  const navigate = useNavigate();
+
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container max-w-4xl">
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-18 lg:mb-20">
-          <p className="mb-3 font-semibold md:mb-4">Sector Selection</p>
-          <h1 className="mb-5 text-h2 font-bold md:mb-6">Choose Your Canvas Sector</h1>
+          <p className="mb-3 font-semibold md:mb-4">Pricing</p>
+          <h1 className="mb-5 text-h2 font-bold md:mb-6">Canvas Sectors & Pricing</h1>
           <p className="text-medium">
-            Each sector offers unique positioning and visibility on the Xpixel canvas.
-            Select the sector that best fits your creative vision.
+            Each sector offers unique positioning and value on the Xpixel canvas.
+            Select the sector that matches your creative vision and budget.
           </p>
         </div>
         <Tabs defaultValue="sector0" className="w-full">
@@ -65,7 +68,13 @@ export function Pricing6() {
                   <Circle className="size-5 text-brand-primary" />
                   <span className="font-semibold text-brand-primary">Sector 0 - Outer Edge</span>
                 </div>
-                <h1 className="my-4 text-h1 font-bold">Maximum Exposure</h1>
+                <div className="my-4">
+                  <div className="mb-2 flex items-baseline justify-center gap-2">
+                    <span className="text-h1 font-bold">$64</span>
+                    <span className="text-neutral-dark">USD</span>
+                  </div>
+                  <h2 className="text-h4 font-bold">Maximum Exposure</h2>
+                </div>
                 <p className="text-medium text-neutral-dark">
                   The outermost sector with the largest area. Perfect for bold statements and high visibility.
                 </p>
@@ -102,9 +111,11 @@ export function Pricing6() {
                   <p>Lowest cost per pixel</p>
                 </div>
               </div>
-              <Button title="Select Sector 0" className="w-full bg-brand-primary hover:bg-brand-primary/90">
-                Select Sector 0
-              </Button>
+              <Link to="/buy" className="block w-full">
+                <Button title="Select Sector 0" className="w-full bg-brand-primary hover:bg-brand-primary/90">
+                  Select Sector 0
+                </Button>
+              </Link>
             </Card>
           </TabsContent>
 
@@ -119,7 +130,13 @@ export function Pricing6() {
                   <Circle className="size-5 text-brand-blue" />
                   <span className="font-semibold text-brand-blue">Sector 1 - Outer Ring</span>
                 </div>
-                <h1 className="my-4 text-h1 font-bold">Balanced Visibility</h1>
+                <div className="my-4">
+                  <div className="mb-2 flex items-baseline justify-center gap-2">
+                    <span className="text-h1 font-bold">$128</span>
+                    <span className="text-neutral-dark">USD</span>
+                  </div>
+                  <h2 className="text-h4 font-bold">Balanced Visibility</h2>
+                </div>
                 <p className="text-medium text-neutral-dark">
                   Strategic positioning with excellent visibility. Great balance between space and prominence.
                 </p>
@@ -156,9 +173,11 @@ export function Pricing6() {
                   <p>Competitive pricing</p>
                 </div>
               </div>
-              <Button title="Select Sector 1" className="w-full bg-brand-blue hover:bg-brand-blue/90">
-                Select Sector 1
-              </Button>
+              <Link to="/buy" className="block w-full">
+                <Button title="Select Sector 1" className="w-full bg-brand-blue hover:bg-brand-blue/90">
+                  Select Sector 1
+                </Button>
+              </Link>
             </Card>
           </TabsContent>
 
@@ -173,7 +192,13 @@ export function Pricing6() {
                   <Circle className="size-5 text-brand-orange" />
                   <span className="font-semibold text-brand-orange">Sector 2 - Middle Ring</span>
                 </div>
-                <h1 className="my-4 text-h1 font-bold">Premium Position</h1>
+                <div className="my-4">
+                  <div className="mb-2 flex items-baseline justify-center gap-2">
+                    <span className="text-h1 font-bold">$256</span>
+                    <span className="text-neutral-dark">USD</span>
+                  </div>
+                  <h2 className="text-h4 font-bold">Premium Position</h2>
+                </div>
                 <p className="text-medium text-neutral-dark">
                   Prime real estate closer to the center. Higher value positioning for your artwork.
                 </p>
@@ -210,9 +235,11 @@ export function Pricing6() {
                   <p>Premium tier pricing</p>
                 </div>
               </div>
-              <Button title="Select Sector 2" className="w-full bg-brand-orange hover:bg-brand-orange/90">
-                Select Sector 2
-              </Button>
+              <Link to="/buy" className="block w-full">
+                <Button title="Select Sector 2" className="w-full bg-brand-orange hover:bg-brand-orange/90">
+                  Select Sector 2
+                </Button>
+              </Link>
             </Card>
           </TabsContent>
 
@@ -227,7 +254,13 @@ export function Pricing6() {
                   <Circle className="size-5 text-brand-red" />
                   <span className="font-semibold text-brand-red">Sector 3 - Inner Ring</span>
                 </div>
-                <h1 className="my-4 text-h1 font-bold">Elite Central Zone</h1>
+                <div className="my-4">
+                  <div className="mb-2 flex items-baseline justify-center gap-2">
+                    <span className="text-h1 font-bold">$512</span>
+                    <span className="text-neutral-dark">USD</span>
+                  </div>
+                  <h2 className="text-h4 font-bold">Elite Central Zone</h2>
+                </div>
                 <p className="text-medium text-neutral-dark">
                   Closest to the center with maximum prestige. The most sought-after canvas space.
                 </p>
@@ -264,9 +297,11 @@ export function Pricing6() {
                   <p>Highest investment value</p>
                 </div>
               </div>
-              <Button title="Select Sector 3" className="w-full bg-brand-red hover:bg-brand-red/90">
-                Select Sector 3
-              </Button>
+              <Link to="/buy" className="block w-full">
+                <Button title="Select Sector 3" className="w-full bg-brand-red hover:bg-brand-red/90">
+                  Select Sector 3
+                </Button>
+              </Link>
             </Card>
           </TabsContent>
         </Tabs>

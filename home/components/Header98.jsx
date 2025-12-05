@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { BackgroundCard } from "@/components/ui/card";
 import React from "react";
 import Spline from '@splinetool/react-spline';
+import { Link } from "react-router-dom";
 
 export function Header98() {
   return (
@@ -30,12 +31,16 @@ export function Header98() {
             </p>
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-            <Button title="Get Xpixel" variant="alternate">
-              Get Xpixel
-            </Button>
-            <Button title="Learn more" variant="secondary-alt">
-              Learn more
-            </Button>
+            <Link to="/buy">
+              <Button title="Get Xpixel" variant="alternate">
+                Get Xpixel
+              </Button>
+            </Link>
+            <Link to="/how-it-works">
+              <Button title="Learn more" variant="secondary-alt">
+                Learn more
+              </Button>
+            </Link>
           </div>
         </div>
         

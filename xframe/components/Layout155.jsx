@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import React, { useEffect } from "react";
 import { ChevronRight, Upload } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Layout155() {
   useEffect(() => {
@@ -94,14 +95,21 @@ export function Layout155() {
               upload your piece, and watch the Digital Mona Lisa come to life .
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-              <Button
-                title="GetXpixel"
-                variant="link"
-                size="link"
-                iconRight={<ChevronRight className="text-scheme-text" />}
-              >
-                Get Xpixel
-              </Button>
+              <Link to="/buy">
+                <Button title="Get Xpixel" variant="secondary">
+                  Get Xpixel
+                </Button>
+              </Link>
+              <Link to="/how-it-works">
+                <Button
+                  title="Learn How"
+                  variant="link"
+                  size="link"
+                  iconRight={<ChevronRight className="text-scheme-text" />}
+                >
+                  Learn How
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
