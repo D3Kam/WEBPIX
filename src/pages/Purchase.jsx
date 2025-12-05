@@ -197,8 +197,10 @@ export default function Purchase() {
                 {SECTORS.map((sector) => (
                   <Card
                     key={sector.id}
-                    className={`relative cursor-pointer transition-all hover:shadow-lg ${
-                      sector.locked ? 'opacity-60' : 'hover:-translate-y-1'
+                    className={`group relative cursor-pointer border-2 transition-all duration-300 ${
+                      sector.locked
+                        ? 'opacity-60 hover:shadow-lg'
+                        : `hover:-translate-y-2 hover:shadow-2xl ${sector.borderColor}/20 hover:border-${sector.color} hover:shadow-${sector.color}/20`
                     }`}
                     onClick={() => handleSectorSelect(sector)}
                   >
@@ -219,10 +221,10 @@ export default function Purchase() {
 
                       <div className="mb-4">
                         <div className="mb-2 flex items-baseline gap-2">
-                          <span className="text-h2 font-bold">${sector.price}</span>
-                          <span className="text-sm text-neutral-dark">USD</span>
+                          <span className="text-5xl font-black text-neutral-darkest">${sector.price}</span>
+                          <span className="text-sm font-semibold text-neutral-dark">USD</span>
                         </div>
-                        <p className="text-sm text-neutral">{sector.subtitle}</p>
+                        <p className="text-sm font-medium text-neutral">{sector.subtitle}</p>
                       </div>
 
                       <p className="mb-4 text-sm text-neutral-dark">{sector.description}</p>
@@ -277,14 +279,14 @@ export default function Purchase() {
                 {WALLETS.map((wallet) => (
                   <Card
                     key={wallet.name}
-                    className="cursor-pointer transition-all hover:-translate-y-1 hover:shadow-lg"
+                    className="group cursor-pointer border-2 border-transparent transition-all duration-300 hover:-translate-y-2 hover:border-brand-primary/30 hover:shadow-2xl hover:shadow-brand-primary/10"
                     onClick={() => handleWalletConnect(wallet)}
                   >
                     <div className="p-6 text-center">
-                      <div className="mb-3 text-4xl">{wallet.icon}</div>
-                      <h3 className="mb-1 font-bold">{wallet.name}</h3>
+                      <div className="mb-3 text-5xl transition-transform duration-300 group-hover:scale-110">{wallet.icon}</div>
+                      <h3 className="mb-1 text-lg font-bold">{wallet.name}</h3>
                       {wallet.popular && (
-                        <span className="inline-block rounded-full bg-brand-primary/10 px-2 py-1 text-xs font-medium text-brand-primary">
+                        <span className="inline-block rounded-full bg-gradient-to-r from-brand-primary to-brand-primary/80 px-3 py-1 text-xs font-semibold text-white shadow-md">
                           Popular
                         </span>
                       )}
@@ -296,6 +298,7 @@ export default function Purchase() {
               <div className="mt-8 text-center">
                 <Button
                   variant="link"
+                  className="font-semibold transition-all hover:gap-2"
                   onClick={() => setStep(1)}
                 >
                   ← Back to Sector Selection
@@ -364,17 +367,17 @@ export default function Purchase() {
 
                   <div className="space-y-3">
                     <Button
-                      className="w-full"
+                      className="group w-full bg-gradient-to-r from-brand-primary to-brand-blue shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-brand-primary/30"
                       size="lg"
                       onClick={handlePurchase}
                     >
-                      <Zap className="mr-2 h-5 w-5" />
+                      <Zap className="mr-2 h-5 w-5 transition-transform group-hover:rotate-12" />
                       Complete Purchase (Demo)
                     </Button>
 
                     <Button
                       variant="outline"
-                      className="w-full"
+                      className="w-full border-2 transition-all duration-300 hover:border-brand-primary/50 hover:bg-brand-primary/5 hover:shadow-md"
                       onClick={() => setStep(2)}
                     >
                       ← Change Wallet

@@ -45,14 +45,19 @@ export function Layout16() {
               </li>
             </ul>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button title="Confirm" variant="secondary">
+              <Button
+                title="Confirm"
+                variant="secondary"
+                className="shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-brand-primary/20"
+              >
                 Confirm
               </Button>
               <Button
                 title="Preview"
                 variant="link"
                 size="link"
-                iconRight={<ChevronRight className="text-scheme-text" />}
+                className="group font-semibold transition-all"
+                iconRight={<ChevronRight className="text-scheme-text transition-transform group-hover:translate-x-1" />}
               >
                 Preview
               </Button>

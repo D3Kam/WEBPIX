@@ -32,12 +32,20 @@ export function Header98() {
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
             <Link to="/buy">
-              <Button title="Get Xpixel" variant="alternate">
+              <Button
+                title="Get Xpixel"
+                variant="alternate"
+                className="shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-brand-primary/30"
+              >
                 Get Xpixel
               </Button>
             </Link>
             <Link to="/how-it-works">
-              <Button title="Learn more" variant="secondary-alt">
+              <Button
+                title="Learn more"
+                variant="secondary-alt"
+                className="border-2 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              >
                 Learn more
               </Button>
             </Link>

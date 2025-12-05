@@ -96,7 +96,11 @@ export function Layout155() {
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
               <Link to="/buy">
-                <Button title="Get Xpixel" variant="secondary">
+                <Button
+                  title="Get Xpixel"
+                  variant="secondary"
+                  className="shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-brand-primary/20"
+                >
                   Get Xpixel
                 </Button>
               </Link>
@@ -105,7 +109,8 @@ export function Layout155() {
                   title="Learn How"
                   variant="link"
                   size="link"
-                  iconRight={<ChevronRight className="text-scheme-text" />}
+                  className="group font-semibold transition-all"
+                  iconRight={<ChevronRight className="text-scheme-text transition-transform group-hover:translate-x-1" />}
                 >
                   Learn How
                 </Button>
