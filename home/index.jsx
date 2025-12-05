@@ -14,10 +14,10 @@ export default function Page() {
     <div>
       <Navbar3 />
       <Header98 />
-      <Logo1 />
+      <Layout22 />
       <Layout410  />
       <Layout399 />
-      <Layout22 />
+      
       <Cta2 />
       <Faq11 />
       <Footer1 />
