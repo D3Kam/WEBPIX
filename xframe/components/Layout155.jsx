@@ -48,23 +48,6 @@ export function Layout155() {
             <div id="frame"></div>
               <div className="preview-settings">
                 <div className="controls">
-
-                <div className="positions">
-                  <h2>Position</h2>
-                  <div>
-                    <button onClick={() => handleReposition('top-left')}>↖️</button>
-                    <button onClick={() => handleReposition('top-middle')}>⬆️</button>
-                    <button onClick={() => handleReposition('top-right')}>↗️</button>
-                    <button onClick={() => handleReposition('middle-left')}>⬅️</button>
-                    <button onClick={() => handleReposition('middle-middle')}>⏺️</button>
-                    <button onClick={() => handleReposition('middle-right')}>➡️</button>
-                    <button onClick={() => handleReposition('bottom-left')}>↙️</button>
-                    <button onClick={() => handleReposition('bottom-middle')}>⬇️</button>
-                    <button onClick={() => handleReposition('bottom-right')}>↘️</button>
-                  </div>
-                </div>
-
-
                 <div className="upload-section">
                   <input
                     type="file"
