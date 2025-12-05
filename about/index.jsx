@@ -16,7 +16,6 @@ export default function Page() {
       <Header62 />
       <Layout141 />
       <Team6 />
-      <Logo4 />
       <Layout386 />
       <Timeline19 />
       <Testimonial17 />

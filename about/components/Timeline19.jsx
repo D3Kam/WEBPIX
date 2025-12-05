@@ -37,7 +37,7 @@ export function Timeline19() {
           <div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
             <div className="mb-8 w-full overflow-hidden md:mb-0 md:w-3/5">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+                src="/public/media/images/square_frame_with_pixels.png"
                 alt="Relume placeholder image 1"
                 className="w-full rounded-image"
               />
@@ -49,17 +49,17 @@ export function Timeline19() {
               <div className="h-full w-[3px] bg-scheme-text md:h-[3px] md:w-full" />
             </div>
             <div className="pb-4 sm:pb-0 md:mb-0 md:px-3 md:text-center">
-              <h3 className="mb-2 text-h5 font-bold">2021</h3>
+              <h3 className="mb-2 text-h5 font-bold">Phase 1</h3>
               <p>
                 First concept of collaborative pixel art developed. Initial
-                blockchain integration begins.
+                creation of digital Xpixel begins.
               </p>
             </div>
           </div>
           <div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
             <div className="mb-8 w-full overflow-hidden md:mb-0 md:w-3/5">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+                src="/public/media/images/The_Digital_Mona_LisaX.png"
                 alt="Relume placeholder image 2"
                 className="w-full rounded-image"
               />
@@ -70,16 +70,16 @@ export function Timeline19() {
               <div className="h-full w-[3px] bg-scheme-text md:h-[3px] md:w-full" />
             </div>
             <div className="pb-4 sm:pb-0 md:mb-0 md:px-3 md:text-center">
-              <h3 className="mb-2 text-h5 font-bold">2022</h3>
+              <h3 className="mb-2 text-h5 font-bold">Phase 2</h3>
               <p>
-                Beta platform launched. First artists join the xpixel community.
+                Auction for the center pieces of Xpixel.
               </p>
             </div>
           </div>
           <div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
             <div className="mb-8 w-full overflow-hidden md:mb-0 md:w-3/5">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+                src="/public/media/images/LOGO-X-main.png"
                 alt="Relume placeholder image 3"
                 className="w-full rounded-image"
               />
@@ -90,17 +90,16 @@ export function Timeline19() {
               <div className="h-full w-[3px] bg-scheme-text md:h-[3px] md:w-full" />
             </div>
             <div className="pb-4 sm:pb-0 md:mb-0 md:px-3 md:text-center">
-              <h3 className="mb-2 text-h5 font-bold">2023</h3>
+              <h3 className="mb-2 text-h5 font-bold">Phase 3</h3>
               <p>
-                Full platform release. Integrated Solana blockchain. Expanded
-                global artist network.
+                Digital to real. Creating real world Xpixel. 
               </p>
             </div>
           </div>
           <div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
             <div className="mb-8 w-full overflow-hidden md:mb-0 md:w-3/5">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+                src="/public/media/images/upload_guidelines.png"
                 alt="Relume placeholder image 4"
                 className="w-full rounded-image"
               />
@@ -111,9 +110,9 @@ export function Timeline19() {
               <div className="h-full w-[3px] bg-scheme-text md:h-[3px] md:w-full" />
             </div>
             <div className="pb-4 sm:pb-0 md:mb-0 md:px-3 md:text-center">
-              <h3 className="mb-2 text-h5 font-bold">2024</h3>
+              <h3 className="mb-2 text-h5 font-bold">Phase 4</h3>
               <p>
-                International expansion. New features. Growing global digital
+                International expansion. First gallery appearance. Growing global
                 art community.
               </p>
             </div>
@@ -121,7 +120,7 @@ export function Timeline19() {
           <div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
             <div className="mb-8 w-full overflow-hidden md:mb-0 md:w-3/5">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+                src="/public/media/images/coordinates_screen.png"
                 alt="Relume placeholder image 5"
                 className="w-full rounded-image"
               />
@@ -133,7 +132,7 @@ export function Timeline19() {
               <div className="absolute top-1.5 right-0 z-0 hidden h-1 w-16 bg-gradient-to-l from-scheme-background to-transparent md:block" />
             </div>
             <div className="pb-4 sm:pb-0 md:mb-0 md:px-3 md:text-center">
-              <h3 className="mb-2 text-h5 font-bold">2025</h3>
+              <h3 className="mb-2 text-h5 font-bold">Phase 5</h3>
               <p>
                 Vision of a truly decentralized, collaborative digital art
                 ecosystem.

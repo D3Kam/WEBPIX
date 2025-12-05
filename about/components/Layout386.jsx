@@ -11,7 +11,7 @@ export function Layout386() {
       <div className="container">
         <div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4">Process</p>
-          <h1 className="mb-5 text-h2 font-bold md:mb-6">How xpixel works</h1>
+          <h1 className="mb-5 text-h2 font-bold md:mb-6">How Xpixel works</h1>
           <p className="text-medium">Simple steps to create digital art</p>
         </div>
         <div className="grid auto-cols-fr grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
@@ -88,7 +88,7 @@ export function Layout386() {
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src="/public/media/images/coordinates_screen.png"
                 alt="Relume placeholder image"
               />
             </div>

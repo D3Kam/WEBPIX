@@ -10,9 +10,9 @@ export function Layout10_1() {
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
-            <p className="mb-3 font-semibold md:mb-4">Tagline</p>
+            <p className="mb-3 font-semibold md:mb-4">Select</p>
             <h1 className="mb-5 text-h2 font-bold md:mb-6">
-              Medium length section heading goes here
+              Select your place in Xpixel.
             </h1>
             <p className="mb-6 text-medium md:mb-8">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -59,7 +59,7 @@ export function Layout10_1() {
           </div>
           <div>
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+              src="/public/media/images/square_frame_with_pixels.png"
               className="w-full rounded-image object-cover"
               alt="Relume placeholder image"
             />

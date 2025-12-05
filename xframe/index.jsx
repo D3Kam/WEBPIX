@@ -9,7 +9,6 @@ import { Cta52 } from "./components/Cta52";
 import { Layout138 } from "./components/Layout138";
 import { Layout109_1 } from "./components/Layout109_1";
 import { Testimonial17 } from "./components/Testimonial17";
-import { Layout163 } from "./components/Layout163";
 import { Footer1 } from "@/components/shared/Footer1";
 
 export default function Page() {
@@ -21,12 +20,9 @@ export default function Page() {
       <Layout109 />
       <Pricing6 />
       <Layout138 />
-      
       <Cta52 />
-      
       <Layout109_1 />
       <Testimonial17 />
-      <Layout163 />
       <Footer1 />
     </div>
   );
