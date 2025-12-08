@@ -59,7 +59,7 @@ export function Layout10_1() {
           </div>
           <div>
             <img
-              src="media/images/square_frame_with_pixels.png"
+              src="/WEBPIX/media/images/square_frame_with_pixels.png"
               className="w-full rounded-image object-cover"
               alt="Relume placeholder image"
             />
