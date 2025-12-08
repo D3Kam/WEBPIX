@@ -18,7 +18,7 @@ import Purchase from './pages/Purchase'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/WEBPIX">
       <ScrollToTop />
       <AuthProvider>
         <Routes>
