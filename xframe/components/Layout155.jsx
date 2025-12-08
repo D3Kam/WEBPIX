@@ -36,6 +36,40 @@ export function Layout155() {
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container flex flex-col items-center text-center">
+      <div className="mt-12 md:mt-18 lg:mt-20">
+          <div className="mx-auto w-full max-w-lg">
+            <p className="mb-3 font-semibold md:mb-4">Xframe</p>
+            <h2 className="mb-5 text-h2 font-bold md:mb-6">
+              Try Xframe
+            </h2>
+            <p className="text-medium">
+              Select your sector,
+              upload your piece, and watch the Digital Mona Lisa come to life .
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
+              <Link to="/buy">
+                <Button
+                  title="Get Xpixel"
+                  variant="secondary"
+                  className="shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-brand-primary/20"
+                >
+                  Get Xpixel
+                </Button>
+              </Link>
+              <Link to="/how-it-works">
+                <Button
+                  title="Learn How"
+                  variant="link"
+                  size="link"
+                  className="group font-semibold transition-all"
+                  iconRight={<ChevronRight className="text-scheme-text transition-transform group-hover:translate-x-1" />}
+                >
+                  Learn How
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
         <div className="w-full">
 
           <div>
@@ -48,23 +82,6 @@ export function Layout155() {
             <div id="frame"></div>
               <div className="preview-settings">
                 <div className="controls">
-
-                <div className="positions">
-                  <h2>Position</h2>
-                  <div>
-                    <button onClick={() => handleReposition('top-left')}>↖️</button>
-                    <button onClick={() => handleReposition('top-middle')}>⬆️</button>
-                    <button onClick={() => handleReposition('top-right')}>↗️</button>
-                    <button onClick={() => handleReposition('middle-left')}>⬅️</button>
-                    <button onClick={() => handleReposition('middle-middle')}>⏺️</button>
-                    <button onClick={() => handleReposition('middle-right')}>➡️</button>
-                    <button onClick={() => handleReposition('bottom-left')}>↙️</button>
-                    <button onClick={() => handleReposition('bottom-middle')}>⬇️</button>
-                    <button onClick={() => handleReposition('bottom-right')}>↘️</button>
-                  </div>
-                </div>
-
-
                 <div className="upload-section">
                   <input
                     type="file"

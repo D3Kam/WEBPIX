@@ -16,10 +16,12 @@ export default function Page() {
     <div>
       <Navbar3 />
       <Layout155 />
-      <Layout105 />
-      <Layout109 />
       <Pricing6 />
       <Layout138 />
+      <Layout105 />
+      <Layout109 />
+      
+      
       <Cta52 />
       <Layout109_1 />
       <Testimonial17 />

@@ -19,7 +19,7 @@ export function Layout22() {
               />
             </div>
             <h2 className="mb-5 text-h2 font-bold md:mb-6">
-              Preview Xpixel digital canvas
+              Get your PIXEL
             </h2>
             <p className="text-medium">
               See how people are transforming a million pixels into a living
