@@ -7,7 +7,7 @@ import React from "react";
 
 export function Cta52() {
   return (
-    <section className="bg-brand-primary px-[5%] py-16 text-white md:py-24 lg:py-28">
+    <section className="bg-brand-primary px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <Card className="flex flex-col items-center bg-white p-8 text-neutral-darkest md:p-12 lg:p-16">
           <div className="max-w-lg text-center">

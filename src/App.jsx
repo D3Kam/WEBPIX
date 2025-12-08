@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import { ProtectedRoute } from './components/ProtectedRoute'
+import ScrollToTop from './components/ScrollToTop'
 import Home from '../home/index.jsx'
 import Xframe from '../xframe/index.jsx'
 import About from '../about/index.jsx'
@@ -18,6 +19,7 @@ import Purchase from './pages/Purchase'
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Home />} />

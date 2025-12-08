@@ -152,25 +152,25 @@ export default function Purchase() {
       </section>
 
       {/* Progress Steps */}
-      <section className="border-b border-brand-primary/20 bg-brand-primary px-[5%] py-6">
+      <section className="border-b border-neutral-dark/20 bg-brand-primary px-[5%] py-6">
         <div className="container max-w-4xl">
           <div className="flex items-center justify-center gap-4">
-            <div className={`flex items-center gap-2 ${step >= 1 ? 'text-white' : 'text-white/60'}`}>
-              <div className={`flex h-8 w-8 items-center justify-center rounded-full ${step >= 1 ? 'bg-white text-brand-primary' : 'bg-white/20 text-white'}`}>
+            <div className={`flex items-center gap-2 ${step >= 1 ? 'text-neutral-darkest' : 'text-neutral-dark'}`}>
+              <div className={`flex h-8 w-8 items-center justify-center rounded-full ${step >= 1 ? 'bg-neutral-darkest text-white' : 'bg-neutral-dark/20 text-neutral-dark'}`}>
                 1
               </div>
               <span className="hidden font-medium sm:inline">Select Sector</span>
             </div>
-            <div className="h-px w-12 bg-white/20" />
-            <div className={`flex items-center gap-2 ${step >= 2 ? 'text-white' : 'text-white/60'}`}>
-              <div className={`flex h-8 w-8 items-center justify-center rounded-full ${step >= 2 ? 'bg-white text-brand-primary' : 'bg-white/20 text-white'}`}>
+            <div className="h-px w-12 bg-neutral-dark/20" />
+            <div className={`flex items-center gap-2 ${step >= 2 ? 'text-neutral-darkest' : 'text-neutral-dark'}`}>
+              <div className={`flex h-8 w-8 items-center justify-center rounded-full ${step >= 2 ? 'bg-neutral-darkest text-white' : 'bg-neutral-dark/20 text-neutral-dark'}`}>
                 2
               </div>
               <span className="hidden font-medium sm:inline">Connect Wallet</span>
             </div>
-            <div className="h-px w-12 bg-white/20" />
-            <div className={`flex items-center gap-2 ${step >= 3 ? 'text-white' : 'text-white/60'}`}>
-              <div className={`flex h-8 w-8 items-center justify-center rounded-full ${step >= 3 ? 'bg-white text-brand-primary' : 'bg-white/20 text-white'}`}>
+            <div className="h-px w-12 bg-neutral-dark/20" />
+            <div className={`flex items-center gap-2 ${step >= 3 ? 'text-neutral-darkest' : 'text-neutral-dark'}`}>
+              <div className={`flex h-8 w-8 items-center justify-center rounded-full ${step >= 3 ? 'bg-neutral-darkest text-white' : 'bg-neutral-dark/20 text-neutral-dark'}`}>
                 3
               </div>
               <span className="hidden font-medium sm:inline">Confirm</span>
@@ -391,23 +391,23 @@ export default function Purchase() {
       </section>
 
       {/* Trust Indicators */}
-      <section className="border-t border-brand-primary/20 bg-brand-primary px-[5%] py-12 text-white">
+      <section className="border-t border-neutral-dark/20 bg-brand-primary px-[5%] py-12">
         <div className="container max-w-4xl">
           <div className="grid gap-8 md:grid-cols-3">
             <div className="text-center">
-              <Shield className="mx-auto mb-3 h-8 w-8 text-white" />
-              <h3 className="mb-2 font-bold text-white">Secure Blockchain</h3>
-              <p className="text-sm text-white/80">Your ownership is permanently recorded on Ethereum</p>
+              <Shield className="mx-auto mb-3 h-8 w-8 text-neutral-darkest" />
+              <h3 className="mb-2 font-bold text-neutral-darkest">Secure Blockchain</h3>
+              <p className="text-sm text-neutral-dark">Your ownership is permanently recorded on Ethereum</p>
             </div>
             <div className="text-center">
-              <Zap className="mx-auto mb-3 h-8 w-8 text-white" />
-              <h3 className="mb-2 font-bold text-white">Instant Confirmation</h3>
-              <p className="text-sm text-white/80">See your pixels appear on the canvas immediately</p>
+              <Zap className="mx-auto mb-3 h-8 w-8 text-neutral-darkest" />
+              <h3 className="mb-2 font-bold text-neutral-darkest">Instant Confirmation</h3>
+              <p className="text-sm text-neutral-dark">See your pixels appear on the canvas immediately</p>
             </div>
             <div className="text-center">
-              <Wallet className="mx-auto mb-3 h-8 w-8 text-white" />
-              <h3 className="mb-2 font-bold text-white">Your Wallet, Your Art</h3>
-              <p className="text-sm text-white/80">Full ownership and control of your digital space</p>
+              <Wallet className="mx-auto mb-3 h-8 w-8 text-neutral-darkest" />
+              <h3 className="mb-2 font-bold text-neutral-darkest">Your Wallet, Your Art</h3>
+              <p className="text-sm text-neutral-dark">Full ownership and control of your digital space</p>
             </div>
           </div>
         </div>
