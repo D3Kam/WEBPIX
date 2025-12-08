@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar3 } from "@/components/shared/Navbar3";
-import { Header98 } from "./components/Header98";
+import { VideoHero } from "./components/VideoHero";
 import { Logo1 } from "./components/Logo1";
 import { Layout410 } from "./components/Layout410";
 import { Layout399 } from "./components/Layout399";
@@ -13,11 +13,11 @@ export default function Page() {
   return (
     <div>
       <Navbar3 />
-      <Header98 />
+      <VideoHero videoSrc="/media/videos/Xpixel_Digital_Mona.mp4" />
       <Layout22 />
       <Layout410  />
       <Layout399 />
-      
+
       <Cta2 />
       <Faq11 />
       <Footer1 />
