@@ -66,28 +66,28 @@ export function Layout414() {
               <div className="w-[40vw] flex-none md:w-[30vw]">
                 <img
                   className="aspect-[4/3] w-full rounded-image object-cover"
-                  src="/public/media/images/Ducktape_Banana.png"
+                  src="/WEBPIX/media/images/Ducktape_Banana.png"
                   alt="Relume placeholder image 1"
                 />
               </div>
               <div className="w-[40vw] flex-none md:w-[30vw]">
                 <img
                   className="aspect-[4/3] w-full rounded-image object-cover"
-                  src="/public/media/images/information_through_pixels.png"
+                  src="/WEBPIX/media/images/information_through_pixels.png"
                   alt="Relume placeholder image 2"
                 />
               </div>
               <div className="w-[40vw] flex-none md:w-[30vw]">
                 <img
                   className="aspect-[4/3] w-full rounded-image object-cover"
-                  src="/public/media/images/upload_review.webp"
+                  src="/WEBPIX/media/images/upload_review.webp"
                   alt="Relume placeholder image 3"
                 />
               </div>
               <div className="w-[40vw] flex-none md:w-[30vw]">
                 <img
                   className="aspect-[4/3] w-full rounded-image object-cover"
-                  src="/public/media/images/uploading_it_to_web.png"
+                  src="/WEBPIX/media/images/uploading_it_to_web.png"
                   alt="Relume placeholder image 4"
                 />
               </div>
@@ -99,28 +99,28 @@ export function Layout414() {
               <div className="w-[40vw] flex-none md:w-[30vw]">
                 <img
                   className="aspect-[4/3] w-full rounded-image object-cover"
-                  src="/public/media/images/information_through_pixels.png"
+                  src="/WEBPIX/media/images/information_through_pixels.png"
                   alt="Relume placeholder image 5"
                 />
               </div>
               <div className="w-[40vw] flex-none md:w-[30vw]">
                 <img
                   className="aspect-[4/3] w-full rounded-image object-cover"
-                  src="/public/media/images/pixel_selection.png"
+                  src="/WEBPIX/media/images/pixel_selection.png"
                   alt="Relume placeholder image 6"
                 />
               </div>
               <div className="w-[40vw] flex-none md:w-[30vw]">
                 <img
                   className="aspect-[4/3] w-full rounded-image object-cover"
-                  src="/public/media/images/coordinates_screen.png"
+                  src="/WEBPIX/media/images/coordinates_screen.png"
                   alt="Relume placeholder image 7"
                 />
               </div>
               <div className="w-[40vw] flex-none md:w-[30vw]">
                 <img
                   className="aspect-[4/3] w-full rounded-image object-cover"
-                  src="/public/media/images/square_frame_with_pixels.png"
+                  src="/WEBPIX/media/images/square_frame_with_pixels.png"
                   alt="Relume placeholder image 8"
                 />
               </div>

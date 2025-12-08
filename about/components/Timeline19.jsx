@@ -37,7 +37,7 @@ export function Timeline19() {
           <div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
             <div className="mb-8 w-full overflow-hidden md:mb-0 md:w-3/5">
               <img
-                src="/public/media/images/square_frame_with_pixels.png"
+                src="/WEBPIX/media/images/square_frame_with_pixels.png"
                 alt="Relume placeholder image 1"
                 className="w-full rounded-image"
               />
@@ -59,7 +59,7 @@ export function Timeline19() {
           <div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
             <div className="mb-8 w-full overflow-hidden md:mb-0 md:w-3/5">
               <img
-                src="/public/media/images/The_Digital_Mona_LisaX.png"
+                src="/WEBPIX/media/images/The_Digital_Mona_LisaX.png"
                 alt="Relume placeholder image 2"
                 className="w-full rounded-image"
               />
@@ -79,7 +79,7 @@ export function Timeline19() {
           <div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
             <div className="mb-8 w-full overflow-hidden md:mb-0 md:w-3/5">
               <img
-                src="/public/media/images/LOGO-X-main.png"
+                src="/WEBPIX/media/images/LOGO-X-main.png"
                 alt="Relume placeholder image 3"
                 className="w-full rounded-image"
               />
@@ -99,7 +99,7 @@ export function Timeline19() {
           <div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
             <div className="mb-8 w-full overflow-hidden md:mb-0 md:w-3/5">
               <img
-                src="/public/media/images/upload_guidelines.png"
+                src="/WEBPIX/media/images/upload_guidelines.png"
                 alt="Relume placeholder image 4"
                 className="w-full rounded-image"
               />
@@ -120,7 +120,7 @@ export function Timeline19() {
           <div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
             <div className="mb-8 w-full overflow-hidden md:mb-0 md:w-3/5">
               <img
-                src="/public/media/images/coordinates_screen.png"
+                src="/WEBPIX/media/images/coordinates_screen.png"
                 alt="Relume placeholder image 5"
                 className="w-full rounded-image"
               />

@@ -85,7 +85,7 @@ export function Layout410() {
             </div>
             <div className="order-last flex flex-col items-center justify-center md:order-last">
               <img
-                src="/public/media/images/NFT-img.png"
+                src="/WEBPIX/media/images/NFT-img.png"
                 alt="NFT image"
               />
             </div>
@@ -120,7 +120,7 @@ export function Layout410() {
             </div>
             <div className="order-last flex flex-col items-center justify-center md:order-first">
               <img
-                src="/public/media/images/ART-img.png"
+                src="/WEBPIX/media/images/ART-img.png"
                 alt="ART image"
               />
             </div>
@@ -155,7 +155,7 @@ export function Layout410() {
             </div>
             <div className="order-last flex flex-col items-center justify-center md:order-last">
               <img
-                src="/public/media/images/Ducktape_Banana.png"
+                src="/WEBPIX/media/images/Ducktape_Banana.png"
                 alt="Ducktape Banana image"
               />
             </div>
@@ -190,7 +190,7 @@ export function Layout410() {
             </div>
             <div className="order-last flex flex-col items-center justify-center md:order-first">
               <img
-                src="/public/media/images/The_Digital_Mona_Lisa.png"
+                src="/WEBPIX/media/images/The_Digital_Mona_Lisa.png"
                 alt="Digital Mona Lisa image"
               />
             </div>

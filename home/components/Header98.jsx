@@ -13,7 +13,7 @@ export function Header98() {
         
         <div className="relative z-10 flex min-h-[32rem] flex-col items-center justify-center p-8 text-center md:min-h-[40rem] md:p-16">
           <div className="flex w-full flex-col items-center justify-center self-start">
-                <video src="/public/media/videos/Xpixel_Digital_Mona.mp4" 
+                <video src="/WEBPIX/media/videos/Xpixel_Digital_Mona.mp4" 
                 className="w-full rounded-image object-cover"
                 alt="Relume placeholder image"
                 >

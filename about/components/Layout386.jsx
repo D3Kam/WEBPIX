@@ -88,7 +88,7 @@ export function Layout386() {
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
               <img
-                src="/public/media/images/coordinates_screen.png"
+                src="/WEBPIX/media/images/coordinates_screen.png"
                 alt="Relume placeholder image"
               />
             </div>

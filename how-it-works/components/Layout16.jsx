@@ -65,7 +65,7 @@ export function Layout16() {
           </div>
           <div>
             <img
-              src="/public/media/images/home_secured.png"
+              src="/WEBPIX/media/images/home_secured.png"
               className="w-full rounded-image object-cover"
               alt="Relume placeholder image"
             />

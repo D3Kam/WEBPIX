@@ -33,7 +33,7 @@ export function Layout1() {
           </div>
           <div>
             <img
-              src="/public/media/images/Xpixel_token.png"
+              src="/WEBPIX/media/images/Xpixel_token.png"
               className="w-full rounded-image object-cover"
               alt="Relume placeholder image"
             />

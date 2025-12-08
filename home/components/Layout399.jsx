@@ -44,7 +44,7 @@ export function Layout399() {
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
               <img
-                src="/public/media/images/square_frame_with_pixels.png"
+                src="/WEBPIX/media/images/square_frame_with_pixels.png"
                 alt="Relume placeholder image 1"
               />
             </div>
@@ -71,7 +71,7 @@ export function Layout399() {
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
               <img
-                src="/public/media/images/uploading_it_to_web.png"
+                src="/WEBPIX/media/images/uploading_it_to_web.png"
                 alt="Relume placeholder image 1"
               />
             </div>
@@ -98,7 +98,7 @@ export function Layout399() {
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
               <img
-                src="/public/media/images/Xpixel_crypto_token.png"
+                src="/WEBPIX/media/images/Xpixel_crypto_token.png"
                 alt="Relume placeholder image 1"
               />
             </div>
@@ -125,7 +125,7 @@ export function Layout399() {
             </div>
             <div className="flex w-full flex-col items-center justify-center self-start">
               <img
-                src="/public/media/images/phase_0.png"
+                src="/WEBPIX/media/images/phase_0.png"
                 alt="Relume placeholder image 1"
               />
             </div>

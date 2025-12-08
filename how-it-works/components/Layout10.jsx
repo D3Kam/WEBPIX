@@ -63,7 +63,7 @@ export function Layout10() {
           </div>
           <div>
             <img
-              src="/public/media/images/select_upload.png"
+              src="/WEBPIX/media/images/select_upload.png"
               className="w-full rounded-image object-cover"
               alt="Relume placeholder image"
             />

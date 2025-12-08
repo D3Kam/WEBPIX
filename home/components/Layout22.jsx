@@ -15,7 +15,7 @@ export function Layout22() {
             <div className="mb-5 md:mb-6">
               <img
                 className="size-40 text-scheme-text max-h-40"
-                src="/public/media/images/Xpixel_Logo.svg"
+                src="/WEBPIX/media/images/Xpixel_Logo.svg"
               />
             </div>
             <h2 className="mb-5 text-h2 font-bold md:mb-6">

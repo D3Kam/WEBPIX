@@ -29,7 +29,7 @@ export function Cta2() {
           </div>
           <div>
             <img
-              src="/public/media/images/information_through_pixels.png"
+              src="/WEBPIX/media/images/information_through_pixels.png"
               className="w-full rounded-image object-cover"
               alt="Relume placeholder image"
             />
