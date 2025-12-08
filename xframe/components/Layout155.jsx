@@ -74,11 +74,6 @@ export function Layout155() {
 
           <div>
 
-            <div className="section-title" data-aos="fade-up">
-              <h2 className="text-h2 font-bold mb-4">Xframe</h2>
-              
-            </div>
-
             <div id="frame"></div>
               <div className="preview-settings">
                 <div className="controls">
