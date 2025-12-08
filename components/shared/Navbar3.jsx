@@ -59,7 +59,7 @@ export function Navbar3() {
         {/* Logo - Center on mobile, left on desktop */}
         <Link to="/" className="flex items-center lg:order-first">
           <img
-            src="/media/icons/Xpixel_Logo.svg"
+            src="media/icons/Xpixel_Logo.svg"
             alt="Xpixel Logo"
             className="h-32 w-auto "
           />
@@ -177,7 +177,7 @@ export function Navbar3() {
                 {/* Mobile Header */}
                 <div className="flex items-center justify-between border-b border-neutral-light px-4 py-4">
                   <img
-                    src="/media/icons/Xpixel_Logo.svg"
+                    src="media/icons/Xpixel_Logo.svg"
                     alt="Xpixel Logo"
                     className="h-8"
                   />

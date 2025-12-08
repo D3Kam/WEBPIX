@@ -61,7 +61,7 @@ export function Layout105() {
           </div>
         </div>
         <img
-          src="/public/media/images/upload_guidelines.png"
+          src="media/images/upload_guidelines.png"
           className="w-full rounded-image object-cover"
           alt="Relume placeholder image"
         />

@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <div>
       <Navbar3 />
-      <VideoHero videoSrc="/media/videos/Xpixel_Digital_Mona.mp4" />
+      <VideoHero videoSrc="media/videos/Xpixel_Digital_Mona.mp4" />
       <Layout22 />
       <Layout410  />
       <Layout399 />

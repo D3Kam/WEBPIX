@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
-export function VideoHero({ videoSrc = "/media/videos/hero-video.mp4" }) {
+export function VideoHero({ videoSrc = "media/videos/Xpixel_Digital_Mona.mp4" }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
