@@ -37,7 +37,7 @@ export function Footer1() {
           <div className="flex flex-col">
             <Link to="/" className="mb-5 md:mb-6">
               <img
-                src="media/icons/Xpixel_Logo.svg"
+                src="/WEBPIX/media/icons/Xpixel_Logo.svg"
                 alt="Xpixel logo image"
                 className="inline-block max-h-40"
               />
