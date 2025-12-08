@@ -6,7 +6,7 @@ import { ChevronRight, Image } from "lucide-react";
 
 export function Layout10_1() {
   return (
-    <section className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section className="bg-brand-primary px-[5%] py-16 text-white md:py-24 lg:py-28">
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>

@@ -31,7 +31,7 @@ const useForm = () => {
 export function Footer1() {
   const formState = useForm();
   return (
-    <footer className="px-[5%] py-12 md:py-18 lg:py-20">
+    <footer className="bg-brand-primary px-[5%] py-12 text-white md:py-18 lg:py-20">
       <div className="container">
         <div className="grid grid-cols-1 gap-x-[8vw] gap-y-12 pb-12 md:gap-y-16 md:pb-18 lg:grid-cols-[0.75fr_1fr] lg:gap-y-4 lg:pb-20">
           <div className="flex flex-col">
@@ -42,7 +42,7 @@ export function Footer1() {
                 className="inline-block max-h-40"
               />
             </Link>
-            <p className="mb-5 md:mb-6">
+            <p className="mb-5 text-white/90 md:mb-6">
               Stay connected with our evolving digital canvas project
             </p>
             <div className="w-full max-w-md">
@@ -61,7 +61,7 @@ export function Footer1() {
                   Join
                 </Button>
               </form>
-              <p className="text-tiny">
+              <p className="text-tiny text-white/80">
                 By subscribing, you agree to our privacy policy and consent to
                 project updates
               </p>
@@ -69,95 +69,95 @@ export function Footer1() {
           </div>
           <div className="grid grid-cols-1 items-start gap-y-10 sm:grid-cols-3 sm:gap-x-6 md:gap-x-8 md:gap-y-4">
             <div className="flex flex-col items-start justify-start">
-              <h2 className="mb-3 font-semibold md:mb-4">Explore xpixel</h2>
+              <h2 className="mb-3 font-semibold text-white md:mb-4">Explore xpixel</h2>
               <ul>
                 <li className="text-small py-2">
-                  <Link to="/how-it-works" className="flex items-center gap-3">
+                  <Link to="/how-it-works" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
                     <span>How it works</span>
                   </Link>
                 </li>
                 <li className="text-small py-2">
-                  <Link to="/xframe" className="flex items-center gap-3">
+                  <Link to="/xframe" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
                     <span>Pricing</span>
                   </Link>
                 </li>
                 <li className="text-small py-2">
-                  <Link to="/faq" className="flex items-center gap-3">
+                  <Link to="/faq" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
                     <span>FAQ</span>
                   </Link>
                 </li>
                 <li className="text-small py-2">
-                  <Link to="/about" className="flex items-center gap-3">
+                  <Link to="/about" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
                     <span>About us</span>
                   </Link>
                 </li>
                 <li className="text-small py-2">
-                  <Link to="/contact" className="flex items-center gap-3">
+                  <Link to="/contact" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
                     <span>Contact</span>
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="flex flex-col items-start justify-start">
-              <h2 className="mb-3 font-semibold md:mb-4">Resources</h2>
+              <h2 className="mb-3 font-semibold text-white md:mb-4">Resources</h2>
               <ul>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="#" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
                     <span>Blog</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="#" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
                     <span>Community</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="#" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
                     <span>Support</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="#" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
                     <span>Developers</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
+                  <a href="#" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
                     <span>Docs</span>
                   </a>
                 </li>
               </ul>
             </div>
             <div className="flex flex-col items-start justify-start">
-              <h2 className="mb-3 font-semibold md:mb-4">Connect with us</h2>
+              <h2 className="mb-3 font-semibold text-white md:mb-4">Connect with us</h2>
               <ul className="flex flex-col items-start">
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
-                    <Facebook className="size-6 text-scheme-text" />
+                  <a href="#" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
+                    <Facebook className="size-6" />
                     <span>Facebook</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
-                    <Instagram className="size-6 text-scheme-text" />
+                  <a href="#" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
+                    <Instagram className="size-6" />
                     <span>Instagram</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
-                    <Twitter className="size-6 p-0.5 text-scheme-text" />
+                  <a href="#" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
+                    <Twitter className="size-6 p-0.5" />
                     <span>X</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
-                    <Linkedin className="size-6 text-scheme-text" />
+                  <a href="#" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
+                    <Linkedin className="size-6" />
                     <span>LinkedIn</span>
                   </a>
                 </li>
                 <li className="text-small py-2">
-                  <a href="#" className="flex items-center gap-3">
-                    <Youtube className="size-6 text-scheme-text" />
+                  <a href="#" className="flex items-center gap-3 text-white/90 transition-colors hover:text-white">
+                    <Youtube className="size-6" />
                     <span>Discord</span>
                   </a>
                 </li>
@@ -165,19 +165,19 @@ export function Footer1() {
             </div>
           </div>
         </div>
-        <div className="h-px w-full bg-scheme-border" />
-        <div className="text-small flex flex-col-reverse items-start justify-between pt-6 pb-4 md:flex-row md:items-center md:pt-8 md:pb-0">
+        <div className="h-px w-full bg-white/20" />
+        <div className="text-small flex flex-col-reverse items-start justify-between pt-6 pb-4 text-white/90 md:flex-row md:items-center md:pt-8 md:pb-0">
           <p className="mt-6 md:mt-0">
             © 2026 Xpixel
           </p>
           <ul className="text-small grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 md:grid-flow-col md:gap-x-6 md:gap-y-0">
-            <li className="underline">
+            <li className="underline transition-colors hover:text-white">
               <Link to="/legal">Privacy policy</Link>
             </li>
-            <li className="underline">
+            <li className="underline transition-colors hover:text-white">
               <Link to="/legal">Terms of service</Link>
             </li>
-            <li className="underline">
+            <li className="underline transition-colors hover:text-white">
               <Link to="/legal">Cookie settings</Link>
             </li>
           </ul>
