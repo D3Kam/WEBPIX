@@ -9,7 +9,7 @@ export function Layout155() {
   useEffect(() => {
     // Load and initialize frame.js
     const script = document.createElement('script');
-    script.src = '/js/frame.js';
+    script.src = '/WEBPIX/js/frame.js';
     script.async = true;
     document.body.appendChild(script);
 
