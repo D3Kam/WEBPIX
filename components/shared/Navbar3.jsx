@@ -61,7 +61,7 @@ export function Navbar3() {
           <img
             src="/WEBPIX/media/icons/Xpixel_Logo.svg"
             alt="Xpixel Logo"
-            className="h-32 w-auto "
+            className="h-20 w-auto "
           />
         </Link>
 
@@ -71,7 +71,7 @@ export function Navbar3() {
             to="/xframe"
             className="text-base font-semibold text-scheme-text hover:text-brand-primary hover:bg-brand-primary/10 px-4 py-2 rounded-lg transition-all duration-300"
           >
-            Xframe
+            Xpixel
           </Link>
           <Link
             to="/about"

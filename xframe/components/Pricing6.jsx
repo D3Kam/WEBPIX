@@ -17,7 +17,7 @@ export function Pricing6() {
             Transparent Pricing
           </div>
           <h1 className="mb-5 text-h1 font-bold md:mb-6">
-            Choose Your Canvas Sector
+            Choose Your Xpixel
           </h1>
           <p className="text-large text-neutral-dark">
             Each sector offers unique positioning and value on the Xpixel canvas.
