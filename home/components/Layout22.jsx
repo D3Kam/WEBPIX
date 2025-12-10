@@ -36,7 +36,7 @@ export function Layout22() {
           <div className="">
             <Spline
               scene="https://prod.spline.design/vjLftE5r-WDNIKfk/scene.splinecode"
-              className="w-full rounded-image object-cover"
+              className=" rounded-image"
             />
             {/* Overlay for better text readability */}
             {/* <div className="absolute inset-0 bg-neutral-darkest/30" /> */}
