@@ -33,10 +33,10 @@ export function Layout22() {
               </Link>
             </div>
           </div>
-          <div className="">
+          <div className="w-912">
             <Spline
               scene="https://prod.spline.design/vjLftE5r-WDNIKfk/scene.splinecode"
-              className="w-full object-cover aspect-square"
+              className=" aspect-square object-cover"
             />
             {/* Overlay for better text readability */}
             {/* <div className="absolute inset-0 bg-neutral-darkest/30" /> */}

@@ -61,7 +61,7 @@ export function Navbar3() {
           <img
             src="/WEBPIX/media/icons/Xpixel_Logo.svg"
             alt="Xpixel Logo"
-            className="h-32 w-auto "
+            className="h-20 w-auto "
           />
         </Link>
 
