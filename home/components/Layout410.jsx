@@ -2,9 +2,52 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import React from "react";
-import { ChevronRight } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { ChevronRight, TrendingUp, Users, DollarSign, Activity, BarChart3, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCounter } from "@/hooks/use-counter";
+
+function StatCard({ icon: Icon, label, value, suffix = "", prefix = "" }) {
+  const [count, startCounting] = useCounter(value, 2000);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+          startCounting();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [isVisible, startCounting]);
+
+  return (
+    <div ref={ref} className="flex items-center gap-3">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm">
+        <Icon className="h-6 w-6 text-white" />
+      </div>
+      <div>
+        <div className="text-2xl font-bold text-white">
+          {prefix}{count.toLocaleString()}{suffix}
+        </div>
+        <div className="text-sm text-white/80">{label}</div>
+      </div>
+    </div>
+  );
+}
 
 export function Layout410() {
   return (
@@ -24,24 +67,37 @@ export function Layout410() {
             className="grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "15%" }}
           >
-            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last">
-              <p className="mb-2 font-semibold">Xpixel</p>
-              <h2 className="text-h3 mb-5 font-bold md:mb-6">
+            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last bg-gradient-to-br from-neutral-darker/50 to-neutral-darkest/30">
+              <p className="mb-2 font-semibold text-brand-primary">Xpixel</p>
+              <h2 className="text-h3 mb-5 font-bold text-white md:mb-6">
                 Let's create the digital Mona Lisa together
               </h2>
-              <p>
+              <p className="text-white/90 mb-6">
                 Each pixel block becomes your digital real estate on the
                 blockchain. Immutable. Permanent.
               </p>
+
+              {/* Statistics Grid */}
+              <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
+                <StatCard icon={Users} label="Active Users" value={15420} />
+                <StatCard icon={DollarSign} label="Market Value" value={2400000} prefix="$" />
+              </div>
+
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                <Link to="/xframe">
-                  <Button variant="secondary">Xpixel</Button>
+                <Link to="/xpixel">
+                  <Button
+                    variant="secondary"
+                    className="group relative overflow-hidden bg-white hover:bg-white/90 text-neutral-darkest shadow-lg hover:shadow-xl hover:shadow-white/30 transition-all duration-300"
+                  >
+                    <span className="relative z-10">Xpixel</span>
+                  </Button>
                 </Link>
                 <Link to="/how-it-works">
                   <Button
                     variant="link"
                     size="link"
-                    iconRight={<ChevronRight className="text-scheme-text" />}
+                    className="text-white hover:text-brand-primary group"
+                    iconRight={<ChevronRight className="text-white group-hover:text-brand-primary transition-transform group-hover:translate-x-1" />}
                   >
                     How it works
                   </Button>
@@ -59,24 +115,33 @@ export function Layout410() {
             className="grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "18%" }}
           >
-            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-first">
-              <p className="mb-2 font-semibold">NFT</p>
+            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-first bg-gradient-to-br from-brand-blue/20 to-brand-blue/10">
+              <p className="mb-2 font-semibold text-brand-blue">NFT</p>
               <h2 className="text-h3 mb-5 font-bold md:mb-6">
-                Current NFT market 
+                Current NFT market
               </h2>
-              <p>
-                Each pixel block becomes your digital real estate on the
-                blockchain. Immutable. Permanent.
+              <p className="mb-6">
+                Digital art ownership on the blockchain is revolutionizing the art market.
               </p>
+
+              {/* NFT Statistics */}
+              <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
+                <StatCard icon={BarChart3} label="Market Cap" value={23800000000} prefix="$" />
+                <StatCard icon={TrendingUp} label="Yearly Growth" value={127} suffix="%" />
+              </div>
+
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                <Link to="/xframe">
-                  <Button variant="secondary">Xpixel</Button>
+                <Link to="/xpixel">
+                  <Button variant="secondary" className="group shadow-lg hover:shadow-xl transition-all duration-300">
+                    <span className="relative z-10">Xpixel</span>
+                  </Button>
                 </Link>
                 <Link to="/how-it-works">
                   <Button
                     variant="link"
                     size="link"
-                    iconRight={<ChevronRight className="text-scheme-text" />}
+                    className="group"
+                    iconRight={<ChevronRight className="text-scheme-text transition-transform group-hover:translate-x-1" />}
                   >
                     How it works
                   </Button>
@@ -94,24 +159,33 @@ export function Layout410() {
             className="grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "21%" }}
           >
-            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last">
-              <p className="mb-2 font-semibold">ART</p>
+            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last bg-gradient-to-br from-brand-orange/20 to-brand-orange/10">
+              <p className="mb-2 font-semibold text-brand-orange">ART</p>
               <h2 className="text-h3 mb-5 font-bold md:mb-6">
-                Current ART market 
+                Current ART market
               </h2>
-              <p>
-                Each pixel block becomes your digital real estate on the
-                blockchain. Immutable. Permanent.
+              <p className="mb-6">
+                The traditional and digital art market combined creates unprecedented opportunities.
               </p>
+
+              {/* ART Statistics */}
+              <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
+                <StatCard icon={DollarSign} label="Forecast 2025" value={67500000000} prefix="$" />
+                <StatCard icon={Activity} label="Monthly Volume" value={892000000} prefix="$" />
+              </div>
+
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                <Link to="/xframe">
-                  <Button variant="secondary">Xpixel</Button>
+                <Link to="/xpixel">
+                  <Button variant="secondary" className="group shadow-lg hover:shadow-xl transition-all duration-300">
+                    <span className="relative z-10">Xpixel</span>
+                  </Button>
                 </Link>
                 <Link to="/how-it-works">
                   <Button
                     variant="link"
                     size="link"
-                    iconRight={<ChevronRight className="text-scheme-text" />}
+                    className="group"
+                    iconRight={<ChevronRight className="text-scheme-text transition-transform group-hover:translate-x-1" />}
                   >
                     How it works
                   </Button>
@@ -129,24 +203,33 @@ export function Layout410() {
             className="grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "24%" }}
           >
-            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-first">
-              <p className="mb-2 font-semibold">"ART"</p>
+            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-first bg-gradient-to-br from-brand-red/20 to-brand-red/10">
+              <p className="mb-2 font-semibold text-brand-red">Popular Projects</p>
               <h2 className="text-h3 mb-5 font-bold md:mb-6">
-                Popular projects
+                Iconic Art Milestones
               </h2>
-              <p>
-                Each pixel block becomes your digital real estate on the
-                blockchain. Immutable. Permanent.
+              <p className="mb-6">
+                From Comedian to cryptopunks, art continues to push boundaries and redefine value.
               </p>
+
+              {/* Popular Projects Statistics */}
+              <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
+                <StatCard icon={Zap} label="Record Sale" value={6200000} prefix="$" />
+                <StatCard icon={TrendingUp} label="Appreciation" value={342} suffix="%" />
+              </div>
+
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                <Link to="/xframe">
-                  <Button variant="secondary">Xpixel</Button>
+                <Link to="/xpixel">
+                  <Button variant="secondary" className="group shadow-lg hover:shadow-xl transition-all duration-300">
+                    <span className="relative z-10">Xpixel</span>
+                  </Button>
                 </Link>
                 <Link to="/how-it-works">
                   <Button
                     variant="link"
                     size="link"
-                    iconRight={<ChevronRight className="text-scheme-text" />}
+                    className="group"
+                    iconRight={<ChevronRight className="text-scheme-text transition-transform group-hover:translate-x-1" />}
                   >
                     How it works
                   </Button>
@@ -164,24 +247,33 @@ export function Layout410() {
             className="grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "21%" }}
           >
-            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last">
-              <p className="mb-2 font-semibold">Xpixel</p>
+            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last bg-gradient-to-br from-brand-primary/20 to-brand-primary/10">
+              <p className="mb-2 font-semibold text-brand-primary">Xpixel</p>
               <h2 className="text-h3 mb-5 font-bold md:mb-6">
                 The Digital Mona Lisa is in our hands
               </h2>
-              <p>
-                Each pixel block becomes your digital real estate on the
-                blockchain. Immutable. Permanent.
+              <p className="mb-6">
+                Join thousands of creators building the next masterpiece together on the blockchain.
               </p>
+
+              {/* Xpixel Statistics */}
+              <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
+                <StatCard icon={Users} label="Contributors" value={8420} />
+                <StatCard icon={Activity} label="Pixels Owned" value={234567} />
+              </div>
+
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                <Link to="/xframe">
-                  <Button variant="secondary">Xpixel</Button>
+                <Link to="/xpixel">
+                  <Button variant="secondary" className="group shadow-lg hover:shadow-xl transition-all duration-300">
+                    <span className="relative z-10">Xpixel</span>
+                  </Button>
                 </Link>
                 <Link to="/how-it-works">
                   <Button
                     variant="link"
                     size="link"
-                    iconRight={<ChevronRight className="text-scheme-text" />}
+                    className="group"
+                    iconRight={<ChevronRight className="text-scheme-text transition-transform group-hover:translate-x-1" />}
                   >
                     How it works
                   </Button>
