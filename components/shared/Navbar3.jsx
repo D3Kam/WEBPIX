@@ -71,7 +71,7 @@ export function Navbar3() {
             to="/xframe"
             className="text-base font-semibold text-scheme-text hover:text-brand-primary hover:bg-brand-primary/10 px-4 py-2 rounded-lg transition-all duration-300"
           >
-            Xframe
+            Xpixel
           </Link>
           <Link
             to="/about"
@@ -198,7 +198,7 @@ export function Navbar3() {
                       className="block rounded-lg px-4 py-3 text-base font-semibold text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-brand-primary"
                       onClick={useActive.toggleMobileMenu}
                     >
-                      Xframe
+                      Xpixel
                     </Link>
                     <Link
                       to="/about"

@@ -27,8 +27,8 @@ export function Layout22() {
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
               <Link to="/xframe">
-                <Button title="Xframe" variant="secondary">
-                  Xframe
+                <Button title="Xpixel" variant="secondary">
+                  Xpixel
                 </Button>
               </Link>
             </div>

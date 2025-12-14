@@ -36,7 +36,7 @@ export function Footer2() {
                 </li>
                 <li className="py-2 text-small">
                   <a href="#" className="flex items-center gap-3">
-                    Xframe
+                    Xpixel
                   </a>
                 </li>
                 <li className="py-2 text-small">

@@ -4,7 +4,7 @@ import { AuthProvider } from './contexts/AuthContext'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import ScrollToTop from './components/ScrollToTop'
 import Home from '../home/index.jsx'
-import Xframe from '../xframe/index.jsx'
+import Xpixel from '../xpixel/index.jsx'
 import About from '../about/index.jsx'
 import Contact from '../contact/index.jsx'
 import Faq from '../faq/index.jsx'
@@ -23,7 +23,7 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/xframe" element={<Xframe />} />
+          <Route path="/xpixel" element={<Xpixel />} />
           <Route path="/buy" element={<Purchase />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

@@ -9,6 +9,20 @@
   position: absolute;
   background-color: #03ffce;
   overflow: hidden;
+  animation: pulsate 2s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(3, 255, 206, 0.7);
+}
+
+@keyframes pulsate {
+  0% {
+    box-shadow: 0 0 0 0 rgba(3, 255, 206, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(3, 255, 206, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(3, 255, 206, 0);
+  }
 }
 
 .preview-settings {
@@ -138,14 +152,14 @@
   opacity:.75;
 }
 
-/* ===== Xframe: responsive square ===== */
+/* ===== Xpixel: responsive square ===== */
 #frame{
   position: relative;
   width: clamp(260px, 92vw, 960px); /* fills small screens, caps on large */
   aspect-ratio: 1 / 1;             /* always a square */
   margin: 0 auto 28px;
   border-radius: 12px;
-  background: #0f1012;
+  background: #0f1012 url('/WEBPIX/media/images/square_frame_with_pixels.png') center/cover no-repeat;
   overflow: hidden;
   box-shadow: 0 12px 34px rgba(0,0,0,.35);
 }

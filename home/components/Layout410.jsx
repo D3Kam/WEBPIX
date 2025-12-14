@@ -35,7 +35,7 @@ export function Layout410() {
               </p>
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
                 <Link to="/xframe">
-                  <Button variant="secondary">Xframe</Button>
+                  <Button variant="secondary">Xpixel</Button>
                 </Link>
                 <Link to="/how-it-works">
                   <Button
@@ -70,7 +70,7 @@ export function Layout410() {
               </p>
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
                 <Link to="/xframe">
-                  <Button variant="secondary">Xframe</Button>
+                  <Button variant="secondary">Xpixel</Button>
                 </Link>
                 <Link to="/how-it-works">
                   <Button
@@ -105,7 +105,7 @@ export function Layout410() {
               </p>
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
                 <Link to="/xframe">
-                  <Button variant="secondary">Xframe</Button>
+                  <Button variant="secondary">Xpixel</Button>
                 </Link>
                 <Link to="/how-it-works">
                   <Button
@@ -140,7 +140,7 @@ export function Layout410() {
               </p>
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
                 <Link to="/xframe">
-                  <Button variant="secondary">Xframe</Button>
+                  <Button variant="secondary">Xpixel</Button>
                 </Link>
                 <Link to="/how-it-works">
                   <Button
@@ -175,7 +175,7 @@ export function Layout410() {
               </p>
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
                 <Link to="/xframe">
-                  <Button variant="secondary">Xframe</Button>
+                  <Button variant="secondary">Xpixel</Button>
                 </Link>
                 <Link to="/how-it-works">
                   <Button

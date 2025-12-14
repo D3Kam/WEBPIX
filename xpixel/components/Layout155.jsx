@@ -38,9 +38,9 @@ export function Layout155() {
       <div className="container flex flex-col items-center text-center">
       <div className="mt-12 md:mt-18 lg:mt-20">
           <div className="mx-auto w-full max-w-lg">
-            <p className="mb-3 font-semibold md:mb-4">Xframe</p>
+            <p className="mb-3 font-semibold md:mb-4">Xpixel</p>
             <h2 className="mb-5 text-h2 font-bold md:mb-6">
-              Try Xframe
+              Try Xpixel
             </h2>
             <p className="text-medium">
               Select your sector,
@@ -85,10 +85,18 @@ export function Layout155() {
                     accept="image/*"
                     onChange={handleImageUpload}
                   />
-                  <label htmlFor="imageUpload" className="btn btn-accent btn-upload">
-                    <Upload className="inline-block mr-2" aria-hidden="true" />
-                    <span>Upload image</span>
-                  </label>
+                  <div className="upload-button-wrapper group relative inline-block">
+                    <label htmlFor="imageUpload" className="btn btn-accent btn-upload">
+                      <Upload className="inline-block mr-2" aria-hidden="true" />
+                      <span>Upload</span>
+                    </label>
+                    <div className="upload-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 bg-neutral-darkest text-white text-sm rounded-lg p-3 shadow-xl z-10">
+                      <div className="text-center">
+                        This is a preview of how your artpiece would look like inside Xpixel
+                      </div>
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-neutral-darkest"></div>
+                    </div>
+                  </div>
                   <span id="fileName" className="file-name" aria-live="polite"></span>
                 </div>
               </div>

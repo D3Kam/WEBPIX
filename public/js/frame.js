@@ -133,9 +133,10 @@
 
   function buildOverlaysOnce() {
     if (!frame.querySelector(".boundary")) {
-      addBoundary(S_S2_OUT, "Sector 2 – 33% (locked)");
-      addBoundary(S_S3_OUT, "Sector 3 – 33% (locked)");
-      addBoundary(S_CENTER, "Center – 1%");
+      addBoundary(100, "Sector 0");       // Outer Edge
+      addBoundary(S_S2_OUT, "Sector 2");  // Middle Ring
+      addBoundary(S_S3_OUT, "Sector 3");  // Inner Ring
+      addBoundary(S_CENTER, "Center");    // Center
     }
     updateLockOverlay();
   }

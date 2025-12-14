@@ -10,7 +10,7 @@ module.exports = {
       "./how-it-works/**/*.{js,ts,jsx,tsx}",
       "./legal/**/*.{js,ts,jsx,tsx}",
       "./account/**/*.{js,ts,jsx,tsx}",
-      "./xframe/**/*.{js,ts,jsx,tsx}",
+      "./xpixel/**/*.{js,ts,jsx,tsx}",
       "./components/**/*.{js,ts,jsx,tsx}",
       "./hooks/**/*.{js,ts,jsx,tsx}",
       "./node_modules/@relume_io/relume-ui/dist/**/*.{js,ts,jsx,tsx}",

@@ -32,12 +32,12 @@ export function Layout399() {
               <div className="mt-5 md:mt-6">
                 <Link to="/xframe">
                   <Button
-                    title="Xframe"
+                    title="Xpixel"
                     variant="link"
                     size="link"
                     iconRight={<ChevronRight className="text-scheme-text" />}
                   >
-                    Xframe
+                    Xpixel
                   </Button>
                 </Link>
               </div>
@@ -59,12 +59,12 @@ export function Layout399() {
               <div className="mt-5 md:mt-6">
                 <Link to="/xframe">
                   <Button
-                    title="Xframe"
+                    title="Xpixel"
                     variant="link"
                     size="link"
                     iconRight={<ChevronRight className="text-scheme-text" />}
                   >
-                    Xframe
+                    Xpixel
                   </Button>
                 </Link>
               </div>
@@ -113,12 +113,12 @@ export function Layout399() {
               <div className="mt-5 md:mt-6">
                 <Link to="/xframe">
                   <Button
-                    title="Xframe"
+                    title="Xpixel"
                     variant="link"
                     size="link"
                     iconRight={<ChevronRight className="text-scheme-text" />}
                   >
-                    Xframe
+                    Xpixel
                   </Button>
                 </Link>
               </div>
