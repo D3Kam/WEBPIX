@@ -139,7 +139,7 @@
       addBoundary(S_S1_OUT, "Sector 1");        // Outer Ring
       addBoundary(S_S2_OUT, "Sector 2");        // Middle Ring
       addBoundary(S_S3_OUT, "Sector 3");        // Inner Ring
-      addBoundary(S_CENTER, "Sector 4");        // Center
+      addBoundary(S_CENTER, "Center");          // Center
     }
     updateLockOverlay();
   }

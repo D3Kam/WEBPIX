@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Enhanced smooth scrolling for entire site */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  /* Smooth momentum scrolling on mobile */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Optimize scroll performance */
+  body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}

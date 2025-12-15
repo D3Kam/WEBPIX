@@ -1,8 +1,13 @@
 
+/* Frame-specific smooth transitions */
+#frame {
+  will-change: transform;
+}
 
-/* Smooth scroll */
-:root {
-  scroll-behavior: smooth;
+#frame .mark,
+#frame .boundary,
+#frame .lock-overlay {
+  will-change: transform, opacity;
 }
 
 .mark {
