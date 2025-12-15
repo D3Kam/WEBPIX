@@ -69,6 +69,23 @@ const SECTORS = [
       "Maximum visibility",
       "Limited availability"
     ]
+  },
+  {
+    id: 4,
+    name: "Sector 4",
+    subtitle: "Center",
+    pricePerPixel: 1024,
+    color: "brand-primary",
+    bgColor: "bg-brand-primary",
+    textColor: "text-brand-primary",
+    borderColor: "border-brand-primary",
+    description: "The absolute center - ultimate prestige and focal point",
+    features: [
+      "Dead center placement",
+      "Ultimate visibility",
+      "Extreme scarcity"
+    ],
+    isUltimate: true
   }
 ];
 
@@ -172,6 +189,11 @@ export function Pricing6() {
                   {sector.id === 3 && (
                     <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 px-3 py-1 text-xs font-bold text-amber-950 shadow-md z-10">
                       ELITE
+                    </div>
+                  )}
+                  {sector.isUltimate && (
+                    <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 px-3 py-1 text-xs font-bold text-white shadow-md z-10">
+                      ULTIMATE
                     </div>
                   )}
 
