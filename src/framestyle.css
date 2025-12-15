@@ -213,16 +213,22 @@
 
 /* Little corner tags for labels */
 #frame .sector-tag{
-  position:absolute; top:-14px; left:-2px;
-  transform: translateY(-100%);
-  background: #0f1012;
+  position:absolute; bottom: 8px; right: 8px;
+  background: rgba(15,16,18, 0.85);
   color: #03ffce;
-  padding: 2px 6px;
+  padding: 4px 8px;
   font: 600 12px/1.1 var(--heading-font);
   border-radius: 6px;
   border: 1px solid rgba(3,255,206,.35);
   box-shadow: 0 2px 6px rgba(0,0,0,.25);
   white-space: nowrap;
+  backdrop-filter: blur(4px);
+}
+
+/* Outer edge label stays outside */
+#frame .sector-tag-outer{
+  top:-14px; left:-2px; bottom: auto; right: auto;
+  transform: translateY(-100%);
 }
 
 /* Blur lock overlay for Stage 2 & 3 */

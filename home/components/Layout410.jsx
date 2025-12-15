@@ -7,7 +7,7 @@ import { ChevronRight, TrendingUp, Users, DollarSign, Activity, BarChart3, Zap }
 import { Link } from "react-router-dom";
 import { useCounter } from "@/hooks/use-counter";
 
-function StatCard({ icon: Icon, label, value, suffix = "", prefix = "" }) {
+function StatCard({ icon: Icon, label, value, suffix = "", prefix = "", dark = false }) {
   const [count, startCounting] = useCounter(value, 2000);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -36,14 +36,14 @@ function StatCard({ icon: Icon, label, value, suffix = "", prefix = "" }) {
 
   return (
     <div ref={ref} className="flex items-center gap-3">
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm">
-        <Icon className="h-6 w-6 text-white" />
+      <div className={`flex h-12 w-12 items-center justify-center rounded-full ${dark ? 'bg-neutral-darkest/10' : 'bg-white/10'} backdrop-blur-sm`}>
+        <Icon className={`h-6 w-6 ${dark ? 'text-neutral-darkest' : 'text-white'}`} />
       </div>
       <div>
-        <div className="text-2xl font-bold text-white">
+        <div className={`text-2xl font-bold ${dark ? 'text-neutral-darkest' : 'text-white'}`}>
           {prefix}{count.toLocaleString()}{suffix}
         </div>
-        <div className="text-sm text-white/80">{label}</div>
+        <div className={`text-sm ${dark ? 'text-neutral-dark' : 'text-white/80'}`}>{label}</div>
       </div>
     </div>
   );
@@ -104,10 +104,14 @@ export function Layout410() {
                 </Link>
               </div>
             </div>
-            <div className="order-last flex flex-col items-center justify-center md:order-first">
-              <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                alt="Testimonials video"
+            <div className="order-last flex flex-col items-center justify-center md:order-first bg-neutral-darkest">
+              <video
+                src="/WEBPIX/media/videos/testimonials_mock.mp4"
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
               />
             </div>
           </Card>
@@ -126,8 +130,8 @@ export function Layout410() {
 
               {/* NFT Statistics */}
               <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
-                <StatCard icon={BarChart3} label="Market Cap" value={23800000000} prefix="$" />
-                <StatCard icon={TrendingUp} label="Yearly Growth" value={127} suffix="%" />
+                <StatCard icon={BarChart3} label="Market Cap" value={23800000000} prefix="$" dark />
+                <StatCard icon={TrendingUp} label="Yearly Growth" value={127} suffix="%" dark />
               </div>
 
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
@@ -170,8 +174,8 @@ export function Layout410() {
 
               {/* ART Statistics */}
               <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
-                <StatCard icon={DollarSign} label="Forecast 2025" value={67500000000} prefix="$" />
-                <StatCard icon={Activity} label="Monthly Volume" value={892000000} prefix="$" />
+                <StatCard icon={DollarSign} label="Forecast 2025" value={67500000000} prefix="$" dark />
+                <StatCard icon={Activity} label="Monthly Volume" value={892000000} prefix="$" dark />
               </div>
 
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
@@ -214,8 +218,8 @@ export function Layout410() {
 
               {/* Popular Projects Statistics */}
               <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
-                <StatCard icon={Zap} label="Record Sale" value={6200000} prefix="$" />
-                <StatCard icon={TrendingUp} label="Appreciation" value={342} suffix="%" />
+                <StatCard icon={Zap} label="Record Sale" value={6200000} prefix="$" dark />
+                <StatCard icon={TrendingUp} label="Appreciation" value={342} suffix="%" dark />
               </div>
 
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
@@ -258,8 +262,8 @@ export function Layout410() {
 
               {/* Xpixel Statistics */}
               <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
-                <StatCard icon={Users} label="Contributors" value={8420} />
-                <StatCard icon={Activity} label="Pixels Owned" value={234567} />
+                <StatCard icon={Users} label="Contributors" value={8420} dark />
+                <StatCard icon={Activity} label="Pixels Owned" value={234567} dark />
               </div>
 
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">

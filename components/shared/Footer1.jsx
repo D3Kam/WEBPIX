@@ -77,7 +77,7 @@ export function Footer1() {
                   </Link>
                 </li>
                 <li className="text-small py-2">
-                  <Link to="/xframe" className="flex items-center gap-3 text-neutral-dark transition-colors hover:text-neutral-darkest">
+                  <Link to="/xpixel" className="flex items-center gap-3 text-neutral-dark transition-colors hover:text-neutral-darkest">
                     <span>Pricing</span>
                   </Link>
                 </li>

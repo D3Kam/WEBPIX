@@ -113,7 +113,7 @@ export function Navbar5() {
               canvas
             </a>
             <Link
-              to="/xframe"
+              to="/xpixel"
               className="block py-3 text-base first:pt-7 lg:px-4 lg:py-6 first:lg:pt-6"
             >
               xframe

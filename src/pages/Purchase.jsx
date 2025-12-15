@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Navbar3 } from "@/components/shared/Navbar3";
-import { Footer1 } from "@/components/shared/Footer1";
 import { Check, Lock, Wallet, Circle, ArrowRight, Shield, Zap } from "lucide-react";
 
 const SECTORS = [
@@ -138,9 +136,7 @@ export default function Purchase() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-lightest">
-      <Navbar3 />
-
+    <div className="bg-neutral-lightest">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-brand-primary/10 via-brand-blue/10 to-brand-orange/10 px-[5%] py-12 md:py-16">
         <div className="container max-w-4xl text-center">
@@ -412,8 +408,6 @@ export default function Purchase() {
           </div>
         </div>
       </section>
-
-      <Footer1 />
     </div>
   );
 }

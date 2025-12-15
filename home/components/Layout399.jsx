@@ -30,7 +30,7 @@ export function Layout399() {
                 <p>Intuitive grid system for precise pixel selection</p>
               </div>
               <div className="mt-5 md:mt-6">
-                <Link to="/xframe">
+                <Link to="/xpixel">
                   <Button
                     title="Xpixel"
                     variant="link"
@@ -57,7 +57,7 @@ export function Layout399() {
                 <p>Drag and preview your artwork with ease</p>
               </div>
               <div className="mt-5 md:mt-6">
-                <Link to="/xframe">
+                <Link to="/xpixel">
                   <Button
                     title="Xpixel"
                     variant="link"
@@ -111,7 +111,7 @@ export function Layout399() {
                 <p>Undergoing Phase 0</p>
               </div>
               <div className="mt-5 md:mt-6">
-                <Link to="/xframe">
+                <Link to="/xpixel">
                   <Button
                     title="Xpixel"
                     variant="link"

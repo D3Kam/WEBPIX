@@ -92,13 +92,13 @@
   }
 
   /* ---------- visuals: boundaries + lock ---------- */
-  function addBoundary(sidePct, label) {
+  function addBoundary(sidePct, label, isOuterEdge = false) {
     const b = document.createElement("div");
     b.className = "boundary";
     b.style.width = sidePct + "%";
     b.style.height = sidePct + "%";
     const tag = document.createElement("span");
-    tag.className = "sector-tag";
+    tag.className = isOuterEdge ? "sector-tag sector-tag-outer" : "sector-tag";
     tag.textContent = label;
     b.appendChild(tag);
     frame.appendChild(b);
@@ -133,10 +133,11 @@
 
   function buildOverlaysOnce() {
     if (!frame.querySelector(".boundary")) {
-      addBoundary(100, "Sector 0");       // Outer Edge
-      addBoundary(S_S2_OUT, "Sector 2");  // Middle Ring
-      addBoundary(S_S3_OUT, "Sector 3");  // Inner Ring
-      addBoundary(S_CENTER, "Center");    // Center
+      addBoundary(100, "Sector 0", true);  // Outer Edge (label outside)
+      addBoundary(88, "Sector 1");         // Outer Ring
+      addBoundary(S_S2_OUT, "Sector 2");   // Middle Ring
+      addBoundary(S_S3_OUT, "Sector 3");   // Inner Ring
+      addBoundary(S_CENTER, "Center");     // Center
     }
     updateLockOverlay();
   }

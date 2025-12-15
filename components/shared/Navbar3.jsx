@@ -68,7 +68,7 @@ export function Navbar3() {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:space-x-2">
           <Link
-            to="/xframe"
+            to="/xpixel"
             className="text-base font-semibold text-scheme-text hover:text-brand-primary hover:bg-brand-primary/10 px-4 py-2 rounded-lg transition-all duration-300"
           >
             Xpixel
@@ -194,7 +194,7 @@ export function Navbar3() {
                 <nav className="flex-1 overflow-y-auto px-4 py-6">
                   <div className="space-y-1">
                     <Link
-                      to="/xframe"
+                      to="/xpixel"
                       className="block rounded-lg px-4 py-3 text-base font-semibold text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-brand-primary"
                       onClick={useActive.toggleMobileMenu}
                     >

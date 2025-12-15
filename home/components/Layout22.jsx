@@ -26,7 +26,7 @@ export function Layout22() {
               artwork.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Link to="/xframe">
+              <Link to="/xpixel">
                 <Button title="Xpixel" variant="secondary">
                   Xpixel
                 </Button>
