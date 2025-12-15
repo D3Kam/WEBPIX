@@ -3,10 +3,12 @@
   "use strict";
 
   // ===== Sector math by AREA =====
-  const S_CENTER = 10.0;                           // 10% side (center = 1% area)
-  const S_S3_OUT = Math.sqrt(0.34) * 100;          // ~58.3095% (center + S3)
-  const S_S2_OUT = Math.sqrt(0.67) * 100;          // ~81.8535% (center + S3 + S2)
-  const S_S1_OUT = 100.0;
+  // Based on: S4=1%, S3=33%, S2=33%, S1=29.04%, S0=3.96%
+  const S_CENTER = 10.0;                           // 10% side (Sector 4 = 1% area)
+  const S_S3_OUT = Math.sqrt(0.34) * 100;          // ~58.3095% (S4 + S3 = 34% area)
+  const S_S2_OUT = Math.sqrt(0.67) * 100;          // ~81.8535% (S4 + S3 + S2 = 67% area)
+  const S_S1_OUT = Math.sqrt(0.9604) * 100;        // ~98% (S4 + S3 + S2 + S1 = 96.04% area)
+  const S_S0_OUT = 100.0;                          // 100% (full frame including S0)
 
   // Unlock levels:
   // 1 -> unlock S1 only (lock S2+S3+Center)
@@ -92,13 +94,13 @@
   }
 
   /* ---------- visuals: boundaries + lock ---------- */
-  function addBoundary(sidePct, label) {
+  function addBoundary(sidePct, label, isOuterEdge = false) {
     const b = document.createElement("div");
     b.className = "boundary";
     b.style.width = sidePct + "%";
     b.style.height = sidePct + "%";
     const tag = document.createElement("span");
-    tag.className = "sector-tag";
+    tag.className = isOuterEdge ? "sector-tag sector-tag-outer" : "sector-tag";
     tag.textContent = label;
     b.appendChild(tag);
     frame.appendChild(b);
@@ -133,9 +135,11 @@
 
   function buildOverlaysOnce() {
     if (!frame.querySelector(".boundary")) {
-      addBoundary(S_S2_OUT, "Sector 2 – 33% (locked)");
-      addBoundary(S_S3_OUT, "Sector 3 – 33% (locked)");
-      addBoundary(S_CENTER, "Center – 1%");
+      addBoundary(S_S0_OUT, "Sector 0", true);  // Outer Edge (label outside)
+      addBoundary(S_S1_OUT, "Sector 1");        // Outer Ring
+      addBoundary(S_S2_OUT, "Sector 2");        // Middle Ring
+      addBoundary(S_S3_OUT, "Sector 3");        // Inner Ring
+      addBoundary(S_CENTER, "Center");          // Center
     }
     updateLockOverlay();
   }
