@@ -1,18 +1,16 @@
 "use client";
 
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import React, { useState } from "react";
-import { Check, Circle, Sparkles, Star, Wallet, Lock, Shield, Zap, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Check, Circle, Sparkles, Star, ShoppingCart, X, Plus, Minus, Shield, Zap, ArrowRight } from "lucide-react";
 
 const SECTORS = [
   {
     id: 0,
     name: "Sector 0",
     subtitle: "Outer Edge",
-    price: 64,
+    pricePerPixel: 64,
     color: "brand-primary",
     bgColor: "bg-brand-primary",
     textColor: "text-brand-primary",
@@ -21,7 +19,6 @@ const SECTORS = [
     features: [
       "Largest available area",
       "Border positioning advantage",
-      "Perfect for expansive artwork",
       "Best value per pixel"
     ]
   },
@@ -29,7 +26,7 @@ const SECTORS = [
     id: 1,
     name: "Sector 1",
     subtitle: "Outer Ring",
-    price: 128,
+    pricePerPixel: 128,
     color: "brand-blue",
     bgColor: "bg-brand-blue",
     textColor: "text-brand-blue",
@@ -38,15 +35,14 @@ const SECTORS = [
     features: [
       "Substantial canvas space",
       "Strong visual presence",
-      "Balanced visibility",
-      "Great for medium projects"
+      "Balanced visibility"
     ]
   },
   {
     id: 2,
     name: "Sector 2",
     subtitle: "Middle Ring",
-    price: 256,
+    pricePerPixel: 256,
     color: "brand-orange",
     bgColor: "bg-brand-orange",
     textColor: "text-brand-orange",
@@ -55,15 +51,14 @@ const SECTORS = [
     features: [
       "Premium canvas location",
       "High attention zone",
-      "Close to center",
-      "Featured artwork spotlight"
+      "Featured spotlight"
     ]
   },
   {
     id: 3,
     name: "Sector 3",
     subtitle: "Inner Ring",
-    price: 512,
+    pricePerPixel: 512,
     color: "brand-red",
     bgColor: "bg-brand-red",
     textColor: "text-brand-red",
@@ -72,350 +67,287 @@ const SECTORS = [
     features: [
       "Elite near-center placement",
       "Maximum visibility",
-      "Guaranteed focal attention",
       "Limited availability"
     ]
   }
 ];
 
-const WALLETS = [
-  { name: "MetaMask", icon: "🦊", popular: true },
-  { name: "Trust Wallet", icon: "🔷", popular: true },
-  { name: "Phantom", icon: "👻", popular: true },
-  { name: "Coinbase Wallet", icon: "🔵", popular: false },
-  { name: "WalletConnect", icon: "🔗", popular: false }
-];
+const PIXELS_PER_BLOCK = 100; // 10x10 pixels
+const MAX_BLOCKS = 5;
 
 export function Pricing6() {
-  const [selectedSector, setSelectedSector] = useState(null);
-  const [step, setStep] = useState(1); // 1: Select Sector, 2: Connect Wallet, 3: Confirm
-  const [selectedWallet, setSelectedWallet] = useState(null);
-  const [isConnecting, setIsConnecting] = useState(false);
+  const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const handleSectorSelect = (sector) => {
-    setSelectedSector(sector);
-    setStep(2);
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const addToCart = (sector) => {
+    if (getTotalBlocks() >= MAX_BLOCKS) {
+      alert(`Maximum ${MAX_BLOCKS} blocks (10x10 pixels each) allowed per purchase`);
+      return;
+    }
 
-  const handleWalletConnect = async (wallet) => {
-    setSelectedWallet(wallet);
-    setIsConnecting(true);
-
-    // Simulate wallet connection (Demo mode)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    setIsConnecting(false);
-    setStep(3);
-  };
-
-  const handlePurchase = async () => {
-    // Demo purchase - show success message
-    alert(`🎨 Demo Purchase Successful!\n\nSector: ${selectedSector.name}\nPrice: $${selectedSector.price}\nWallet: ${selectedWallet.name}\n\n(This is a demo - no actual transaction occurred)`);
-
-    // Reset
-    setStep(1);
-    setSelectedSector(null);
-    setSelectedWallet(null);
-  };
-
-  const handleBack = () => {
-    if (step === 2) {
-      setStep(1);
-      setSelectedSector(null);
-      setSelectedWallet(null);
-    } else if (step === 3) {
-      setStep(2);
-      setSelectedWallet(null);
+    const existingItem = cart.find(item => item.sector.id === sector.id);
+    if (existingItem) {
+      updateQuantity(sector.id, existingItem.quantity + 1);
+    } else {
+      setCart([...cart, { sector, quantity: 1 }]);
+      setIsCartOpen(true);
     }
   };
 
+  const removeFromCart = (sectorId) => {
+    setCart(cart.filter(item => item.sector.id !== sectorId));
+  };
+
+  const updateQuantity = (sectorId, newQuantity) => {
+    if (newQuantity <= 0) {
+      removeFromCart(sectorId);
+      return;
+    }
+
+    const otherBlocks = cart
+      .filter(item => item.sector.id !== sectorId)
+      .reduce((sum, item) => sum + item.quantity, 0);
+
+    if (otherBlocks + newQuantity > MAX_BLOCKS) {
+      alert(`Maximum ${MAX_BLOCKS} blocks total allowed`);
+      return;
+    }
+
+    setCart(cart.map(item =>
+      item.sector.id === sectorId ? { ...item, quantity: newQuantity } : item
+    ));
+  };
+
+  const getTotalBlocks = () => {
+    return cart.reduce((sum, item) => sum + item.quantity, 0);
+  };
+
+  const getTotalPrice = () => {
+    return cart.reduce((sum, item) => sum + (item.sector.pricePerPixel * item.quantity), 0);
+  };
+
+  const getTotalPixels = () => {
+    return getTotalBlocks() * PIXELS_PER_BLOCK;
+  };
+
+  const handleCheckout = () => {
+    if (cart.length === 0) {
+      alert("Your cart is empty");
+      return;
+    }
+
+    const summary = cart.map(item =>
+      `${item.sector.name}: ${item.quantity} block(s) (${item.quantity * PIXELS_PER_BLOCK} pixels) - $${item.sector.pricePerPixel * item.quantity}`
+    ).join('\n');
+
+    alert(`🎨 Demo Checkout\n\n${summary}\n\nTotal: ${getTotalBlocks()} blocks (${getTotalPixels()} pixels)\nPrice: $${getTotalPrice()}\n\n(This is a demo - no actual transaction will occur)`);
+  };
+
   return (
-    <section className="bg-gradient-to-b from-white via-neutral-lightest to-white px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container max-w-5xl">
-        {/* Progress Steps */}
-        {step > 1 && (
-          <div className="mb-12 border-b border-neutral-dark/20 bg-brand-primary/5 rounded-lg p-6">
-            <div className="flex items-center justify-center gap-4">
-              <div className={`flex items-center gap-2 ${step >= 1 ? 'text-neutral-darkest' : 'text-neutral-dark'}`}>
-                <div className={`flex h-8 w-8 items-center justify-center rounded-full ${step >= 1 ? 'bg-neutral-darkest text-white' : 'bg-neutral-dark/20 text-neutral-dark'}`}>
-                  1
-                </div>
-                <span className="hidden font-medium sm:inline">Select Sector</span>
-              </div>
-              <div className="h-px w-12 bg-neutral-dark/20" />
-              <div className={`flex items-center gap-2 ${step >= 2 ? 'text-neutral-darkest' : 'text-neutral-dark'}`}>
-                <div className={`flex h-8 w-8 items-center justify-center rounded-full ${step >= 2 ? 'bg-neutral-darkest text-white' : 'bg-neutral-dark/20 text-neutral-dark'}`}>
-                  2
-                </div>
-                <span className="hidden font-medium sm:inline">Connect Wallet</span>
-              </div>
-              <div className="h-px w-12 bg-neutral-dark/20" />
-              <div className={`flex items-center gap-2 ${step >= 3 ? 'text-neutral-darkest' : 'text-neutral-dark'}`}>
-                <div className={`flex h-8 w-8 items-center justify-center rounded-full ${step >= 3 ? 'bg-neutral-darkest text-white' : 'bg-neutral-dark/20 text-neutral-dark'}`}>
-                  3
-                </div>
-                <span className="hidden font-medium sm:inline">Confirm</span>
-              </div>
-            </div>
+    <section className="px-[5%] py-16 md:py-24 lg:py-28 bg-gradient-to-b from-white via-neutral-lightest to-white">
+      <div className="container max-w-7xl">
+        {/* Header */}
+        <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-4 py-2 text-sm font-semibold text-brand-primary">
+            <Sparkles className="h-4 w-4" />
+            Transparent Pricing
           </div>
-        )}
+          <h1 className="mb-5 text-h1 font-bold md:mb-6">
+            Choose Your Xpixel Space
+          </h1>
+          <p className="text-large text-neutral-dark">
+            Select sectors and add 10×10 pixel blocks to your cart. Maximum {MAX_BLOCKS} blocks per purchase.
+          </p>
+        </div>
 
-        {/* Step 1: Sector Selection */}
-        {step === 1 && (
-          <>
-            <div className="mx-auto mb-12 max-w-2xl text-center md:mb-18 lg:mb-20">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-4 py-2 text-sm font-semibold text-brand-primary">
-                <Sparkles className="h-4 w-4" />
-                Transparent Pricing
-              </div>
-              <h1 className="mb-5 text-h1 font-bold md:mb-6">
-                Choose Your Xpixel
-              </h1>
-              <p className="text-large text-neutral-dark">
-                Each sector offers unique positioning and value on the Xpixel canvas.
-                Select the space that matches your creative vision and budget.
-              </p>
-            </div>
-
-            <Tabs defaultValue="sector0" className="w-full">
-              {/* Enhanced Tab Navigation */}
-              <TabsList className="mx-auto mb-12 grid w-full max-w-4xl grid-cols-2 gap-3 rounded-xl bg-white p-2 shadow-lg ring-1 ring-neutral-lighter md:grid-cols-4">
-                {SECTORS.map((sector) => (
-                  <TabsTrigger
-                    key={sector.id}
-                    value={`sector${sector.id}`}
-                    className={`group relative flex flex-col items-center gap-2 rounded-lg px-4 py-4 text-sm font-semibold transition-all duration-200 data-[state=active]:bg-gradient-to-br data-[state=active]:from-${sector.color} data-[state=active]:to-${sector.color}/80 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=inactive]:bg-transparent data-[state=inactive]:hover:bg-neutral-lightest`}
-                  >
-                    <Circle className="h-5 w-5 transition-transform group-data-[state=active]:scale-110" />
-                    <span className="text-xs font-bold">{sector.name}</span>
-                    <span className="text-xs font-normal opacity-80">{sector.subtitle}</span>
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-
-              {/* Sector Cards */}
+        <div className="grid gap-8 lg:grid-cols-3">
+          {/* Sector Cards */}
+          <div className="lg:col-span-2">
+            <div className="grid gap-6 sm:grid-cols-2">
               {SECTORS.map((sector) => (
-                <TabsContent
-                  key={sector.id}
-                  value={`sector${sector.id}`}
-                  className="container max-w-2xl data-[state=active]:animate-tabs"
-                >
-                  <Card className={`group relative overflow-hidden border-2 ${sector.borderColor} bg-white shadow-2xl transition-all duration-300 hover:shadow-${sector.color}/20`}>
-                    {sector.id === 3 && (
-                      <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 px-3 py-1 text-xs font-bold text-amber-950 shadow-md">
-                        MOST PRESTIGIOUS
-                      </div>
-                    )}
-
-                    <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-${sector.color}/50 via-${sector.color} to-${sector.color}/50`} />
-
-                    <div className="px-6 py-8 md:p-10">
-                      <div className="mb-8 text-center">
-                        <div className={`mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-${sector.color}/20 to-${sector.color}/10 px-5 py-2.5 ring-2 ring-${sector.color}/20`}>
-                          <Circle className={`h-5 w-5 fill-${sector.color} ${sector.textColor}`} />
-                          <span className={`text-sm font-bold ${sector.textColor}`}>{sector.name} - {sector.subtitle}</span>
-                        </div>
-
-                        <div className="my-6">
-                          <div className="mb-3 flex items-baseline justify-center gap-2">
-                            <span className="text-6xl font-black text-neutral-darkest">${sector.price}</span>
-                            <span className="text-lg font-medium text-neutral-dark">USD</span>
-                          </div>
-                          <h2 className="text-2xl font-bold text-neutral-darkest">
-                            {sector.id === 0 ? "Maximum Exposure" :
-                             sector.id === 1 ? "Balanced Visibility" :
-                             sector.id === 2 ? "Premium Position" :
-                             "Elite Central Zone"}
-                          </h2>
-                        </div>
-
-                        <p className="mx-auto max-w-lg text-base leading-relaxed text-neutral-dark">
-                          {sector.description}
-                        </p>
-                      </div>
-
-                      <div className="mb-8 space-y-4 rounded-xl bg-neutral-lightest/50 p-6">
-                        {sector.features.map((feature, i) => (
-                          <div key={i} className="flex items-start gap-3">
-                            <div className={`flex-shrink-0 rounded-full ${sector.bgColor}/10 p-1.5`}>
-                              <Check className={`h-4 w-4 ${sector.textColor}`} strokeWidth={3} />
-                            </div>
-                            <p className="text-sm font-medium text-neutral-darkest">{feature}</p>
-                          </div>
-                        ))}
-                      </div>
-
-                      <Button
-                        onClick={() => handleSectorSelect(sector)}
-                        variant="primary"
-                        size="lg"
-                        className={`w-full bg-gradient-to-r from-${sector.color} to-${sector.color}/90`}
-                        iconRight={<Star className="h-5 w-5" />}
-                      >
-                        Select {sector.name}
-                      </Button>
-                    </div>
-                  </Card>
-                </TabsContent>
-              ))}
-            </Tabs>
-
-            {/* Trust Section */}
-            <div className="mt-16 rounded-2xl bg-gradient-to-br from-neutral-lightest to-white p-8 shadow-lg ring-1 ring-neutral-lighter">
-              <p className="text-center text-sm font-medium text-neutral-dark">
-                ✨ All sectors come with <span className="font-bold text-neutral-darkest">permanent blockchain ownership</span>, instant visibility on the collaborative canvas, and a piece of digital art history.
-              </p>
-            </div>
-          </>
-        )}
-
-        {/* Step 2: Wallet Connection */}
-        {step === 2 && (
-          <div>
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 text-h2 font-bold">Connect Your Wallet</h2>
-              <p className="text-medium text-neutral-dark">
-                Choose your preferred Ethereum wallet to complete the purchase.
-              </p>
-            </div>
-
-            {/* Selected Sector Summary */}
-            <Card className="mb-8 bg-gradient-to-r from-neutral-lightest to-white">
-              <div className="p-6">
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-full ${selectedSector?.bgColor}/10`}>
-                      <Circle className={`h-6 w-6 ${selectedSector?.textColor}`} />
-                    </div>
-                    <div>
-                      <h3 className="font-bold">{selectedSector?.name} - {selectedSector?.subtitle}</h3>
-                      <p className="text-sm text-neutral-dark">{selectedSector?.description}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-h3 font-bold">${selectedSector?.price}</div>
-                    <p className="text-sm text-neutral">USD</p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {WALLETS.map((wallet) => (
                 <Card
-                  key={wallet.name}
-                  className="group cursor-pointer border-2 border-transparent transition-all duration-300 hover:-translate-y-2 hover:border-brand-primary/30 hover:shadow-2xl hover:shadow-brand-primary/10"
-                  onClick={() => handleWalletConnect(wallet)}
+                  key={sector.id}
+                  className={`group relative overflow-hidden border-2 ${sector.borderColor} bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-${sector.color}/20`}
                 >
-                  <div className="p-6 text-center">
-                    <div className="mb-3 text-5xl transition-transform duration-300 group-hover:scale-110">{wallet.icon}</div>
-                    <h3 className="mb-1 text-lg font-bold">{wallet.name}</h3>
-                    {wallet.popular && (
-                      <span className="inline-block rounded-full bg-gradient-to-r from-brand-primary to-brand-primary/80 px-3 py-1 text-xs font-semibold text-white shadow-md">
-                        Popular
-                      </span>
-                    )}
+                  {sector.id === 3 && (
+                    <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 px-3 py-1 text-xs font-bold text-amber-950 shadow-md z-10">
+                      ELITE
+                    </div>
+                  )}
+
+                  <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-${sector.color}/50 via-${sector.color} to-${sector.color}/50`} />
+
+                  <div className="p-6">
+                    <div className="mb-6">
+                      <div className={`mb-3 inline-flex items-center gap-2 rounded-full ${sector.bgColor}/10 px-4 py-2`}>
+                        <Circle className={`h-4 w-4 fill-${sector.color} ${sector.textColor}`} />
+                        <span className={`text-sm font-bold ${sector.textColor}`}>{sector.name}</span>
+                      </div>
+
+                      <div className="mb-3">
+                        <div className="mb-1 flex items-baseline gap-2">
+                          <span className="text-4xl font-black text-neutral-darkest">${sector.pricePerPixel}</span>
+                          <span className="text-sm font-medium text-neutral-dark">per block</span>
+                        </div>
+                        <p className="text-xs text-neutral-dark">10×10 pixels ({PIXELS_PER_BLOCK} total)</p>
+                      </div>
+
+                      <p className="mb-4 text-sm text-neutral-dark">{sector.description}</p>
+
+                      <ul className="space-y-2">
+                        {sector.features.map((feature, i) => (
+                          <li key={i} className="flex items-start gap-2 text-xs">
+                            <Check className={`mt-0.5 h-3 w-3 flex-shrink-0 ${sector.textColor}`} strokeWidth={3} />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Button
+                      onClick={() => addToCart(sector)}
+                      variant="primary"
+                      className={`w-full bg-gradient-to-r from-${sector.color} to-${sector.color}/90`}
+                      iconRight={<Plus className="h-4 w-4" />}
+                      disabled={getTotalBlocks() >= MAX_BLOCKS}
+                    >
+                      Add to Cart
+                    </Button>
                   </div>
                 </Card>
               ))}
             </div>
-
-            <div className="mt-8 text-center">
-              <Button
-                variant="ghost"
-                onClick={handleBack}
-                iconLeft={<ArrowLeft className="h-4 w-4" />}
-              >
-                Back to Sector Selection
-              </Button>
-            </div>
-
-            {isConnecting && (
-              <div className="mt-8 rounded-lg bg-brand-primary/10 p-6 text-center">
-                <div className="mb-2 text-lg font-semibold">Connecting to {selectedWallet?.name}...</div>
-                <p className="text-sm text-neutral-dark">Please approve the connection in your wallet</p>
-              </div>
-            )}
           </div>
-        )}
 
-        {/* Step 3: Confirmation */}
-        {step === 3 && (
-          <div>
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 text-h2 font-bold">Confirm Purchase</h2>
-              <p className="text-medium text-neutral-dark">
-                Review your selection and complete the transaction.
-              </p>
-            </div>
-
-            <Card className="mx-auto max-w-2xl">
-              <div className="p-8">
-                <div className="mb-8 text-center">
-                  <div className="mb-4 flex justify-center">
-                    <div className={`flex h-20 w-20 items-center justify-center rounded-full ${selectedSector?.bgColor}/10`}>
-                      <Circle className={`h-10 w-10 ${selectedSector?.textColor}`} />
+          {/* Cart Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24">
+              <Card className="border-2 border-brand-primary/20 bg-white shadow-xl">
+                <div className="border-b border-neutral-lighter p-6">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-bold">Your Cart</h3>
+                    <div className="flex items-center gap-2 rounded-full bg-brand-primary px-3 py-1">
+                      <ShoppingCart className="h-4 w-4 text-white" />
+                      <span className="text-sm font-bold text-white">{getTotalBlocks()}/{MAX_BLOCKS}</span>
                     </div>
                   </div>
-                  <h3 className="mb-2 text-h3 font-bold">{selectedSector?.name}</h3>
-                  <p className="text-neutral-dark">{selectedSector?.subtitle}</p>
                 </div>
 
-                <div className="mb-8 space-y-4 border-y border-neutral-lighter py-6">
-                  <div className="flex justify-between">
-                    <span className="text-neutral-dark">Sector</span>
-                    <span className="font-semibold">{selectedSector?.name}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-neutral-dark">Price</span>
-                    <span className="font-semibold">${selectedSector?.price} USD</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-neutral-dark">Wallet</span>
-                    <span className="font-semibold">{selectedWallet?.icon} {selectedWallet?.name}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-neutral-dark">Network</span>
-                    <span className="font-semibold">Ethereum</span>
-                  </div>
+                <div className="p-6">
+                  {cart.length === 0 ? (
+                    <div className="py-8 text-center">
+                      <ShoppingCart className="mx-auto mb-3 h-12 w-12 text-neutral-light" />
+                      <p className="text-sm text-neutral-dark">Your cart is empty</p>
+                      <p className="mt-1 text-xs text-neutral">Add blocks to get started</p>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      {cart.map((item) => (
+                        <div
+                          key={item.sector.id}
+                          className={`rounded-lg border-2 ${item.sector.borderColor} bg-gradient-to-br from-${item.sector.color}/5 to-transparent p-4`}
+                        >
+                          <div className="mb-3 flex items-start justify-between">
+                            <div>
+                              <div className="flex items-center gap-2">
+                                <Circle className={`h-3 w-3 fill-${item.sector.color} ${item.sector.textColor}`} />
+                                <span className="font-bold text-sm">{item.sector.name}</span>
+                              </div>
+                              <p className="mt-1 text-xs text-neutral-dark">
+                                {item.quantity * PIXELS_PER_BLOCK} pixels
+                              </p>
+                            </div>
+                            <button
+                              onClick={() => removeFromCart(item.sector.id)}
+                              className="rounded-full p-1 hover:bg-neutral-darker/10 transition-colors"
+                            >
+                              <X className="h-4 w-4 text-neutral-dark" />
+                            </button>
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => updateQuantity(item.sector.id, item.quantity - 1)}
+                                className="flex h-7 w-7 items-center justify-center rounded-full bg-neutral-lighter hover:bg-neutral-light transition-colors"
+                              >
+                                <Minus className="h-3 w-3" />
+                              </button>
+                              <span className="w-8 text-center font-bold">{item.quantity}</span>
+                              <button
+                                onClick={() => updateQuantity(item.sector.id, item.quantity + 1)}
+                                className="flex h-7 w-7 items-center justify-center rounded-full bg-neutral-lighter hover:bg-neutral-light transition-colors"
+                                disabled={getTotalBlocks() >= MAX_BLOCKS}
+                              >
+                                <Plus className="h-3 w-3" />
+                              </button>
+                            </div>
+                            <span className="font-bold">
+                              ${item.sector.pricePerPixel * item.quantity}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {cart.length > 0 && (
+                    <>
+                      <div className="my-6 space-y-3 border-y border-neutral-lighter py-4">
+                        <div className="flex justify-between text-sm">
+                          <span className="text-neutral-dark">Total Blocks</span>
+                          <span className="font-semibold">{getTotalBlocks()} blocks</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-neutral-dark">Total Pixels</span>
+                          <span className="font-semibold">{getTotalPixels()} pixels</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="font-semibold">Total Price</span>
+                          <span className="text-2xl font-black text-brand-primary">${getTotalPrice()}</span>
+                        </div>
+                      </div>
+
+                      <div className="mb-4 rounded-lg bg-brand-blue/10 p-3">
+                        <div className="flex items-start gap-2">
+                          <Shield className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-blue" />
+                          <p className="text-xs text-neutral-dark">
+                            Demo mode - No actual transaction will occur
+                          </p>
+                        </div>
+                      </div>
+
+                      <Button
+                        onClick={handleCheckout}
+                        variant="primary"
+                        size="lg"
+                        className="w-full"
+                        iconRight={<Zap className="h-5 w-5" />}
+                      >
+                        Proceed to Checkout
+                      </Button>
+                    </>
+                  )}
                 </div>
+              </Card>
 
-                <div className="mb-6 rounded-lg bg-brand-blue/10 p-4">
-                  <div className="mb-2 flex items-center gap-2 font-semibold text-brand-blue">
-                    <Shield className="h-5 w-5" />
-                    Demo Mode
+              {/* Trust Badge */}
+              <div className="mt-6 rounded-xl bg-gradient-to-br from-neutral-lightest to-white p-6 shadow-md ring-1 ring-neutral-lighter">
+                <div className="flex items-start gap-3">
+                  <div className="rounded-full bg-brand-primary/10 p-2">
+                    <Star className="h-5 w-5 text-brand-primary" />
                   </div>
-                  <p className="text-sm text-neutral-dark">
-                    This is a demonstration. No actual blockchain transaction will occur. Your wallet will not be charged.
-                  </p>
-                </div>
-
-                <div className="space-y-3">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    className="w-full"
-                    onClick={handlePurchase}
-                    iconRight={<Zap className="h-5 w-5" />}
-                  >
-                    Complete Purchase (Demo)
-                  </Button>
-
-                  <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={handleBack}
-                    iconLeft={<ArrowLeft className="h-4 w-4" />}
-                  >
-                    Change Wallet
-                  </Button>
+                  <div>
+                    <h4 className="mb-1 font-bold text-sm">Blockchain Secured</h4>
+                    <p className="text-xs text-neutral-dark">
+                      Permanent ownership recorded on Ethereum blockchain
+                    </p>
+                  </div>
                 </div>
               </div>
-            </Card>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
