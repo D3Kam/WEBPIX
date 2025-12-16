@@ -193,11 +193,23 @@ export function Pricing6() {
                   {cart.map((item) => (
                     <div
                       key={item.sector.id}
-                      className={`inline-flex items-center gap-2 rounded-full ${item.sector.bgColor} px-3 py-1 text-white font-semibold text-sm`}
+                      className={`inline-flex items-center gap-2 rounded-full px-3 py-1 font-semibold text-sm ${
+                        item.sector.color === 'brand-primary' ? `${item.sector.bgColor} text-neutral-darkest` :
+                        item.sector.color === 'neutral' ? `${item.sector.bgColor} text-neutral-darkest` :
+                        `${item.sector.bgColor} text-white`
+                      }`}
                     >
-                      <Circle className="h-3 w-3 fill-white" />
+                      <Circle className={`h-3 w-3 ${
+                        item.sector.color === 'brand-primary' ? 'fill-neutral-darkest' :
+                        item.sector.color === 'neutral' ? 'fill-neutral-darkest' :
+                        'fill-white'
+                      }`} />
                       <span>{item.sector.name}</span>
-                      <span className="bg-white/20 rounded-full px-2 py-0.5 text-xs">×{item.quantity}</span>
+                      <span className={`rounded-full px-2 py-0.5 text-xs ${
+                        item.sector.color === 'brand-primary' ? 'bg-neutral-darkest/20' :
+                        item.sector.color === 'neutral' ? 'bg-neutral-darkest/20' :
+                        'bg-white/20'
+                      }`}>×{item.quantity}</span>
                     </div>
                   ))}
                 </div>
@@ -254,7 +266,11 @@ export function Pricing6() {
                     )}
 
                     {isSelected && quantity > 0 && !sector.isLocked && (
-                      <div className={`absolute right-4 top-4 rounded-full ${sector.bgColor} px-4 py-2 text-white font-bold shadow-lg z-10`}>
+                      <div className={`absolute right-4 top-4 rounded-full px-4 py-2 font-bold shadow-lg z-10 ${
+                        sector.color === 'brand-primary' ? `${sector.bgColor} text-neutral-darkest` :
+                        sector.color === 'neutral' ? `${sector.bgColor} text-neutral-darkest` :
+                        `${sector.bgColor} text-white`
+                      }`}>
                         ×{quantity}
                       </div>
                     )}
@@ -279,14 +295,19 @@ export function Pricing6() {
 
                   <div className="p-6">
                     <div className="mb-6">
-                      {/* Sector badge with proper contrast */}
+                      {/* Sector badge with proper contrast - dark text on bright backgrounds */}
                       <div className={`mb-3 inline-flex items-center gap-2 rounded-full px-4 py-2 ${
-                        sector.color === 'brand-primary' ? 'bg-brand-primary text-white' :
+                        sector.color === 'brand-primary' ? 'bg-brand-primary text-neutral-darkest' :
                         sector.color === 'neutral-dark' ? 'bg-neutral-dark text-white' :
-                        sector.color === 'neutral' ? 'bg-neutral text-white' :
+                        sector.color === 'neutral' ? 'bg-neutral text-neutral-darkest' :
                         'bg-neutral-darker text-white'
                       }`}>
-                        <Circle className="h-4 w-4 fill-white text-white" />
+                        <Circle className={`h-4 w-4 ${
+                          sector.color === 'brand-primary' ? 'fill-neutral-darkest text-neutral-darkest' :
+                          sector.color === 'neutral-dark' ? 'fill-white text-white' :
+                          sector.color === 'neutral' ? 'fill-neutral-darkest text-neutral-darkest' :
+                          'fill-white text-white'
+                        }`} />
                         <span className="text-sm font-bold">{sector.name}</span>
                       </div>
 
@@ -319,7 +340,7 @@ export function Pricing6() {
                     <Button
                       onClick={() => addToCart(sector)}
                       variant="primary"
-                      className="w-full bg-brand-primary text-white hover:bg-brand-primary/90"
+                      className="w-full bg-brand-primary text-neutral-darkest hover:bg-brand-primary/90"
                       iconRight={<Plus className="h-4 w-4" />}
                       disabled={getTotalBlocks() >= MAX_BLOCKS || sector.isLocked}
                     >

@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-gradient-to-r from-brand-primary to-brand-primary/90 text-white shadow-lg hover:scale-[1.02] hover:shadow-xl hover:shadow-brand-primary/30',
+          'bg-gradient-to-r from-brand-primary to-brand-primary/90 text-neutral-darkest shadow-lg hover:scale-[1.02] hover:shadow-xl hover:shadow-brand-primary/30',
         secondary:
           'bg-white text-neutral-darkest border-2 border-transparent shadow-md hover:bg-brand-primary hover:text-neutral-darkest hover:scale-105 hover:shadow-xl',
         'secondary-alt':
