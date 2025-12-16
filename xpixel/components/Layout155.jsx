@@ -72,9 +72,12 @@ export function Layout155() {
         </div>
         <div className="w-full">
 
-          <div>
+          <div className="mt-8">
 
-            <div id="frame"></div>
+            {/* Frame needs top padding for Sector 0 label */}
+            <div className="pt-8">
+              <div id="frame"></div>
+            </div>
               <div className="preview-settings">
                 <div className="controls">
                 <div className="upload-section">
