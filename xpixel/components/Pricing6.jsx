@@ -170,32 +170,78 @@ export function Pricing6() {
             Transparent Pricing
           </div>
           <h1 className="mb-5 text-h1 font-bold md:mb-6">
-            Choose Your Xpixel Space
+            Choose Your Sector
           </h1>
           <p className="text-large text-neutral-dark">
             Select sectors and add 10×10 pixel blocks to your cart. Maximum {MAX_BLOCKS} blocks per purchase.
           </p>
         </div>
 
+        {/* Sector Selection Status */}
+        {cart.length > 0 && (
+          <div className="mx-auto mb-8 max-w-3xl rounded-xl bg-gradient-to-r from-brand-primary/10 to-brand-blue/10 p-6 border-2 border-brand-primary/20">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <div>
+                <h3 className="font-bold text-lg mb-2">Your Selection</h3>
+                <div className="flex flex-wrap gap-2">
+                  {cart.map((item) => (
+                    <div
+                      key={item.sector.id}
+                      className={`inline-flex items-center gap-2 rounded-full ${item.sector.bgColor} px-3 py-1 text-white font-semibold text-sm`}
+                    >
+                      <Circle className="h-3 w-3 fill-white" />
+                      <span>{item.sector.name}</span>
+                      <span className="bg-white/20 rounded-full px-2 py-0.5 text-xs">×{item.quantity}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-sm text-neutral-dark mb-1">Total Blocks</div>
+                <div className="text-3xl font-black text-brand-primary">{getTotalBlocks()}/{MAX_BLOCKS}</div>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Sector Cards */}
           <div className="lg:col-span-2">
             <div className="grid gap-6 sm:grid-cols-2">
-              {SECTORS.map((sector) => (
-                <Card
-                  key={sector.id}
-                  className={`group relative overflow-hidden border-2 ${sector.borderColor} bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-${sector.color}/20`}
-                >
-                  {sector.id === 3 && (
-                    <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 px-3 py-1 text-xs font-bold text-amber-950 shadow-md z-10">
-                      ELITE
-                    </div>
-                  )}
-                  {sector.isUltimate && (
-                    <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 px-3 py-1 text-xs font-bold text-white shadow-md z-10">
-                      ULTIMATE
-                    </div>
-                  )}
+              {SECTORS.map((sector) => {
+                const cartItem = cart.find(item => item.sector.id === sector.id);
+                const isSelected = !!cartItem;
+                const quantity = cartItem?.quantity || 0;
+
+                return (
+                  <Card
+                    key={sector.id}
+                    className={`group relative overflow-hidden border-2 ${sector.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-${sector.color}/20 ${
+                      isSelected ? `bg-gradient-to-br from-${sector.color}/5 to-white ring-2 ring-${sector.color}` : 'bg-white'
+                    }`}
+                  >
+                    {isSelected && (
+                      <div className="absolute left-4 top-4 rounded-full bg-gradient-to-r from-green-400 to-green-600 p-2 shadow-lg z-10 animate-in zoom-in">
+                        <Check className="h-4 w-4 text-white" strokeWidth={3} />
+                      </div>
+                    )}
+
+                    {isSelected && quantity > 0 && (
+                      <div className={`absolute right-4 top-4 rounded-full ${sector.bgColor} px-4 py-2 text-white font-bold shadow-lg z-10`}>
+                        ×{quantity}
+                      </div>
+                    )}
+
+                    {!isSelected && sector.id === 3 && (
+                      <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 px-3 py-1 text-xs font-bold text-amber-950 shadow-md z-10">
+                        ELITE
+                      </div>
+                    )}
+                    {!isSelected && sector.isUltimate && (
+                      <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 px-3 py-1 text-xs font-bold text-white shadow-md z-10">
+                        ULTIMATE
+                      </div>
+                    )}
 
                   <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-${sector.color}/50 via-${sector.color} to-${sector.color}/50`} />
 
@@ -237,7 +283,8 @@ export function Pricing6() {
                     </Button>
                   </div>
                 </Card>
-              ))}
+                );
+              })}
             </div>
           </div>
 

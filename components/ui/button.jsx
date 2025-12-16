@@ -11,15 +11,15 @@ const buttonVariants = cva(
         primary:
           'bg-gradient-to-r from-brand-primary to-brand-primary/90 text-white shadow-lg hover:scale-[1.02] hover:shadow-xl hover:shadow-brand-primary/30',
         secondary:
-          'bg-white text-neutral-darkest border-2 border-transparent shadow-md hover:scale-105 hover:shadow-xl hover:border-brand-primary/20',
+          'bg-white text-neutral-darkest border-2 border-transparent shadow-md hover:bg-brand-primary hover:text-neutral-darkest hover:scale-105 hover:shadow-xl',
         'secondary-alt':
-          'bg-transparent text-white border-2 border-white shadow-md hover:bg-white hover:text-neutral-darkest hover:scale-105',
+          'bg-transparent text-white border-2 border-white shadow-md hover:bg-brand-primary hover:text-neutral-darkest hover:border-brand-primary hover:scale-105',
         alternate:
-          'bg-white text-neutral-darkest shadow-lg hover:scale-105 hover:shadow-2xl hover:shadow-brand-primary/30',
+          'bg-white text-neutral-darkest shadow-lg hover:bg-brand-primary hover:text-neutral-darkest hover:scale-105 hover:shadow-2xl',
         outline:
-          'border-2 border-neutral-light bg-transparent hover:bg-neutral-lightest hover:border-brand-primary/50 hover:shadow-md',
+          'border-2 border-neutral-light bg-transparent text-neutral-darkest hover:bg-brand-primary hover:text-neutral-darkest hover:border-brand-primary hover:shadow-md',
         ghost:
-          'hover:bg-neutral-lightest hover:text-brand-primary',
+          'text-neutral-darkest hover:bg-brand-primary hover:text-neutral-darkest',
         link:
           'text-scheme-text underline-offset-4 hover:underline hover:text-brand-primary',
         danger:
