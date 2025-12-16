@@ -165,7 +165,7 @@
   margin: 0 auto 28px;
   border-radius: 12px;
   background: #0f1012 url('/WEBPIX/media/images/Xpixel_frame.png') center/cover no-repeat;
-  overflow: hidden;
+  overflow: visible;  /* Allow Sector 0 label to show outside */
   box-shadow: 0 12px 34px rgba(0,0,0,.35);
 }
 

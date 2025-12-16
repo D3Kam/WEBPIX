@@ -11,10 +11,11 @@ const SECTORS = [
     name: "Sector 0",
     subtitle: "Outer Edge",
     pricePerPixel: 64,
-    color: "brand-primary",
-    bgColor: "bg-brand-primary",
-    textColor: "text-brand-primary",
-    borderColor: "border-brand-primary",
+    totalBlocks: 396,
+    color: "neutral-dark",
+    bgColor: "bg-neutral-dark",
+    textColor: "text-neutral-dark",
+    borderColor: "border-neutral-dark",
     description: "Maximum canvas space with bold visibility",
     features: [
       "Largest available area",
@@ -27,10 +28,11 @@ const SECTORS = [
     name: "Sector 1",
     subtitle: "Outer Ring",
     pricePerPixel: 128,
-    color: "brand-blue",
-    bgColor: "bg-brand-blue",
-    textColor: "text-brand-blue",
-    borderColor: "border-brand-blue",
+    totalBlocks: 2904,
+    color: "neutral",
+    bgColor: "bg-neutral",
+    textColor: "text-neutral",
+    borderColor: "border-neutral",
     description: "Strategic positioning with excellent exposure",
     features: [
       "Substantial canvas space",
@@ -43,10 +45,11 @@ const SECTORS = [
     name: "Sector 2",
     subtitle: "Middle Ring",
     pricePerPixel: 256,
-    color: "brand-orange",
-    bgColor: "bg-brand-orange",
-    textColor: "text-brand-orange",
-    borderColor: "border-brand-orange",
+    totalBlocks: 3300,
+    color: "neutral-darker",
+    bgColor: "bg-neutral-darker",
+    textColor: "text-neutral-darker",
+    borderColor: "border-neutral-darker",
     description: "Premium positioning closer to the focal point",
     features: [
       "Premium canvas location",
@@ -59,10 +62,11 @@ const SECTORS = [
     name: "Sector 3",
     subtitle: "Inner Ring",
     pricePerPixel: 512,
-    color: "brand-red",
-    bgColor: "bg-brand-red",
-    textColor: "text-brand-red",
-    borderColor: "border-brand-red",
+    totalBlocks: 3300,
+    color: "brand-primary",
+    bgColor: "bg-brand-primary",
+    textColor: "text-brand-primary",
+    borderColor: "border-brand-primary",
     description: "Elite central positioning with maximum prestige",
     features: [
       "Elite near-center placement",
@@ -75,6 +79,7 @@ const SECTORS = [
     name: "Sector 4",
     subtitle: "Center",
     pricePerPixel: 1024,
+    totalBlocks: 100,
     color: "brand-primary",
     bgColor: "bg-brand-primary",
     textColor: "text-brand-primary",
@@ -85,7 +90,8 @@ const SECTORS = [
       "Ultimate visibility",
       "Extreme scarcity"
     ],
-    isUltimate: true
+    isUltimate: true,
+    isLocked: true
   }
 ];
 
@@ -218,68 +224,85 @@ export function Pricing6() {
                   if (!isSelected) return 'bg-white';
                   switch(sector.color) {
                     case 'brand-primary': return 'bg-gradient-to-br from-brand-primary/5 to-white ring-2 ring-brand-primary';
-                    case 'brand-blue': return 'bg-gradient-to-br from-brand-blue/5 to-white ring-2 ring-brand-blue';
-                    case 'brand-orange': return 'bg-gradient-to-br from-brand-orange/5 to-white ring-2 ring-brand-orange';
-                    case 'brand-red': return 'bg-gradient-to-br from-brand-red/5 to-white ring-2 ring-brand-red';
+                    case 'neutral-dark': return 'bg-gradient-to-br from-neutral-dark/5 to-white ring-2 ring-neutral-dark';
+                    case 'neutral': return 'bg-gradient-to-br from-neutral/5 to-white ring-2 ring-neutral';
+                    case 'neutral-darker': return 'bg-gradient-to-br from-neutral-darker/5 to-white ring-2 ring-neutral-darker';
                     default: return 'bg-white';
                   }
                 };
 
+                const soldBlocks = cart.find(item => item.sector.id === sector.id)?.quantity || 0;
+                const remainingBlocks = sector.totalBlocks - soldBlocks;
+
                 return (
                   <Card
                     key={sector.id}
-                    className={`group relative overflow-hidden border-2 ${sector.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${getBgClass()}`}
+                    className={`group relative overflow-hidden border-2 ${sector.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${getBgClass()} ${sector.isLocked ? 'opacity-60' : ''}`}
                   >
-                    {isSelected && (
+                    {sector.isLocked && (
+                      <div className="absolute inset-0 bg-neutral-darkest/20 backdrop-blur-[1px] z-20 flex items-center justify-center">
+                        <div className="bg-neutral-darkest/90 px-6 py-3 rounded-lg text-white font-bold text-lg">
+                          🔒 LOCKED
+                        </div>
+                      </div>
+                    )}
+
+                    {isSelected && !sector.isLocked && (
                       <div className="absolute left-4 top-4 rounded-full bg-gradient-to-r from-green-400 to-green-600 p-2 shadow-lg z-10 animate-in zoom-in">
                         <Check className="h-4 w-4 text-white" strokeWidth={3} />
                       </div>
                     )}
 
-                    {isSelected && quantity > 0 && (
+                    {isSelected && quantity > 0 && !sector.isLocked && (
                       <div className={`absolute right-4 top-4 rounded-full ${sector.bgColor} px-4 py-2 text-white font-bold shadow-lg z-10`}>
                         ×{quantity}
                       </div>
                     )}
 
-                    {!isSelected && sector.id === 3 && (
+                    {!isSelected && sector.id === 3 && !sector.isLocked && (
                       <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 px-3 py-1 text-xs font-bold text-amber-950 shadow-md z-10">
                         ELITE
                       </div>
                     )}
-                    {!isSelected && sector.isUltimate && (
-                      <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 px-3 py-1 text-xs font-bold text-white shadow-md z-10">
-                        ULTIMATE
+                    {!isSelected && sector.isUltimate && sector.isLocked && (
+                      <div className="absolute right-4 top-4 rounded-full bg-neutral-darkest/80 px-3 py-1 text-xs font-bold text-white shadow-md z-10">
+                        LOCKED
                       </div>
                     )}
 
                   <div className={`absolute inset-x-0 top-0 h-1 ${
                     sector.color === 'brand-primary' ? 'bg-gradient-to-r from-brand-primary/50 via-brand-primary to-brand-primary/50' :
-                    sector.color === 'brand-blue' ? 'bg-gradient-to-r from-brand-blue/50 via-brand-blue to-brand-blue/50' :
-                    sector.color === 'brand-orange' ? 'bg-gradient-to-r from-brand-orange/50 via-brand-orange to-brand-orange/50' :
-                    'bg-gradient-to-r from-brand-red/50 via-brand-red to-brand-red/50'
+                    sector.color === 'neutral-dark' ? 'bg-gradient-to-r from-neutral-dark/50 via-neutral-dark to-neutral-dark/50' :
+                    sector.color === 'neutral' ? 'bg-gradient-to-r from-neutral/50 via-neutral to-neutral/50' :
+                    'bg-gradient-to-r from-neutral-darker/50 via-neutral-darker to-neutral-darker/50'
                   }`} />
 
                   <div className="p-6">
                     <div className="mb-6">
                       <div className={`mb-3 inline-flex items-center gap-2 rounded-full px-4 py-2 ${
                         sector.color === 'brand-primary' ? 'bg-brand-primary/10' :
-                        sector.color === 'brand-blue' ? 'bg-brand-blue/10' :
-                        sector.color === 'brand-orange' ? 'bg-brand-orange/10' :
-                        'bg-brand-red/10'
+                        sector.color === 'neutral-dark' ? 'bg-neutral-dark/10' :
+                        sector.color === 'neutral' ? 'bg-neutral/10' :
+                        'bg-neutral-darker/10'
                       }`}>
                         <Circle className={`h-4 w-4 ${
                           sector.color === 'brand-primary' ? 'fill-brand-primary text-brand-primary' :
-                          sector.color === 'brand-blue' ? 'fill-brand-blue text-brand-blue' :
-                          sector.color === 'brand-orange' ? 'fill-brand-orange text-brand-orange' :
-                          'fill-brand-red text-brand-red'
+                          sector.color === 'neutral-dark' ? 'fill-neutral-dark text-neutral-dark' :
+                          sector.color === 'neutral' ? 'fill-neutral text-neutral' :
+                          'fill-neutral-darker text-neutral-darker'
                         }`} />
                         <span className={`text-sm font-bold ${
                           sector.color === 'brand-primary' ? 'text-brand-primary' :
-                          sector.color === 'brand-blue' ? 'text-brand-blue' :
-                          sector.color === 'brand-orange' ? 'text-brand-orange' :
-                          'text-brand-red'
+                          sector.color === 'neutral-dark' ? 'text-neutral-dark' :
+                          sector.color === 'neutral' ? 'text-neutral' :
+                          'text-neutral-darker'
                         }`}>{sector.name}</span>
+                      </div>
+
+                      <div className="mb-3 flex items-center justify-between">
+                        <div className="text-xs text-neutral-dark bg-neutral-lighter px-3 py-1 rounded-full font-semibold">
+                          {remainingBlocks.toLocaleString()} blocks available
+                        </div>
                       </div>
 
                       <div className="mb-3">
@@ -297,9 +320,9 @@ export function Pricing6() {
                           <li key={i} className="flex items-start gap-2 text-xs">
                             <Check className={`mt-0.5 h-3 w-3 flex-shrink-0 ${
                               sector.color === 'brand-primary' ? 'text-brand-primary' :
-                              sector.color === 'brand-blue' ? 'text-brand-blue' :
-                              sector.color === 'brand-orange' ? 'text-brand-orange' :
-                              'text-brand-red'
+                              sector.color === 'neutral-dark' ? 'text-neutral-dark' :
+                              sector.color === 'neutral' ? 'text-neutral' :
+                              'text-neutral-darker'
                             }`} strokeWidth={3} />
                             <span>{feature}</span>
                           </li>
@@ -312,14 +335,14 @@ export function Pricing6() {
                       variant="primary"
                       className={`w-full ${
                         sector.color === 'brand-primary' ? 'bg-gradient-to-r from-brand-primary to-brand-primary/90' :
-                        sector.color === 'brand-blue' ? 'bg-gradient-to-r from-brand-blue to-brand-blue/90' :
-                        sector.color === 'brand-orange' ? 'bg-gradient-to-r from-brand-orange to-brand-orange/90' :
-                        'bg-gradient-to-r from-brand-red to-brand-red/90'
+                        sector.color === 'neutral-dark' ? 'bg-gradient-to-r from-neutral-dark to-neutral-dark/90' :
+                        sector.color === 'neutral' ? 'bg-gradient-to-r from-neutral to-neutral/90' :
+                        'bg-gradient-to-r from-neutral-darker to-neutral-darker/90'
                       }`}
                       iconRight={<Plus className="h-4 w-4" />}
-                      disabled={getTotalBlocks() >= MAX_BLOCKS}
+                      disabled={getTotalBlocks() >= MAX_BLOCKS || sector.isLocked}
                     >
-                      Add to Cart
+                      {sector.isLocked ? '🔒 Locked' : 'Add to Cart'}
                     </Button>
                   </div>
                 </Card>
