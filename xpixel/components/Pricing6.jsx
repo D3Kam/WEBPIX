@@ -213,12 +213,22 @@ export function Pricing6() {
                 const isSelected = !!cartItem;
                 const quantity = cartItem?.quantity || 0;
 
+                // Get explicit classes based on sector color to avoid Tailwind purging
+                const getBgClass = () => {
+                  if (!isSelected) return 'bg-white';
+                  switch(sector.color) {
+                    case 'brand-primary': return 'bg-gradient-to-br from-brand-primary/5 to-white ring-2 ring-brand-primary';
+                    case 'brand-blue': return 'bg-gradient-to-br from-brand-blue/5 to-white ring-2 ring-brand-blue';
+                    case 'brand-orange': return 'bg-gradient-to-br from-brand-orange/5 to-white ring-2 ring-brand-orange';
+                    case 'brand-red': return 'bg-gradient-to-br from-brand-red/5 to-white ring-2 ring-brand-red';
+                    default: return 'bg-white';
+                  }
+                };
+
                 return (
                   <Card
                     key={sector.id}
-                    className={`group relative overflow-hidden border-2 ${sector.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-${sector.color}/20 ${
-                      isSelected ? `bg-gradient-to-br from-${sector.color}/5 to-white ring-2 ring-${sector.color}` : 'bg-white'
-                    }`}
+                    className={`group relative overflow-hidden border-2 ${sector.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${getBgClass()}`}
                   >
                     {isSelected && (
                       <div className="absolute left-4 top-4 rounded-full bg-gradient-to-r from-green-400 to-green-600 p-2 shadow-lg z-10 animate-in zoom-in">
@@ -243,13 +253,33 @@ export function Pricing6() {
                       </div>
                     )}
 
-                  <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-${sector.color}/50 via-${sector.color} to-${sector.color}/50`} />
+                  <div className={`absolute inset-x-0 top-0 h-1 ${
+                    sector.color === 'brand-primary' ? 'bg-gradient-to-r from-brand-primary/50 via-brand-primary to-brand-primary/50' :
+                    sector.color === 'brand-blue' ? 'bg-gradient-to-r from-brand-blue/50 via-brand-blue to-brand-blue/50' :
+                    sector.color === 'brand-orange' ? 'bg-gradient-to-r from-brand-orange/50 via-brand-orange to-brand-orange/50' :
+                    'bg-gradient-to-r from-brand-red/50 via-brand-red to-brand-red/50'
+                  }`} />
 
                   <div className="p-6">
                     <div className="mb-6">
-                      <div className={`mb-3 inline-flex items-center gap-2 rounded-full ${sector.bgColor}/10 px-4 py-2`}>
-                        <Circle className={`h-4 w-4 fill-${sector.color} ${sector.textColor}`} />
-                        <span className={`text-sm font-bold ${sector.textColor}`}>{sector.name}</span>
+                      <div className={`mb-3 inline-flex items-center gap-2 rounded-full px-4 py-2 ${
+                        sector.color === 'brand-primary' ? 'bg-brand-primary/10' :
+                        sector.color === 'brand-blue' ? 'bg-brand-blue/10' :
+                        sector.color === 'brand-orange' ? 'bg-brand-orange/10' :
+                        'bg-brand-red/10'
+                      }`}>
+                        <Circle className={`h-4 w-4 ${
+                          sector.color === 'brand-primary' ? 'fill-brand-primary text-brand-primary' :
+                          sector.color === 'brand-blue' ? 'fill-brand-blue text-brand-blue' :
+                          sector.color === 'brand-orange' ? 'fill-brand-orange text-brand-orange' :
+                          'fill-brand-red text-brand-red'
+                        }`} />
+                        <span className={`text-sm font-bold ${
+                          sector.color === 'brand-primary' ? 'text-brand-primary' :
+                          sector.color === 'brand-blue' ? 'text-brand-blue' :
+                          sector.color === 'brand-orange' ? 'text-brand-orange' :
+                          'text-brand-red'
+                        }`}>{sector.name}</span>
                       </div>
 
                       <div className="mb-3">
@@ -265,7 +295,12 @@ export function Pricing6() {
                       <ul className="space-y-2">
                         {sector.features.map((feature, i) => (
                           <li key={i} className="flex items-start gap-2 text-xs">
-                            <Check className={`mt-0.5 h-3 w-3 flex-shrink-0 ${sector.textColor}`} strokeWidth={3} />
+                            <Check className={`mt-0.5 h-3 w-3 flex-shrink-0 ${
+                              sector.color === 'brand-primary' ? 'text-brand-primary' :
+                              sector.color === 'brand-blue' ? 'text-brand-blue' :
+                              sector.color === 'brand-orange' ? 'text-brand-orange' :
+                              'text-brand-red'
+                            }`} strokeWidth={3} />
                             <span>{feature}</span>
                           </li>
                         ))}
@@ -275,7 +310,12 @@ export function Pricing6() {
                     <Button
                       onClick={() => addToCart(sector)}
                       variant="primary"
-                      className={`w-full bg-gradient-to-r from-${sector.color} to-${sector.color}/90`}
+                      className={`w-full ${
+                        sector.color === 'brand-primary' ? 'bg-gradient-to-r from-brand-primary to-brand-primary/90' :
+                        sector.color === 'brand-blue' ? 'bg-gradient-to-r from-brand-blue to-brand-blue/90' :
+                        sector.color === 'brand-orange' ? 'bg-gradient-to-r from-brand-orange to-brand-orange/90' :
+                        'bg-gradient-to-r from-brand-red to-brand-red/90'
+                      }`}
                       iconRight={<Plus className="h-4 w-4" />}
                       disabled={getTotalBlocks() >= MAX_BLOCKS}
                     >
