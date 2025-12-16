@@ -279,28 +279,19 @@ export function Pricing6() {
 
                   <div className="p-6">
                     <div className="mb-6">
+                      {/* Sector badge with proper contrast */}
                       <div className={`mb-3 inline-flex items-center gap-2 rounded-full px-4 py-2 ${
-                        sector.color === 'brand-primary' ? 'bg-brand-primary/10' :
-                        sector.color === 'neutral-dark' ? 'bg-neutral-dark/10' :
-                        sector.color === 'neutral' ? 'bg-neutral/10' :
-                        'bg-neutral-darker/10'
+                        sector.color === 'brand-primary' ? 'bg-brand-primary text-white' :
+                        sector.color === 'neutral-dark' ? 'bg-neutral-dark text-white' :
+                        sector.color === 'neutral' ? 'bg-neutral text-white' :
+                        'bg-neutral-darker text-white'
                       }`}>
-                        <Circle className={`h-4 w-4 ${
-                          sector.color === 'brand-primary' ? 'fill-brand-primary text-brand-primary' :
-                          sector.color === 'neutral-dark' ? 'fill-neutral-dark text-neutral-dark' :
-                          sector.color === 'neutral' ? 'fill-neutral text-neutral' :
-                          'fill-neutral-darker text-neutral-darker'
-                        }`} />
-                        <span className={`text-sm font-bold ${
-                          sector.color === 'brand-primary' ? 'text-brand-primary' :
-                          sector.color === 'neutral-dark' ? 'text-neutral-dark' :
-                          sector.color === 'neutral' ? 'text-neutral' :
-                          'text-neutral-darker'
-                        }`}>{sector.name}</span>
+                        <Circle className="h-4 w-4 fill-white text-white" />
+                        <span className="text-sm font-bold">{sector.name}</span>
                       </div>
 
                       <div className="mb-3 flex items-center justify-between">
-                        <div className="text-xs text-neutral-dark bg-neutral-lighter px-3 py-1 rounded-full font-semibold">
+                        <div className="text-xs text-neutral-darkest bg-neutral-lighter px-3 py-1 rounded-full font-semibold">
                           {remainingBlocks.toLocaleString()} blocks available
                         </div>
                       </div>
@@ -318,13 +309,8 @@ export function Pricing6() {
                       <ul className="space-y-2">
                         {sector.features.map((feature, i) => (
                           <li key={i} className="flex items-start gap-2 text-xs">
-                            <Check className={`mt-0.5 h-3 w-3 flex-shrink-0 ${
-                              sector.color === 'brand-primary' ? 'text-brand-primary' :
-                              sector.color === 'neutral-dark' ? 'text-neutral-dark' :
-                              sector.color === 'neutral' ? 'text-neutral' :
-                              'text-neutral-darker'
-                            }`} strokeWidth={3} />
-                            <span>{feature}</span>
+                            <Check className="mt-0.5 h-3 w-3 flex-shrink-0 text-green-600" strokeWidth={3} />
+                            <span className="text-neutral-darker">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -333,12 +319,7 @@ export function Pricing6() {
                     <Button
                       onClick={() => addToCart(sector)}
                       variant="primary"
-                      className={`w-full ${
-                        sector.color === 'brand-primary' ? 'bg-gradient-to-r from-brand-primary to-brand-primary/90' :
-                        sector.color === 'neutral-dark' ? 'bg-gradient-to-r from-neutral-dark to-neutral-dark/90' :
-                        sector.color === 'neutral' ? 'bg-gradient-to-r from-neutral to-neutral/90' :
-                        'bg-gradient-to-r from-neutral-darker to-neutral-darker/90'
-                      }`}
+                      className="w-full bg-brand-primary text-white hover:bg-brand-primary/90"
                       iconRight={<Plus className="h-4 w-4" />}
                       disabled={getTotalBlocks() >= MAX_BLOCKS || sector.isLocked}
                     >
