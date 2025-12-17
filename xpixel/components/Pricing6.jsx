@@ -171,24 +171,24 @@ export function Pricing6() {
       <div className="container max-w-7xl">
         {/* Header */}
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-4 py-2 text-sm font-semibold text-brand-primary">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-2 text-sm font-semibold text-neutral-darkest">
             <Sparkles className="h-4 w-4" />
             Transparent Pricing
           </div>
-          <h1 className="mb-5 text-h1 font-bold md:mb-6">
+          <h1 className="mb-5 text-h1 font-bold text-neutral-darkest md:mb-6">
             Choose Your Sector
           </h1>
-          <p className="text-large text-neutral-dark">
+          <p className="text-large text-neutral-darker">
             Select sectors and add 10×10 pixel blocks to your cart. Maximum {MAX_BLOCKS} blocks per purchase.
           </p>
         </div>
 
         {/* Sector Selection Status */}
         {cart.length > 0 && (
-          <div className="mx-auto mb-8 max-w-3xl rounded-xl bg-gradient-to-r from-brand-primary/10 to-brand-blue/10 p-6 border-2 border-brand-primary/20">
+          <div className="mx-auto mb-8 max-w-3xl rounded-xl bg-neutral-lightest p-6 border-2 border-neutral-light shadow-lg">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
-                <h3 className="font-bold text-lg mb-2">Your Selection</h3>
+                <h3 className="font-bold text-lg mb-2 text-neutral-darkest">Your Selection</h3>
                 <div className="flex flex-wrap gap-2">
                   {cart.map((item) => (
                     <div
@@ -216,7 +216,7 @@ export function Pricing6() {
               </div>
               <div className="text-right">
                 <div className="text-sm text-neutral-dark mb-1">Total Blocks</div>
-                <div className="text-3xl font-black text-brand-primary">{getTotalBlocks()}/{MAX_BLOCKS}</div>
+                <div className="text-3xl font-black text-neutral-darkest">{getTotalBlocks()}/{MAX_BLOCKS}</div>
               </div>
             </div>
           </div>
