@@ -359,10 +359,10 @@ export function Pricing6() {
               <Card className="border-2 border-brand-primary/20 bg-white shadow-xl">
                 <div className="border-b border-neutral-lighter p-6">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-bold">Your Cart</h3>
+                    <h3 className="text-xl font-bold text-neutral-darkest">Your Cart</h3>
                     <div className="flex items-center gap-2 rounded-full bg-brand-primary px-3 py-1">
-                      <ShoppingCart className="h-4 w-4 text-white" />
-                      <span className="text-sm font-bold text-white">{getTotalBlocks()}/{MAX_BLOCKS}</span>
+                      <ShoppingCart className="h-4 w-4 text-neutral-darkest" />
+                      <span className="text-sm font-bold text-neutral-darkest">{getTotalBlocks()}/{MAX_BLOCKS}</span>
                     </div>
                   </div>
                 </div>
@@ -430,15 +430,15 @@ export function Pricing6() {
                       <div className="my-6 space-y-3 border-y border-neutral-lighter py-4">
                         <div className="flex justify-between text-sm">
                           <span className="text-neutral-dark">Total Blocks</span>
-                          <span className="font-semibold">{getTotalBlocks()} blocks</span>
+                          <span className="font-semibold text-neutral-darkest">{getTotalBlocks()} blocks</span>
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-neutral-dark">Total Pixels</span>
-                          <span className="font-semibold">{getTotalPixels()} pixels</span>
+                          <span className="font-semibold text-neutral-darkest">{getTotalPixels()} pixels</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="font-semibold">Total Price</span>
-                          <span className="text-2xl font-black text-brand-primary">${getTotalPrice()}</span>
+                          <span className="font-semibold text-neutral-darkest">Total Price</span>
+                          <span className="text-2xl font-black text-neutral-darkest">${getTotalPrice()}</span>
                         </div>
                       </div>
 
