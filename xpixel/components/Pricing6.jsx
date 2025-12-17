@@ -379,13 +379,13 @@ export function Pricing6() {
                       {cart.map((item) => (
                         <div
                           key={item.sector.id}
-                          className={`rounded-lg border-2 ${item.sector.borderColor} bg-gradient-to-br from-${item.sector.color}/5 to-transparent p-4`}
+                          className="rounded-lg border-2 border-neutral-light bg-white p-4 shadow-sm"
                         >
                           <div className="mb-3 flex items-start justify-between">
                             <div>
                               <div className="flex items-center gap-2">
-                                <Circle className={`h-3 w-3 fill-${item.sector.color} ${item.sector.textColor}`} />
-                                <span className="font-bold text-sm">{item.sector.name}</span>
+                                <div className={`h-3 w-3 rounded-full ${item.sector.bgColor}`}></div>
+                                <span className="font-bold text-sm text-neutral-darkest">{item.sector.name}</span>
                               </div>
                               <p className="mt-1 text-xs text-neutral-dark">
                                 {item.quantity * PIXELS_PER_BLOCK} pixels
@@ -393,7 +393,7 @@ export function Pricing6() {
                             </div>
                             <button
                               onClick={() => removeFromCart(item.sector.id)}
-                              className="rounded-full p-1 hover:bg-neutral-darker/10 transition-colors"
+                              className="rounded-full p-1 hover:bg-neutral-lighter transition-colors"
                             >
                               <X className="h-4 w-4 text-neutral-dark" />
                             </button>
@@ -403,20 +403,20 @@ export function Pricing6() {
                             <div className="flex items-center gap-2">
                               <button
                                 onClick={() => updateQuantity(item.sector.id, item.quantity - 1)}
-                                className="flex h-7 w-7 items-center justify-center rounded-full bg-neutral-lighter hover:bg-neutral-light transition-colors"
+                                className="flex h-7 w-7 items-center justify-center rounded-full bg-neutral-lighter hover:bg-neutral-light transition-colors text-neutral-darkest"
                               >
                                 <Minus className="h-3 w-3" />
                               </button>
-                              <span className="w-8 text-center font-bold">{item.quantity}</span>
+                              <span className="w-8 text-center font-bold text-neutral-darkest">{item.quantity}</span>
                               <button
                                 onClick={() => updateQuantity(item.sector.id, item.quantity + 1)}
-                                className="flex h-7 w-7 items-center justify-center rounded-full bg-neutral-lighter hover:bg-neutral-light transition-colors"
+                                className="flex h-7 w-7 items-center justify-center rounded-full bg-neutral-lighter hover:bg-neutral-light transition-colors text-neutral-darkest"
                                 disabled={getTotalBlocks() >= MAX_BLOCKS}
                               >
                                 <Plus className="h-3 w-3" />
                               </button>
                             </div>
-                            <span className="font-bold">
+                            <span className="font-bold text-neutral-darkest">
                               ${item.sector.pricePerPixel * item.quantity}
                             </span>
                           </div>
