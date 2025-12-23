@@ -50,7 +50,7 @@ function StatCard({ icon: Icon, label, value, suffix = "", prefix = "", dark = f
 }
 
 export function Layout410() {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [watchedSlides, setWatchedSlides] = useState(new Set());
   const slideRefs = useRef([]);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export function Layout410() {
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            setActiveSlide(index);
+            setWatchedSlides(prev => new Set([...prev, index]));
           }
         },
         { threshold: 0.5 }
@@ -105,11 +105,11 @@ export function Layout410() {
             className="relative grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "15%" }}
           >
-            {/* Label overlay when next slide is active */}
-            {activeSlide > 0 && (
-              <div className="absolute top-8 left-8 z-10">
-                <div className={`text-6xl md:text-8xl font-black ${slides[activeSlide].color} opacity-20 pointer-events-none`}>
-                  {slides[activeSlide].label}
+            {/* Label shown permanently after slide is watched */}
+            {watchedSlides.has(0) && (
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+                <div className={`text-4xl md:text-6xl font-black ${slides[0].color} opacity-30 pointer-events-none`}>
+                  {slides[0].label}
                 </div>
               </div>
             )}
@@ -166,11 +166,11 @@ export function Layout410() {
             className="relative grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "18%" }}
           >
-            {/* Label overlay when next slide is active */}
-            {activeSlide > 1 && (
-              <div className="absolute top-8 left-8 z-10">
-                <div className={`text-6xl md:text-8xl font-black ${slides[activeSlide].color} opacity-20 pointer-events-none`}>
-                  {slides[activeSlide].label}
+            {/* Label shown permanently after slide is watched */}
+            {watchedSlides.has(1) && (
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+                <div className={`text-4xl md:text-6xl font-black ${slides[1].color} opacity-30 pointer-events-none`}>
+                  {slides[1].label}
                 </div>
               </div>
             )}
@@ -219,11 +219,11 @@ export function Layout410() {
             className="relative grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "21%" }}
           >
-            {/* Label overlay when next slide is active */}
-            {activeSlide > 2 && (
-              <div className="absolute top-8 left-8 z-10">
-                <div className={`text-6xl md:text-8xl font-black ${slides[activeSlide].color} opacity-20 pointer-events-none`}>
-                  {slides[activeSlide].label}
+            {/* Label shown permanently after slide is watched */}
+            {watchedSlides.has(2) && (
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+                <div className={`text-4xl md:text-6xl font-black ${slides[2].color} opacity-30 pointer-events-none`}>
+                  {slides[2].label}
                 </div>
               </div>
             )}
@@ -272,11 +272,11 @@ export function Layout410() {
             className="relative grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "24%" }}
           >
-            {/* Label overlay when next slide is active */}
-            {activeSlide > 3 && (
-              <div className="absolute top-8 left-8 z-10">
-                <div className={`text-6xl md:text-8xl font-black ${slides[activeSlide].color} opacity-20 pointer-events-none`}>
-                  {slides[activeSlide].label}
+            {/* Label shown permanently after slide is watched */}
+            {watchedSlides.has(3) && (
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+                <div className={`text-4xl md:text-6xl font-black ${slides[3].color} opacity-30 pointer-events-none`}>
+                  {slides[3].label}
                 </div>
               </div>
             )}
@@ -325,6 +325,14 @@ export function Layout410() {
             className="relative grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "21%" }}
           >
+            {/* Label shown permanently after slide is watched */}
+            {watchedSlides.has(4) && (
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+                <div className={`text-4xl md:text-6xl font-black ${slides[4].color} opacity-30 pointer-events-none`}>
+                  {slides[4].label}
+                </div>
+              </div>
+            )}
             <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last bg-gradient-to-br from-brand-primary/20 to-brand-primary/10">
               <p className="mb-2 font-semibold text-brand-primary">Xpixel</p>
               <h2 className="text-h3 mb-5 font-bold md:mb-6">
