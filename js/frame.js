@@ -440,9 +440,32 @@
     }, { passive: false });
   }
 
+  /* ---------- sector hover highlighting ---------- */
+  function initSectorHover() {
+    const boundaries = Array.from(frame.querySelectorAll('.boundary'));
+    if (!boundaries.length) return;
+
+    // Make each boundary independently interactive by enabling pointer events
+    boundaries.forEach((boundary) => {
+      // Enable pointer events for this boundary
+      boundary.style.pointerEvents = 'auto';
+      boundary.style.cursor = 'pointer';
+
+      // Add hover listeners to each boundary
+      boundary.addEventListener('mouseenter', () => {
+        boundary.classList.add('is-hovered');
+      });
+
+      boundary.addEventListener('mouseleave', () => {
+        boundary.classList.remove('is-hovered');
+      });
+    });
+  }
+
   /* ---------- init ---------- */
   window.markArea(10, 10);          // first mark = 10×10 design px in Sector 1
   bindKeyboard();
+  initSectorHover();
 
   // Build controls for current viewport
   const initControls = () => {
