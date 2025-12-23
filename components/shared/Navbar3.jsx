@@ -41,7 +41,7 @@ export function Navbar3() {
   const isMobile = useMediaQuery("(max-width: 991px)");
 
   return (
-    <section className="sticky top-0 z-[999] w-full bg-gradient-to-r from-brand-primary/90 via-brand-primary to-brand-primary/90 border-b-2 border-brand-primary/30 shadow-lg shadow-brand-primary/20 backdrop-blur-sm">
+    <section className="sticky top-0 z-[999] w-full bg-gradient-to-r from-brand-primary/70 via-brand-primary/80 to-brand-primary/70 border-b-2 border-brand-primary/30 shadow-lg shadow-brand-primary/20 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
         {/* Mobile Menu Button */}
         <button
