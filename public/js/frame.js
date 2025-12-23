@@ -445,47 +445,51 @@
     const boundaries = Array.from(frame.querySelectorAll('.boundary'));
     if (!boundaries.length) return;
 
-    // Map boundaries to their sector info (from largest to smallest)
+    // Map boundaries to their sector info and sort by size (largest first)
     const sectorBoundaries = boundaries.map(b => {
       const sidePct = parseFloat(b.style.width) || 0;
-      return { element: b, sidePct };
-    }).sort((a, b) => b.sidePct - a.sidePct); // Sort by size descending
+      const label = b.querySelector('.sector-tag')?.textContent || '';
+      return { element: b, sidePct, label };
+    }).sort((a, b) => b.sidePct - a.sidePct);
 
-    // Remove pointer-events from boundaries themselves since we'll use frame-level detection
-    boundaries.forEach(b => {
-      b.style.pointerEvents = 'none';
-    });
+    // Make frame cursor pointer to indicate interactivity
+    frame.style.cursor = 'pointer';
 
     frame.addEventListener('mousemove', (e) => {
       const rect = frame.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      // Calculate distance from center
+      // Calculate distance from center using Chebyshev distance (max of dx, dy)
+      // This matches the square boundary shape
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const dx = x - centerX;
-      const dy = y - centerY;
+      const dx = Math.abs(x - centerX);
+      const dy = Math.abs(y - centerY);
+      const distFromCenter = Math.max(dx, dy);
 
-      // Distance as percentage of half-width (for square boundaries)
-      const distFromCenter = Math.max(Math.abs(dx), Math.abs(dy));
-      const maxDist = rect.width / 2;
-      const distPct = (distFromCenter / maxDist) * 100;
+      // Convert to percentage of the frame half-width
+      const distPct = (distFromCenter / (rect.width / 2)) * 100;
 
-      // Find which sector the mouse is in (only one at a time)
+      // Find which sector ring the mouse is in
       let hoveredSector = null;
-      for (let i = 0; i < sectorBoundaries.length - 1; i++) {
-        const outer = sectorBoundaries[i];
-        const inner = sectorBoundaries[i + 1];
 
-        // Check if mouse is in the ring between outer and inner boundaries
-        if (distPct <= outer.sidePct / 2 && distPct > inner.sidePct / 2) {
-          hoveredSector = outer.element;
+      // Check from outermost to innermost
+      for (let i = 0; i < sectorBoundaries.length; i++) {
+        const current = sectorBoundaries[i];
+        const next = sectorBoundaries[i + 1];
+
+        const currentRadius = current.sidePct / 2;
+        const nextRadius = next ? next.sidePct / 2 : 0;
+
+        // If mouse is in this ring (between current and next boundary)
+        if (distPct <= currentRadius && distPct > nextRadius) {
+          hoveredSector = current.element;
           break;
         }
       }
 
-      // Check the innermost sector (center)
+      // If still no match and we're in the innermost area, highlight center
       if (!hoveredSector && sectorBoundaries.length > 0) {
         const innermost = sectorBoundaries[sectorBoundaries.length - 1];
         if (distPct <= innermost.sidePct / 2) {
@@ -493,7 +497,7 @@
         }
       }
 
-      // Update hover states - only one sector at a time
+      // Update hover states - only one at a time
       sectorBoundaries.forEach(({ element }) => {
         if (element === hoveredSector) {
           element.classList.add('is-hovered');
@@ -508,6 +512,7 @@
       sectorBoundaries.forEach(({ element }) => {
         element.classList.remove('is-hovered');
       });
+      frame.style.cursor = '';
     });
   }
 
