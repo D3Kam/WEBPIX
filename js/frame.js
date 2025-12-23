@@ -445,25 +445,92 @@
     const boundaries = Array.from(frame.querySelectorAll('.boundary'));
     if (!boundaries.length) return;
 
-    // Make each boundary independently interactive by enabling pointer events
-    boundaries.forEach((boundary) => {
-      // Enable pointer events for this boundary
-      boundary.style.pointerEvents = 'auto';
-      boundary.style.cursor = 'pointer';
+    // Map boundaries to their sector info (from largest to smallest)
+    const sectorBoundaries = boundaries.map(b => {
+      const sidePct = parseFloat(b.style.width) || 0;
+      return { element: b, sidePct };
+    }).sort((a, b) => b.sidePct - a.sidePct); // Sort by size descending
 
-      // Add hover listeners to each boundary
-      boundary.addEventListener('mouseenter', () => {
-        boundary.classList.add('is-hovered');
+    // Remove pointer-events from boundaries themselves since we'll use frame-level detection
+    boundaries.forEach(b => {
+      b.style.pointerEvents = 'none';
+    });
+
+    frame.addEventListener('mousemove', (e) => {
+      const rect = frame.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Calculate distance from center
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const dx = x - centerX;
+      const dy = y - centerY;
+
+      // Distance as percentage of half-width (for square boundaries)
+      const distFromCenter = Math.max(Math.abs(dx), Math.abs(dy));
+      const maxDist = rect.width / 2;
+      const distPct = (distFromCenter / maxDist) * 100;
+
+      // Find which sector the mouse is in (only one at a time)
+      let hoveredSector = null;
+      for (let i = 0; i < sectorBoundaries.length - 1; i++) {
+        const outer = sectorBoundaries[i];
+        const inner = sectorBoundaries[i + 1];
+
+        // Check if mouse is in the ring between outer and inner boundaries
+        if (distPct <= outer.sidePct / 2 && distPct > inner.sidePct / 2) {
+          hoveredSector = outer.element;
+          break;
+        }
+      }
+
+      // Check the innermost sector (center)
+      if (!hoveredSector && sectorBoundaries.length > 0) {
+        const innermost = sectorBoundaries[sectorBoundaries.length - 1];
+        if (distPct <= innermost.sidePct / 2) {
+          hoveredSector = innermost.element;
+        }
+      }
+
+      // Update hover states - only one sector at a time
+      sectorBoundaries.forEach(({ element }) => {
+        if (element === hoveredSector) {
+          element.classList.add('is-hovered');
+        } else {
+          element.classList.remove('is-hovered');
+        }
       });
+    });
 
-      boundary.addEventListener('mouseleave', () => {
-        boundary.classList.remove('is-hovered');
+    frame.addEventListener('mouseleave', () => {
+      // Clear all hovers when mouse leaves frame
+      sectorBoundaries.forEach(({ element }) => {
+        element.classList.remove('is-hovered');
       });
     });
   }
 
   /* ---------- init ---------- */
-  window.markArea(10, 10);          // first mark = 10×10 design px in Sector 1
+  // Initialize with 10×10 mark, positioned 50px to the left of center
+  const initMark = () => {
+    const w = toPct(10), h = toPct(10);
+    // Center is at 500,500 in design space (1000×1000)
+    // 50px to the left of center = 450 in design space
+    const centerX = 50; // 50% of design space
+    const centerY = 50;
+    const offsetX = toPct(50); // 50px offset in percentage
+
+    sel.w = w;
+    sel.h = h;
+    sel.x = clamp(centerX - offsetX - w/2, 0, 100 - w);
+    sel.y = clamp(centerY - h/2, 0, 100 - h);
+
+    apply();
+    validateOrSnapOutside();
+  };
+
+  initMark();
   bindKeyboard();
   initSectorHover();
 
