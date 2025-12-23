@@ -7,13 +7,15 @@ import { Layout16 } from "./components/Layout16";
 import { Layout1 } from "./components/Layout1";
 import { Layout10_1 } from "./components/Layout10_1";
 import { Layout105 } from "./components/Layout105";
+import { Layout155 } from "./components/Layout155";
 import { Footer1 } from "@/components/shared/Footer1";
 
 export default function Page() {
   return (
     <div>
       <Navbar3 />
-      <Header98 />
+      <Layout155/>
+      
       <Layout10_1 />
       <Layout16 />
       <Layout10 />
