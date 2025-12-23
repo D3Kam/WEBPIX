@@ -442,78 +442,92 @@
 
   /* ---------- sector hover highlighting ---------- */
   function initSectorHover() {
-    const boundaries = Array.from(frame.querySelectorAll('.boundary'));
-    if (!boundaries.length) return;
-
-    // Map boundaries to their sector info and sort by size (largest first)
-    const sectorBoundaries = boundaries.map(b => {
-      const sidePct = parseFloat(b.style.width) || 0;
-      const label = b.querySelector('.sector-tag')?.textContent || '';
-      return { element: b, sidePct, label };
-    }).sort((a, b) => b.sidePct - a.sidePct);
-
-    // Make frame cursor pointer to indicate interactivity
-    frame.style.cursor = 'pointer';
-
-    frame.addEventListener('mousemove', (e) => {
-      const rect = frame.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      // Calculate distance from center using Chebyshev distance (max of dx, dy)
-      // This matches the square boundary shape
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const dx = Math.abs(x - centerX);
-      const dy = Math.abs(y - centerY);
-      const distFromCenter = Math.max(dx, dy);
-
-      // Convert to percentage of the frame half-width
-      const distPct = (distFromCenter / (rect.width / 2)) * 100;
-
-      // Find which sector ring the mouse is in
-      let hoveredSector = null;
-
-      // Check from outermost to innermost
-      for (let i = 0; i < sectorBoundaries.length; i++) {
-        const current = sectorBoundaries[i];
-        const next = sectorBoundaries[i + 1];
-
-        const currentRadius = current.sidePct / 2;
-        const nextRadius = next ? next.sidePct / 2 : 0;
-
-        // If mouse is in this ring (between current and next boundary)
-        if (distPct <= currentRadius && distPct > nextRadius) {
-          hoveredSector = current.element;
-          break;
-        }
+    // Wait a bit for boundaries to be fully rendered
+    setTimeout(() => {
+      const boundaries = Array.from(frame.querySelectorAll('.boundary'));
+      if (!boundaries.length) {
+        console.warn('No boundaries found for sector hover');
+        return;
       }
 
-      // If still no match and we're in the innermost area, highlight center
-      if (!hoveredSector && sectorBoundaries.length > 0) {
-        const innermost = sectorBoundaries[sectorBoundaries.length - 1];
-        if (distPct <= innermost.sidePct / 2) {
-          hoveredSector = innermost.element;
-        }
-      }
+      // Map boundaries to their sector info and sort by size (largest first)
+      const sectorBoundaries = boundaries.map(b => {
+        const sidePct = parseFloat(b.style.width) || 0;
+        const label = b.querySelector('.sector-tag')?.textContent?.trim() || '';
+        return { element: b, sidePct, label };
+      }).sort((a, b) => b.sidePct - a.sidePct);
 
-      // Update hover states - only one at a time
-      sectorBoundaries.forEach(({ element }) => {
-        if (element === hoveredSector) {
-          element.classList.add('is-hovered');
-        } else {
+      console.log('Sector boundaries initialized:', sectorBoundaries.map(s => ({ label: s.label, sidePct: s.sidePct })));
+
+      // Make frame cursor pointer to indicate interactivity
+      frame.style.cursor = 'pointer';
+
+      frame.addEventListener('mousemove', (e) => {
+        const rect = frame.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Calculate distance from center using Chebyshev distance (max of dx, dy)
+        // This matches the square boundary shape perfectly
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const dx = Math.abs(x - centerX);
+        const dy = Math.abs(y - centerY);
+        const distFromCenter = Math.max(dx, dy);
+
+        // Convert to percentage (0-100 where 100 is at the edge)
+        const distPct = (distFromCenter / (rect.width / 2)) * 100;
+
+        // Find which sector ring the mouse is in
+        let hoveredSector = null;
+
+        // Check from outermost to innermost
+        for (let i = 0; i < sectorBoundaries.length; i++) {
+          const current = sectorBoundaries[i];
+          const next = sectorBoundaries[i + 1];
+
+          // Current boundary's half-width as percentage
+          const currentRadius = current.sidePct / 2;
+          const nextRadius = next ? next.sidePct / 2 : 0;
+
+          // If mouse distance is within this ring
+          if (distPct <= currentRadius && distPct > nextRadius) {
+            hoveredSector = current.element;
+            break;
+          }
+        }
+
+        // If no match yet and we're inside the smallest boundary, highlight it
+        if (!hoveredSector && sectorBoundaries.length > 0) {
+          const innermost = sectorBoundaries[sectorBoundaries.length - 1];
+          if (distPct <= innermost.sidePct / 2) {
+            hoveredSector = innermost.element;
+          }
+        }
+
+        // Update hover states - only one sector at a time
+        sectorBoundaries.forEach(({ element }) => {
+          if (element === hoveredSector) {
+            if (!element.classList.contains('is-hovered')) {
+              element.classList.add('is-hovered');
+            }
+          } else {
+            if (element.classList.contains('is-hovered')) {
+              element.classList.remove('is-hovered');
+            }
+          }
+        });
+      });
+
+      frame.addEventListener('mouseleave', () => {
+        // Clear all hovers when mouse leaves frame
+        sectorBoundaries.forEach(({ element }) => {
           element.classList.remove('is-hovered');
-        }
+        });
       });
-    });
 
-    frame.addEventListener('mouseleave', () => {
-      // Clear all hovers when mouse leaves frame
-      sectorBoundaries.forEach(({ element }) => {
-        element.classList.remove('is-hovered');
-      });
-      frame.style.cursor = '';
-    });
+      console.log('Sector hover initialized successfully');
+    }, 100);
   }
 
   /* ---------- init ---------- */
