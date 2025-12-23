@@ -512,7 +512,25 @@
   }
 
   /* ---------- init ---------- */
-  window.markArea(10, 10);          // first mark = 10×10 design px in Sector 1
+  // Initialize with 10×10 mark, positioned 50px to the left of center
+  const initMark = () => {
+    const w = toPct(10), h = toPct(10);
+    // Center is at 500,500 in design space (1000×1000)
+    // 50px to the left of center = 450 in design space
+    const centerX = 50; // 50% of design space
+    const centerY = 50;
+    const offsetX = toPct(50); // 50px offset in percentage
+
+    sel.w = w;
+    sel.h = h;
+    sel.x = clamp(centerX - offsetX - w/2, 0, 100 - w);
+    sel.y = clamp(centerY - h/2, 0, 100 - h);
+
+    apply();
+    validateOrSnapOutside();
+  };
+
+  initMark();
   bindKeyboard();
   initSectorHover();
 
