@@ -41,11 +41,11 @@ export function Navbar3() {
   const isMobile = useMediaQuery("(max-width: 991px)");
 
   return (
-    <section className="sticky top-0 z-[999] w-full bg-gradient-to-r from-white via-brand-primary/5 to-white border-b-2 border-brand-primary/20 shadow-lg backdrop-blur-sm">
+    <section className="sticky top-0 z-[999] w-full bg-gradient-to-r from-brand-primary/90 via-brand-primary to-brand-primary/90 border-b-2 border-brand-primary/30 shadow-lg shadow-brand-primary/20 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
         {/* Mobile Menu Button */}
         <button
-          className="flex items-center justify-center p-2 text-scheme-text hover:text-brand-primary hover:bg-brand-primary/10 rounded-lg transition-all lg:hidden"
+          className="flex items-center justify-center p-2 text-neutral-darkest hover:text-white hover:bg-neutral-darkest/10 rounded-lg transition-all lg:hidden"
           onClick={useActive.toggleMobileMenu}
           aria-label="Toggle menu"
         >
@@ -69,31 +69,31 @@ export function Navbar3() {
         <nav className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:space-x-2">
           <Link
             to="/xpixel"
-            className="text-base font-semibold text-scheme-text hover:text-brand-primary hover:bg-brand-primary/10 px-4 py-2 rounded-lg transition-all duration-300"
+            className="text-base font-semibold text-neutral-darkest hover:text-white hover:bg-neutral-darkest/10 px-4 py-2 rounded-lg transition-all duration-300"
           >
             Xpixel
           </Link>
           <Link
             to="/about"
-            className="text-base font-semibold text-scheme-text hover:text-brand-primary hover:bg-brand-primary/10 px-4 py-2 rounded-lg transition-all duration-300"
+            className="text-base font-semibold text-neutral-darkest hover:text-white hover:bg-neutral-darkest/10 px-4 py-2 rounded-lg transition-all duration-300"
           >
             About
           </Link>
           <Link
             to="/contact"
-            className="text-base font-semibold text-scheme-text hover:text-brand-primary hover:bg-brand-primary/10 px-4 py-2 rounded-lg transition-all duration-300"
+            className="text-base font-semibold text-neutral-darkest hover:text-white hover:bg-neutral-darkest/10 px-4 py-2 rounded-lg transition-all duration-300"
           >
             Contact
           </Link>
           <Link
             to="/how-it-works"
-            className="text-base font-semibold text-scheme-text hover:text-brand-primary hover:bg-brand-primary/10 px-4 py-2 rounded-lg transition-all duration-300"
+            className="text-base font-semibold text-neutral-darkest hover:text-white hover:bg-neutral-darkest/10 px-4 py-2 rounded-lg transition-all duration-300"
           >
             How it Works
           </Link>
           <Link
             to="/faq"
-            className="text-base font-semibold text-scheme-text hover:text-brand-primary hover:bg-brand-primary/10 px-4 py-2 rounded-lg transition-all duration-300"
+            className="text-base font-semibold text-neutral-darkest hover:text-white hover:bg-neutral-darkest/10 px-4 py-2 rounded-lg transition-all duration-300"
           >
             FAQ
           </Link>
@@ -109,7 +109,7 @@ export function Navbar3() {
           >
             <button
               onClick={useActive.toggleAccountDropdown}
-              className="flex items-center justify-center rounded-full p-2 text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-2 border-transparent hover:border-brand-primary"
+              className="flex items-center justify-center rounded-full p-2 text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white transition-all duration-300 border-2 border-neutral-darkest/20 hover:border-neutral-darkest"
               aria-label="Account"
             >
               <User className="h-6 w-6" />
@@ -128,20 +128,20 @@ export function Navbar3() {
                   <div className="py-1">
                     <Link
                       to="/login"
-                      className="block px-4 py-2 text-sm font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 rounded-md mx-2 my-1"
+                      className="block px-4 py-2 text-sm font-medium text-neutral-darkest hover:bg-brand-primary hover:text-neutral-darkest transition-all duration-300 rounded-md mx-2 my-1"
                     >
                       Log In
                     </Link>
                     <Link
                       to="/signup"
-                      className="block px-4 py-2 text-sm font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 rounded-md mx-2 my-1"
+                      className="block px-4 py-2 text-sm font-medium text-neutral-darkest hover:bg-brand-primary hover:text-neutral-darkest transition-all duration-300 rounded-md mx-2 my-1"
                     >
                       Sign Up
                     </Link>
                     <div className="my-1 border-t border-brand-primary/20"></div>
                     <Link
                       to="/account"
-                      className="block px-4 py-2 text-sm font-medium text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 rounded-md mx-2 my-1"
+                      className="block px-4 py-2 text-sm font-medium text-neutral-darkest hover:bg-brand-primary hover:text-neutral-darkest transition-all duration-300 rounded-md mx-2 my-1"
                     >
                       My Account
                     </Link>
@@ -171,11 +171,11 @@ export function Navbar3() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 z-50 h-full w-[280px] bg-gradient-to-b from-white to-brand-primary/5 shadow-xl lg:hidden border-r-2 border-brand-primary/30"
+              className="fixed top-0 left-0 z-50 h-full w-[280px] bg-gradient-to-b from-brand-primary via-brand-primary/95 to-brand-primary/90 shadow-xl lg:hidden border-r-2 border-brand-primary/50 shadow-brand-primary/30"
             >
               <div className="flex flex-col h-full">
                 {/* Mobile Header */}
-                <div className="flex items-center justify-between border-b-2 border-brand-primary/30 px-4 py-4 bg-brand-primary/5">
+                <div className="flex items-center justify-between border-b-2 border-neutral-darkest/20 px-4 py-4 bg-neutral-darkest/5">
                   <img
                     src="/WEBPIX/media/icons/Xpixel_Logo.svg"
                     alt="Xpixel Logo"
@@ -183,7 +183,7 @@ export function Navbar3() {
                   />
                   <button
                     onClick={useActive.toggleMobileMenu}
-                    className="p-2 text-scheme-text"
+                    className="p-2 text-neutral-darkest hover:text-white transition-colors"
                     aria-label="Close menu"
                   >
                     <X className="h-6 w-6" />
@@ -195,59 +195,59 @@ export function Navbar3() {
                   <div className="space-y-1">
                     <Link
                       to="/xpixel"
-                      className="block rounded-lg px-4 py-3 text-base font-semibold text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-brand-primary"
+                      className="block rounded-lg px-4 py-3 text-base font-semibold text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-neutral-darkest"
                       onClick={useActive.toggleMobileMenu}
                     >
                       Xpixel
                     </Link>
                     <Link
                       to="/about"
-                      className="block rounded-lg px-4 py-3 text-base font-semibold text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-brand-primary"
+                      className="block rounded-lg px-4 py-3 text-base font-semibold text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-neutral-darkest"
                       onClick={useActive.toggleMobileMenu}
                     >
                       About
                     </Link>
                     <Link
                       to="/contact"
-                      className="block rounded-lg px-4 py-3 text-base font-semibold text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-brand-primary"
+                      className="block rounded-lg px-4 py-3 text-base font-semibold text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-neutral-darkest"
                       onClick={useActive.toggleMobileMenu}
                     >
                       Contact
                     </Link>
                     <Link
                       to="/how-it-works"
-                      className="block rounded-lg px-4 py-3 text-base font-semibold text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-brand-primary"
+                      className="block rounded-lg px-4 py-3 text-base font-semibold text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-neutral-darkest"
                       onClick={useActive.toggleMobileMenu}
                     >
                       How it Works
                     </Link>
                     <Link
                       to="/faq"
-                      className="block rounded-lg px-4 py-3 text-base font-semibold text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-brand-primary"
+                      className="block rounded-lg px-4 py-3 text-base font-semibold text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-neutral-darkest"
                       onClick={useActive.toggleMobileMenu}
                     >
                       FAQ
                     </Link>
                   </div>
 
-                  <div className="mt-6 space-y-2 border-t-2 border-brand-primary/30 pt-6">
+                  <div className="mt-6 space-y-2 border-t-2 border-neutral-darkest/20 pt-6">
                     <Link
                       to="/login"
-                      className="block rounded-lg px-4 py-3 text-base font-semibold text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-brand-primary"
+                      className="block rounded-lg px-4 py-3 text-base font-semibold text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-neutral-darkest"
                       onClick={useActive.toggleMobileMenu}
                     >
                       Log In
                     </Link>
                     <Link
                       to="/signup"
-                      className="block rounded-lg px-4 py-3 text-base font-semibold text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-brand-primary"
+                      className="block rounded-lg px-4 py-3 text-base font-semibold text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-neutral-darkest"
                       onClick={useActive.toggleMobileMenu}
                     >
                       Sign Up
                     </Link>
                     <Link
                       to="/account"
-                      className="block rounded-lg px-4 py-3 text-base font-semibold text-scheme-text hover:bg-brand-primary hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-brand-primary"
+                      className="block rounded-lg px-4 py-3 text-base font-semibold text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white transition-all duration-300 border-l-4 border-transparent hover:border-neutral-darkest"
                       onClick={useActive.toggleMobileMenu}
                     >
                       My Account
@@ -256,8 +256,8 @@ export function Navbar3() {
                 </nav>
 
                 {/* Mobile Footer */}
-                <div className="border-t-2 border-brand-primary/30 px-4 py-4 bg-brand-primary/5">
-                  <Button className="w-full bg-brand-primary hover:bg-brand-primary/90 shadow-lg hover:shadow-xl hover:shadow-brand-primary/30 transition-all duration-300">
+                <div className="border-t-2 border-neutral-darkest/20 px-4 py-4 bg-neutral-darkest/5">
+                  <Button className="w-full bg-neutral-darkest hover:bg-neutral-darkest/90 text-brand-primary shadow-lg hover:shadow-xl hover:shadow-neutral-darkest/30 transition-all duration-300">
                     Create
                   </Button>
                 </div>

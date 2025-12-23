@@ -214,6 +214,23 @@
   border-radius: 8px;
   pointer-events:none;
   z-index: 2;
+  transition: all 0.3s ease;
+}
+
+/* Hover state for boundaries */
+#frame .boundary.is-hovered{
+  border-width: 3px;
+  border-color: rgba(3,255,206,1);
+  background: rgba(3,255,206,0.08);
+  box-shadow: 0 0 20px rgba(3,255,206,0.3), inset 0 0 20px rgba(3,255,206,0.1);
+}
+
+#frame .boundary.is-hovered .sector-tag{
+  background: rgba(3,255,206, 0.95);
+  color: #0f1012;
+  border-color: rgba(3,255,206,1);
+  box-shadow: 0 4px 12px rgba(3,255,206,.4);
+  transform: scale(1.1);
 }
 
 /* Little corner tags for labels */
@@ -228,6 +245,8 @@
   box-shadow: 0 2px 6px rgba(0,0,0,.25);
   white-space: nowrap;
   backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  transform-origin: top left;
 }
 
 /* Outer edge label stays outside */

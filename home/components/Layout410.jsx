@@ -50,6 +50,43 @@ function StatCard({ icon: Icon, label, value, suffix = "", prefix = "", dark = f
 }
 
 export function Layout410() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const slideRefs = useRef([]);
+
+  useEffect(() => {
+    const observers = slideRefs.current.map((ref, index) => {
+      if (!ref) return null;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSlide(index);
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(ref);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach((observer, index) => {
+        if (observer && slideRefs.current[index]) {
+          observer.unobserve(slideRefs.current[index]);
+        }
+      });
+    };
+  }, []);
+
+  const slides = [
+    { label: 'Xpixel', color: 'text-brand-primary' },
+    { label: 'NFT', color: 'text-brand-blue' },
+    { label: 'ART', color: 'text-brand-orange' },
+    { label: 'POP', color: 'text-brand-red' },
+    { label: 'Xpixel', color: 'text-brand-primary' }
+  ];
+
   return (
     <section className="bg-brand-primary px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
@@ -64,30 +101,39 @@ export function Layout410() {
         </div>
         <div className="relative grid auto-cols-fr grid-cols-1 gap-6 md:gap-0">
           <Card
-            className="grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
+            ref={(el) => (slideRefs.current[0] = el)}
+            className="relative grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "15%" }}
           >
-            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last bg-gradient-to-br from-neutral-darker/50 to-neutral-darkest/30">
+            {/* Label overlay when next slide is active */}
+            {activeSlide > 0 && (
+              <div className="absolute top-8 left-8 z-10">
+                <div className={`text-6xl md:text-8xl font-black ${slides[activeSlide].color} opacity-20 pointer-events-none`}>
+                  {slides[activeSlide].label}
+                </div>
+              </div>
+            )}
+            <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last">
               <p className="mb-2 font-semibold text-brand-primary">Xpixel</p>
-              <h2 className="text-h3 mb-5 font-bold text-white md:mb-6">
+              <h2 className="text-h3 mb-5 font-bold text-neutral-darkest md:mb-6">
                 Let's create the digital Mona Lisa together
               </h2>
-              <p className="text-white/90 mb-6">
+              <p className="text-neutral-dark mb-6">
                 Each pixel block becomes your digital real estate on the
                 blockchain. Immutable. Permanent.
               </p>
 
               {/* Statistics Grid */}
               <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
-                <StatCard icon={Users} label="Active Users" value={15420} />
-                <StatCard icon={DollarSign} label="Market Value" value={2400000} prefix="$" />
+                <StatCard icon={Users} label="Active Users" value={15420} dark />
+                <StatCard icon={DollarSign} label="Market Value" value={2400000} prefix="$" dark />
               </div>
 
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
                 <Link to="/xpixel">
                   <Button
                     variant="secondary"
-                    className="group relative overflow-hidden bg-white hover:bg-white/90 text-neutral-darkest shadow-lg hover:shadow-xl hover:shadow-white/30 transition-all duration-300"
+                    className="group relative overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <span className="relative z-10">Xpixel</span>
                   </Button>
@@ -96,8 +142,8 @@ export function Layout410() {
                   <Button
                     variant="link"
                     size="link"
-                    className="text-white hover:text-brand-primary group"
-                    iconRight={<ChevronRight className="text-white group-hover:text-brand-primary transition-transform group-hover:translate-x-1" />}
+                    className="text-neutral-darkest hover:text-brand-primary group"
+                    iconRight={<ChevronRight className="text-neutral-darkest group-hover:text-brand-primary transition-transform group-hover:translate-x-1" />}
                   >
                     How it works
                   </Button>
@@ -116,9 +162,18 @@ export function Layout410() {
             </div>
           </Card>
           <Card
-            className="grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
+            ref={(el) => (slideRefs.current[1] = el)}
+            className="relative grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "18%" }}
           >
+            {/* Label overlay when next slide is active */}
+            {activeSlide > 1 && (
+              <div className="absolute top-8 left-8 z-10">
+                <div className={`text-6xl md:text-8xl font-black ${slides[activeSlide].color} opacity-20 pointer-events-none`}>
+                  {slides[activeSlide].label}
+                </div>
+              </div>
+            )}
             <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-first bg-gradient-to-br from-brand-blue/20 to-brand-blue/10">
               <p className="mb-2 font-semibold text-brand-blue">NFT</p>
               <h2 className="text-h3 mb-5 font-bold md:mb-6">
@@ -160,9 +215,18 @@ export function Layout410() {
             </div>
           </Card>
           <Card
-            className="grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
+            ref={(el) => (slideRefs.current[2] = el)}
+            className="relative grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "21%" }}
           >
+            {/* Label overlay when next slide is active */}
+            {activeSlide > 2 && (
+              <div className="absolute top-8 left-8 z-10">
+                <div className={`text-6xl md:text-8xl font-black ${slides[activeSlide].color} opacity-20 pointer-events-none`}>
+                  {slides[activeSlide].label}
+                </div>
+              </div>
+            )}
             <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last bg-gradient-to-br from-brand-orange/20 to-brand-orange/10">
               <p className="mb-2 font-semibold text-brand-orange">ART</p>
               <h2 className="text-h3 mb-5 font-bold md:mb-6">
@@ -204,9 +268,18 @@ export function Layout410() {
             </div>
           </Card>
           <Card
-            className="grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
+            ref={(el) => (slideRefs.current[3] = el)}
+            className="relative grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "24%" }}
           >
+            {/* Label overlay when next slide is active */}
+            {activeSlide > 3 && (
+              <div className="absolute top-8 left-8 z-10">
+                <div className={`text-6xl md:text-8xl font-black ${slides[activeSlide].color} opacity-20 pointer-events-none`}>
+                  {slides[activeSlide].label}
+                </div>
+              </div>
+            )}
             <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-first bg-gradient-to-br from-brand-red/20 to-brand-red/10">
               <p className="mb-2 font-semibold text-brand-red">Popular Projects</p>
               <h2 className="text-h3 mb-5 font-bold md:mb-6">
@@ -248,7 +321,8 @@ export function Layout410() {
             </div>
           </Card>
           <Card
-            className="grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
+            ref={(el) => (slideRefs.current[4] = el)}
+            className="relative grid grid-cols-1 content-center overflow-hidden bg-white md:sticky md:mb-[15vh] md:h-[70vh] md:grid-cols-2"
             style={{ top: "21%" }}
           >
             <div className="order-first flex flex-col justify-center p-6 md:p-8 lg:p-12 md:order-last bg-gradient-to-br from-brand-primary/20 to-brand-primary/10">

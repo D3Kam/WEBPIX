@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Play, Pause, Volume2, VolumeX } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX, ChevronDown } from "lucide-react";
 
 export function VideoHero({ videoSrc = "/WEBPIX/media/videos/Xpixel_Digital_Mona.mp4" }) {
   const videoRef = useRef(null);
@@ -40,13 +40,12 @@ export function VideoHero({ videoSrc = "/WEBPIX/media/videos/Xpixel_Digital_Mona
   };
 
   return (
-    <section className="relative bg-neutral-darker text-white px-[5%] py-12 md:py-16 lg:py-20">
-      <div
-        className="relative container overflow-hidden rounded-xl"
-        onMouseEnter={() => setShowControls(true)}
-        onMouseLeave={() => setShowControls(false)}
-      >
-        <div className="relative flex min-h-[32rem] flex-col items-center justify-center md:min-h-[40rem]">
+    <section
+      className="relative bg-neutral-darker text-white h-screen w-full"
+      onMouseEnter={() => setShowControls(true)}
+      onMouseLeave={() => setShowControls(false)}
+    >
+      <div className="relative flex h-full w-full flex-col items-center justify-center">
           {/* Video Background */}
           <video
             ref={videoRef}
@@ -129,8 +128,13 @@ export function VideoHero({ videoSrc = "/WEBPIX/media/videos/Xpixel_Digital_Mona
               )}
             </button>
           </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+            <span className="text-white/80 text-sm font-medium">Scroll to explore</span>
+            <ChevronDown className="h-6 w-6 text-white/80" />
+          </div>
         </div>
-      </div>
     </section>
   );
 }
