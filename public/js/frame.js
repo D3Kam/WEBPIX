@@ -445,50 +445,19 @@
     const boundaries = Array.from(frame.querySelectorAll('.boundary'));
     if (!boundaries.length) return;
 
-    // Map boundaries to their sector info (from largest to smallest)
-    const sectorBoundaries = boundaries.map(b => {
-      const sidePct = parseFloat(b.style.width) || 0;
-      return { element: b, sidePct };
-    }).sort((a, b) => b.sidePct - a.sidePct); // Sort by size descending
+    // Make each boundary independently interactive by enabling pointer events
+    boundaries.forEach((boundary) => {
+      // Enable pointer events for this boundary
+      boundary.style.pointerEvents = 'auto';
+      boundary.style.cursor = 'pointer';
 
-    frame.addEventListener('mousemove', (e) => {
-      const rect = frame.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      // Calculate distance from center as percentage
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const maxDist = Math.sqrt(centerX * centerX + centerY * centerY);
-      const dist = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
-      const distPct = (dist / maxDist) * 100 * Math.SQRT2; // Convert to side percentage
-
-      // Find which sector the mouse is in
-      let hoveredSector = null;
-      for (let i = 0; i < sectorBoundaries.length; i++) {
-        const curr = sectorBoundaries[i];
-        const prev = i > 0 ? sectorBoundaries[i - 1] : null;
-
-        if (!prev || (distPct <= prev.sidePct && distPct > curr.sidePct)) {
-          hoveredSector = curr.element;
-          break;
-        }
-      }
-
-      // Update hover states
-      sectorBoundaries.forEach(({ element }) => {
-        if (element === hoveredSector) {
-          element.classList.add('is-hovered');
-        } else {
-          element.classList.remove('is-hovered');
-        }
+      // Add hover listeners to each boundary
+      boundary.addEventListener('mouseenter', () => {
+        boundary.classList.add('is-hovered');
       });
-    });
 
-    frame.addEventListener('mouseleave', () => {
-      // Clear all hovers when mouse leaves frame
-      sectorBoundaries.forEach(({ element }) => {
-        element.classList.remove('is-hovered');
+      boundary.addEventListener('mouseleave', () => {
+        boundary.classList.remove('is-hovered');
       });
     });
   }

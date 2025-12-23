@@ -212,7 +212,6 @@
   transform:translate(-50%,-50%);
   border: 2px dashed rgba(3,255,206,.75); /* uses your accent hue */
   border-radius: 8px;
-  pointer-events:none;
   z-index: 2;
   transition: all 0.3s ease;
 }
@@ -247,6 +246,7 @@
   backdrop-filter: blur(4px);
   transition: all 0.3s ease;
   transform-origin: top left;
+  pointer-events: none;
 }
 
 /* Outer edge label stays outside */
