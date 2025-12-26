@@ -10,20 +10,20 @@ export function Layout399() {
   const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
-    <section className="px-[5%] py-16 md:py-24 lg:py-28 bg-gradient-to-b from-white to-neutral-lightest/50">
+    <section className="px-[5%] py-12 sm:py-16 md:py-24 lg:py-28 bg-gradient-to-b from-white to-neutral-lightest/50">
       <div className="container">
-        <div className="mb-12 md:mb-18 lg:mb-20">
-          <div className="mx-auto max-w-lg text-center">
-            <p className="mb-3 font-semibold text-brand-primary md:mb-4">Features</p>
-            <h2 className="mb-5 text-h2 font-bold md:mb-6">
+        <div className="mb-10 sm:mb-12 md:mb-18 lg:mb-20">
+          <div className="mx-auto max-w-lg text-center px-4">
+            <p className="mb-3 text-sm sm:text-base font-semibold text-brand-primary md:mb-4">Features</p>
+            <h2 className="mb-4 sm:mb-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold md:mb-6 leading-tight">
               How we make digital art simple
             </h2>
-            <p className="text-medium text-neutral-dark">
+            <p className="text-base sm:text-lg md:text-xl text-neutral-dark leading-relaxed">
               Comfortable tool for creators of all levels
             </p>
           </div>
         </div>
-        <div className="grid auto-cols-fr grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
+        <div className="grid auto-cols-fr grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
           <Card
             className="flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-brand-primary/20 cursor-pointer border-2 border-transparent hover:border-brand-primary/50"
             onMouseEnter={() => setHoveredCard(0)}
