@@ -522,14 +522,14 @@
   }
 
   /* ---------- init ---------- */
-  // Initialize with 10×10 mark, positioned 75px to the left of center
+  // Initialize with 10×10 mark, positioned 100px to the left of center
   const initMark = () => {
     const w = toPct(10), h = toPct(10);
     // Center is at 500,500 in design space (1000×1000)
-    // 75px to the left of center = 425 in design space
+    // 100px to the left of center = 400 in design space
     const centerX = 50; // 50% of design space
     const centerY = 50;
-    const offsetX = toPct(75); // 75px offset in percentage
+    const offsetX = toPct(100); // 100px offset in percentage
 
     sel.w = w;
     sel.h = h;
