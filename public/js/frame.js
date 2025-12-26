@@ -128,7 +128,7 @@
         badge.textContent =
           UNLOCK_LEVEL === 1 ? "Locked: Stage 2 & 3"
         : UNLOCK_LEVEL === 2 ? "Locked: Stage 3"
-        : "Locked: Center";
+        : "Center";
       }
     }
   }
