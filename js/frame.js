@@ -442,7 +442,7 @@
 
   /* ---------- sector hover highlighting ---------- */
   function initSectorHover() {
-    // Wait a bit for boundaries to be fully rendered
+    // Wait for boundaries to be fully rendered
     setTimeout(() => {
       const boundaries = Array.from(frame.querySelectorAll('.boundary'));
       if (!boundaries.length) {
@@ -457,9 +457,9 @@
         return { element: b, sidePct, label };
       }).sort((a, b) => b.sidePct - a.sidePct);
 
-      console.log('Sector boundaries initialized:', sectorBoundaries.map(s => ({ label: s.label, sidePct: s.sidePct })));
+      console.log('Sector hover initialized with boundaries:', sectorBoundaries.map(s => ({ label: s.label, sidePct: s.sidePct })));
 
-      // Make frame cursor pointer to indicate interactivity
+      // Make frame interactive
       frame.style.cursor = 'pointer';
 
       frame.addEventListener('mousemove', (e) => {
@@ -475,46 +475,37 @@
         const dy = Math.abs(y - centerY);
         const distFromCenter = Math.max(dx, dy);
 
-        // Convert to percentage (0-100 where 100 is at the edge)
+        // Convert to percentage of frame's half-width (0-100 where 100 is at the edge)
         const distPct = (distFromCenter / (rect.width / 2)) * 100;
 
         // Find which sector ring the mouse is in
         let hoveredSector = null;
 
         // Check from outermost to innermost
+        // sidePct is the boundary's full width as % of frame width
+        // We need to compare distPct (which is % of frame's half-width) with sidePct
         for (let i = 0; i < sectorBoundaries.length; i++) {
           const current = sectorBoundaries[i];
           const next = sectorBoundaries[i + 1];
 
-          // Current boundary's half-width as percentage
-          const currentRadius = current.sidePct / 2;
-          const nextRadius = next ? next.sidePct / 2 : 0;
+          // Boundary extends to sidePct% of frame width from center
+          // Since distPct is relative to frame's half-width (radius),
+          // we compare: distPct < sidePct means inside current boundary
+          const nextBoundary = next ? next.sidePct : 0;
 
-          // If mouse distance is within this ring
-          if (distPct <= currentRadius && distPct > nextRadius) {
+          // Mouse is within this ring if it's inside current but outside next
+          if (distPct < current.sidePct && distPct >= nextBoundary) {
             hoveredSector = current.element;
             break;
-          }
-        }
-
-        // If no match yet and we're inside the smallest boundary, highlight it
-        if (!hoveredSector && sectorBoundaries.length > 0) {
-          const innermost = sectorBoundaries[sectorBoundaries.length - 1];
-          if (distPct <= innermost.sidePct / 2) {
-            hoveredSector = innermost.element;
           }
         }
 
         // Update hover states - only one sector at a time
         sectorBoundaries.forEach(({ element }) => {
           if (element === hoveredSector) {
-            if (!element.classList.contains('is-hovered')) {
-              element.classList.add('is-hovered');
-            }
+            element.classList.add('is-hovered');
           } else {
-            if (element.classList.contains('is-hovered')) {
-              element.classList.remove('is-hovered');
-            }
+            element.classList.remove('is-hovered');
           }
         });
       });
@@ -526,8 +517,8 @@
         });
       });
 
-      console.log('Sector hover initialized successfully');
-    }, 100);
+      console.log('Sector hover fully initialized and ready');
+    }, 150); // Slightly longer delay to ensure full rendering
   }
 
   /* ---------- init ---------- */
