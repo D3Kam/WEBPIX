@@ -66,7 +66,7 @@ export function VideoHero({ videoSrc = "/WEBPIX/media/videos/Xpixel_Digital_Mona
           <div className="relative z-10 flex flex-col items-center justify-center px-6 py-8 text-center sm:px-8 md:p-16">
             <div className="w-full max-w-lg">
               <h1 className="mb-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl md:mb-6 leading-tight">
-                Digital souls in every pixel
+                Digital souls in each pixel
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-white drop-shadow-lg leading-relaxed">
                 Collaborate with the world by owning your pixel space in a
