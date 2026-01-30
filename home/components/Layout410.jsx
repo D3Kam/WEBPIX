@@ -84,6 +84,27 @@ function MacOSWindowControls({ onClose, onMinimize, onMaximize, title }) {
 }
 
 export function Layout410() {
+  const [scrollDirection, setScrollDirection] = useState('down');
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else if (currentScrollY < lastScrollY) {
+        setScrollDirection('up');
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   const windows = [
     {
       id: 'xpixel',
@@ -192,11 +213,16 @@ export function Layout410() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:gap-10 lg:gap-12">
-          {windows.map((window, index) => (
+        <div className={scrollDirection === 'down' ? 'relative grid auto-cols-fr grid-cols-1 gap-6 md:gap-0' : 'grid gap-8 md:gap-10 lg:gap-12'}>
+          {windows.map((window, index) => {
+            const topOffset = 15 + (index * 3); // 15%, 18%, 21%, 24%, 27%
+            const isSticky = scrollDirection === 'down';
+
+            return (
             <Card
               key={window.id}
-              className="overflow-hidden bg-white shadow-2xl rounded-2xl border-4 border-neutral-light/60 hover:shadow-brand-primary/30 transition-all duration-300 hover:scale-[1.01]"
+              className={`overflow-hidden bg-white shadow-2xl rounded-2xl border-4 border-neutral-light/60 transition-all duration-500 ${isSticky ? 'md:sticky md:mb-[15vh] md:h-[70vh] content-center' : 'hover:shadow-brand-primary/30 hover:scale-[1.01]'}`}
+              style={isSticky ? { top: `${topOffset}%` } : {}}
             >
               {/* macOS Window Controls */}
               <MacOSWindowControls
@@ -207,7 +233,7 @@ export function Layout410() {
               />
 
               {/* Window Content */}
-              <div className={`grid grid-cols-1 md:grid-cols-2 ${window.bgColor}`}>
+              <div className={`grid grid-cols-1 md:grid-cols-2 ${isSticky ? 'h-full' : ''} ${window.bgColor}`}>
                 {/* Content Side */}
                 <div className={`flex flex-col justify-center p-6 md:p-8 lg:p-12 ${window.mediaFirst ? 'md:order-last' : 'md:order-first'}`}>
                   <p className={`mb-2 font-semibold ${window.tagColor}`}>{window.tag}</p>
@@ -256,7 +282,7 @@ export function Layout410() {
                 </div>
 
                 {/* Media Side */}
-                <div className={`flex flex-col items-center justify-center ${window.mediaFirst ? 'md:order-first' : 'md:order-last'} ${window.media.type === 'video' ? 'bg-neutral-darkest' : ''}`}>
+                <div className={`flex flex-col items-center justify-center ${isSticky ? 'h-full' : ''} ${window.mediaFirst ? 'md:order-first' : 'md:order-last'} ${window.media.type === 'video' ? 'bg-neutral-darkest' : ''}`}>
                   {window.media.type === 'video' ? (
                     <video
                       src={window.media.src}
@@ -276,7 +302,8 @@ export function Layout410() {
                 </div>
               </div>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
