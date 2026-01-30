@@ -27,7 +27,7 @@ export function Layout105() {
                     <Image className="size-6 text-scheme-text" />
                   </div>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Confirmation of your uploaded piece may take up to 24 hours.
                   </p>
                 </li>
                 <li className="flex self-start">
@@ -35,17 +35,11 @@ export function Layout105() {
                     <Image className="size-6 text-scheme-text" />
                   </div>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Restrictions apply to content that is harmful, abusive, or promotes cruelty.
+                  Any material that incites violence, harassment, discrimination, or harm toward individuals or groups is strictly prohibited.
                   </p>
                 </li>
-                <li className="flex self-start">
-                  <div className="mr-4 flex-none self-start">
-                    <Image className="size-6 text-scheme-text" />
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </li>
+                
               </ul>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4">

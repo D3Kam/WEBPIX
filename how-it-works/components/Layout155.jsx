@@ -34,9 +34,9 @@ export function Layout155() {
   };
 
   return (
-    <section className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section className="px-[5%] py-6 md:py-16 lg:py-20">
       <div className="container flex flex-col items-center text-center">
-      <div className="mt-12 md:mt-18 lg:mt-20">
+      <div className="mt-5 md:mt-5 lg:mt-5">
           <div className="mx-auto w-full max-w-lg">
             <p className="mb-3 font-semibold md:mb-4">Xpixel</p>
             <h2 className="mb-5 text-h2 font-bold md:mb-6">
@@ -46,28 +46,7 @@ export function Layout155() {
               Select your sector,
               upload your piece, and watch the Digital Mona Lisa come to life .
             </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-              <Link to="/buy">
-                <Button
-                  title="Get Xpixel"
-                  variant="secondary"
-                  className="shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-brand-primary/20"
-                >
-                  Get Xpixel
-                </Button>
-              </Link>
-              <Link to="/how-it-works">
-                <Button
-                  title="Learn How"
-                  variant="link"
-                  size="link"
-                  className="group font-semibold transition-all"
-                  iconRight={<ChevronRight className="text-scheme-text transition-transform group-hover:translate-x-1" />}
-                >
-                  Learn How
-                </Button>
-              </Link>
-            </div>
+            
           </div>
         </div>
         <div className="w-full">
@@ -107,40 +86,7 @@ export function Layout155() {
         </div>
         
         </div>
-        <div className="mt-12 md:mt-18 lg:mt-20">
-          <div className="mx-auto w-full max-w-lg">
-            <p className="mb-3 font-semibold md:mb-4">Xpixel</p>
-            <h2 className="mb-5 text-h2 font-bold md:mb-6">
-              Be a part of digital artwork on the blockchain
-            </h2>
-            <p className="text-medium">
-              Select your sector,
-              upload your piece, and watch the Digital Mona Lisa come to life .
-            </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-              <Link to="/buy">
-                <Button
-                  title="Get Xpixel"
-                  variant="secondary"
-                  className="shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-brand-primary/20"
-                >
-                  Get Xpixel
-                </Button>
-              </Link>
-              <Link to="/how-it-works">
-                <Button
-                  title="Learn How"
-                  variant="link"
-                  size="link"
-                  className="group font-semibold transition-all"
-                  iconRight={<ChevronRight className="text-scheme-text transition-transform group-hover:translate-x-1" />}
-                >
-                  Learn How
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

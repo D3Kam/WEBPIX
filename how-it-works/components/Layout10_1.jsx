@@ -15,10 +15,7 @@ export function Layout10_1() {
               Select your place in Xpixel.
             </h1>
             <p className="mb-6 text-medium md:mb-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse varius enim in eros elementum tristique. Duis cursus,
-              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-              libero vitae erat.
+            Preview exactly how your selected area will appear on the canvas, then choose the sector that fits your vision.
             </p>
             <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
               <div>
@@ -26,21 +23,22 @@ export function Layout10_1() {
                   <Image className="size-12 text-scheme-text" />
                 </div>
                 <h6 className="mb-3 text-h6 font-bold md:mb-4">
-                  Subheading one
+                  See the possible shapes
                 </h6>
                 <p>
-                  Blockchain technology ensuring secure, transparent digital art
-                  transactions
+                  There are various combinations of 10x10 pixels to choose from.
+                  
                 </p>
+                <p>Move the selected shape across the Xpixel canvas to find your spot.</p>
               </div>
               <div>
                 <div className="mb-3 md:mb-4">
                   <Image className="size-12 text-scheme-text" />
                 </div>
                 <h6 className="mb-3 text-h6 font-bold md:mb-4">
-                  Subheading two
+                  Prewiev your artpiece
                 </h6>
-                <p>Permanent proof of ownership and creation timestamp</p>
+                <p>Upload your digital artwork to the Xpixel canvas and visualize it instantly.</p>
               </div>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">

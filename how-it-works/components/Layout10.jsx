@@ -35,10 +35,13 @@ export function Layout10() {
                   <Image className="size-12 text-scheme-text" />
                 </div>
                 <h6 className="mb-3 text-h6 font-bold md:mb-4">
-                  Instant Preview
+                  Upload time
                 </h6>
                 <p>
-                  See exactly how your pixels will appear on the canvas before committing. Adjust position and size in real-time with our interactive preview tool.
+                  After succesfull purchase of Xpixel you will be given 30 days to decide and upload your digital artifact. 
+                </p>
+                <p>
+                In the event that Xpixel is fully completed, you will be granted a 14-day period to upload your content.
                 </p>
               </div>
             </div>

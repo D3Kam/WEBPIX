@@ -18,13 +18,16 @@ export function Layout16() {
               Purchase position for your idea on the canvas. Once confirmed,
               your pixels become part of a living, collaborative masterpiece.
             </p>
-            <ul className="grid grid-cols-1 gap-4 py-2">
+            <p>
+              Every purchase is processed transparently, with ownership clearly defined and permanently recorded, so you know exactly what you own and where it belongs.
+            </p>
+            <ul className="grid grid-cols-1 gap-4 py-2 mt-2">
               <li className="flex self-start">
                 <div className="mr-4 flex-none self-start">
                   <Image className="size-6 text-scheme-text" />
                 </div>
                 <span>
-                  Get your coordinates
+                The ownership certificate for Xpixel is delivered to you immediately after purchase.
                 </span>
               </li>
               <li className="flex self-start">
@@ -32,15 +35,16 @@ export function Layout16() {
                   <Image className="size-6 text-scheme-text" />
                 </div>
                 <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                After a successful purchase, the coordinates of your area will be delivered to you within 24 hours.
                 </span>
+                
               </li>
               <li className="flex self-start">
                 <div className="mr-4 flex-none self-start">
                   <Image className="size-6 text-scheme-text" />
                 </div>
                 <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Watch and learn more in your personal Xpixel dashboard.
                 </span>
               </li>
             </ul>

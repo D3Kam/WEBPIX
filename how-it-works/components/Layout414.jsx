@@ -36,12 +36,9 @@ export function Layout414() {
             </div>
             <div>
               <p className="text-medium">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse varius enim in eros elementum tristique. Duis
-                cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                commodo diam libero vitae erat. Suspendisse varius enim in eros
-                elementum tristique. Duis cursus, mi quis viverra ornare, eros
-                dolor interdum nulla.
+              See the maturity of Xpixel in a system where structure meets expression.
+              Every pixel is governed by clear logic, yet together they form something larger than code.
+              This is not an experiment, but a living canvas built to endure, evolve, and scale.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
                 <Button title="Explore" variant="secondary">

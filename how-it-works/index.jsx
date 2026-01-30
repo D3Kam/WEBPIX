@@ -19,7 +19,6 @@ export default function Page() {
       <Layout10_1 />
       <Layout16 />
       <Layout10 />
-      <Layout1 />
       
       <Layout105 />
       <Layout414 />

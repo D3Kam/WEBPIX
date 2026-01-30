@@ -16,10 +16,10 @@ export function Layout399() {
           <div className="mx-auto max-w-lg text-center px-4">
             <p className="mb-3 text-sm sm:text-base font-semibold text-brand-primary md:mb-4">Features</p>
             <h2 className="mb-4 sm:mb-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold md:mb-6 leading-tight">
-              How we make digital art simple
+              How we make digitalism and art simple
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-neutral-dark leading-relaxed">
-              Comfortable tool for creators of all levels
+              Comfortable for creators of all levels
             </p>
           </div>
         </div>
@@ -33,7 +33,7 @@ export function Layout399() {
               <div>
                 <p className="mb-2 text-small font-semibold">Select</p>
                 <h3 className="mb-2 text-h5 font-bold">Xpixel selector</h3>
-                <p>Intuitive grid system for precise pixel selection</p>
+                <p>Intuitive grid system for pixel selection</p>
               </div>
               <div className="mt-5 md:mt-6">
                 <Link to="/xpixel">
@@ -68,7 +68,7 @@ export function Layout399() {
               <div>
                 <p className="mb-2 text-small font-semibold">Upload</p>
                 <h3 className="mb-2 text-h5 font-bold">Own and control your digital space</h3>
-                <p>Drag and preview your artwork with ease</p>
+                <p>Preview your artwork with ease</p>
               </div>
               <div className="mt-5 md:mt-6">
                 <Link to="/xpixel">
@@ -101,9 +101,9 @@ export function Layout399() {
           >
             <div className="flex flex-1 flex-col justify-center p-6">
               <div>
-                <p className="mb-2 text-small font-semibold">Xpixel tokens</p>
-                <h3 className="mb-2 text-h5 font-bold">Additional value</h3>
-                <p>Get rewarded for collaboration</p>
+                <p className="mb-2 text-small font-semibold">Own Xpixel</p>
+                <h3 className="mb-2 text-h5 font-bold">Secure your coordinates</h3>
+                <p>0.0000001% to have it worldwide</p>
               </div>
               <div className="mt-5 md:mt-6">
                 <Link to="/how-it-works">
