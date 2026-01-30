@@ -49,30 +49,36 @@ function StatCard({ icon: Icon, label, value, suffix = "", prefix = "", dark = f
   );
 }
 
-function MacOSWindowControls({ onClose, onMinimize, onMaximize }) {
+function MacOSWindowControls({ onClose, onMinimize, onMaximize, title }) {
   return (
-    <div className="flex items-center gap-2 px-4 py-3 bg-neutral-lightest/80 backdrop-blur-sm border-b border-neutral-light/30">
-      <button
-        onClick={onClose}
-        className="group h-3 w-3 rounded-full bg-[#FF5F56] hover:bg-[#FF4840] transition-all duration-200 flex items-center justify-center"
-        aria-label="Close"
-      >
-        <X className="h-2 w-2 text-neutral-darkest opacity-0 group-hover:opacity-100 transition-opacity" />
-      </button>
-      <button
-        onClick={onMinimize}
-        className="group h-3 w-3 rounded-full bg-[#FFBD2E] hover:bg-[#FFB000] transition-all duration-200 flex items-center justify-center"
-        aria-label="Minimize"
-      >
-        <Minus className="h-2 w-2 text-neutral-darkest opacity-0 group-hover:opacity-100 transition-opacity" />
-      </button>
-      <button
-        onClick={onMaximize}
-        className="group h-3 w-3 rounded-full bg-[#27C93F] hover:bg-[#1FB834] transition-all duration-200 flex items-center justify-center"
-        aria-label="Maximize"
-      >
-        <Maximize2 className="h-2 w-2 text-neutral-darkest opacity-0 group-hover:opacity-100 transition-opacity" />
-      </button>
+    <div className="flex items-center justify-between gap-2 px-5 py-4 bg-gradient-to-b from-neutral-lightest via-neutral-lightest/95 to-neutral-lightest/90 backdrop-blur-md border-b-2 border-neutral-light/50 shadow-sm">
+      <div className="flex items-center gap-2.5">
+        <button
+          onClick={onClose}
+          className="group h-3.5 w-3.5 rounded-full bg-[#FF5F56] hover:bg-[#FF4840] transition-all duration-200 flex items-center justify-center shadow-sm hover:shadow-md"
+          aria-label="Close"
+        >
+          <X className="h-2.5 w-2.5 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity" strokeWidth={3} />
+        </button>
+        <button
+          onClick={onMinimize}
+          className="group h-3.5 w-3.5 rounded-full bg-[#FFBD2E] hover:bg-[#FFB000] transition-all duration-200 flex items-center justify-center shadow-sm hover:shadow-md"
+          aria-label="Minimize"
+        >
+          <Minus className="h-2.5 w-2.5 text-neutral-darkest/80 opacity-0 group-hover:opacity-100 transition-opacity" strokeWidth={3} />
+        </button>
+        <button
+          onClick={onMaximize}
+          className="group h-3.5 w-3.5 rounded-full bg-[#27C93F] hover:bg-[#1FB834] transition-all duration-200 flex items-center justify-center shadow-sm hover:shadow-md"
+          aria-label="Maximize"
+        >
+          <Maximize2 className="h-2.5 w-2.5 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity" strokeWidth={3} />
+        </button>
+      </div>
+      <div className="flex-1 text-center">
+        <span className="text-sm font-semibold text-neutral-dark">{title}</span>
+      </div>
+      <div className="w-[60px]"></div> {/* Spacer for centering */}
     </div>
   );
 }
@@ -190,10 +196,11 @@ export function Layout410() {
           {windows.map((window, index) => (
             <Card
               key={window.id}
-              className="overflow-hidden bg-white shadow-2xl rounded-xl border-2 border-neutral-light/50 hover:shadow-brand-primary/20 transition-all duration-300"
+              className="overflow-hidden bg-white shadow-2xl rounded-2xl border-4 border-neutral-light/60 hover:shadow-brand-primary/30 transition-all duration-300 hover:scale-[1.01]"
             >
               {/* macOS Window Controls */}
               <MacOSWindowControls
+                title={window.label}
                 onClose={() => handleClose(window.id)}
                 onMinimize={() => handleMinimize(window.id)}
                 onMaximize={() => handleMaximize(window.id)}
