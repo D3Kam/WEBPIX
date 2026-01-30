@@ -57,14 +57,22 @@ export function Navbar3() {
           )}
         </button>
 
-        {/* Logo - Optimized for mobile */}
-        <Link to="/" className="flex items-center lg:order-first">
-          <img
-            src="/WEBPIX/media/icons/Xpixel_Logo.svg"
-            alt="Xpixel Logo"
-            className="h-16 w-auto sm:h-20"
-          />
-        </Link>
+        {/* Logo and Home Button */}
+        <div className="flex items-center gap-3 lg:gap-4">
+          <Link to="/" className="flex items-center">
+            <img
+              src="/WEBPIX/media/icons/Xpixel_Logo.svg"
+              alt="Xpixel Logo"
+              className="h-16 w-auto sm:h-20"
+            />
+          </Link>
+          <Link
+            to="/"
+            className="hidden lg:block text-base font-semibold text-neutral-darkest hover:text-white hover:bg-neutral-darkest/10 px-4 py-2 rounded-lg transition-all duration-300"
+          >
+            Home
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:space-x-2">
@@ -195,6 +203,13 @@ export function Navbar3() {
                 {/* Mobile Navigation Links - Optimized touch targets */}
                 <nav className="flex-1 overflow-y-auto overscroll-contain px-5 py-6">
                   <div className="space-y-2">
+                    <Link
+                      to="/"
+                      className="flex items-center rounded-xl px-5 py-4 min-h-[56px] text-lg font-semibold text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white active:scale-98 transition-all duration-200 border-l-4 border-transparent hover:border-neutral-darkest"
+                      onClick={useActive.toggleMobileMenu}
+                    >
+                      Home
+                    </Link>
                     <Link
                       to="/xpixel"
                       className="flex items-center rounded-xl px-5 py-4 min-h-[56px] text-lg font-semibold text-neutral-darkest hover:bg-neutral-darkest/10 hover:text-white active:scale-98 transition-all duration-200 border-l-4 border-transparent hover:border-neutral-darkest"
