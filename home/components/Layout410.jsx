@@ -84,6 +84,27 @@ function MacOSWindowControls({ onClose, onMinimize, onMaximize, title }) {
 }
 
 export function Layout410() {
+  const [scrollDirection, setScrollDirection] = useState('down');
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else if (currentScrollY < lastScrollY) {
+        setScrollDirection('up');
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   const windows = [
     {
       id: 'xpixel',
@@ -192,11 +213,16 @@ export function Layout410() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:gap-10 lg:gap-12">
-          {windows.map((window, index) => (
+        <div className={scrollDirection === 'down' ? 'relative grid auto-cols-fr grid-cols-1 gap-6 md:gap-0' : 'grid gap-8 md:gap-10 lg:gap-12'}>
+          {windows.map((window, index) => {
+            const topOffset = 15 + (index * 3); // 15%, 18%, 21%, 24%, 27%
+            const isSticky = scrollDirection === 'down';
+
+            return (
             <Card
               key={window.id}
-              className="overflow-hidden bg-white shadow-2xl rounded-2xl border-4 border-neutral-light/60 hover:shadow-brand-primary/30 transition-all duration-300 hover:scale-[1.01]"
+              className={`overflow-hidden bg-white shadow-2xl rounded-2xl border-4 border-neutral-light/60 hover:shadow-brand-primary/30 transition-all duration-300 ${isSticky ? 'md:sticky md:mb-[15vh] md:h-[70vh]' : 'hover:scale-[1.01]'}`}
+              style={isSticky ? { top: `${topOffset}%` } : {}}
             >
               {/* macOS Window Controls */}
               <MacOSWindowControls
@@ -276,7 +302,8 @@ export function Layout410() {
                 </div>
               </div>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
