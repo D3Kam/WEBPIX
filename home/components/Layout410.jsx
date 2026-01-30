@@ -87,6 +87,7 @@ export function Layout410() {
   const [scrollDirection, setScrollDirection] = useState('down');
   const [lastScrollY, setLastScrollY] = useState(0);
   const [expandedWindows, setExpandedWindows] = useState(new Set());
+  const [hasScrolledUp, setHasScrolledUp] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -97,6 +98,7 @@ export function Layout410() {
         setScrollDirection('down');
       } else if (currentScrollY < lastScrollY) {
         setScrollDirection('up');
+        setHasScrolledUp(true); // Mark that user has scrolled up at least once
       }
 
       setLastScrollY(currentScrollY);
@@ -222,12 +224,12 @@ export function Layout410() {
           </p>
         </div>
 
-        <div className={scrollDirection === 'down' ? 'relative grid auto-cols-fr grid-cols-1 gap-6 md:gap-0' : 'grid gap-4 md:gap-5 lg:gap-6'}>
+        <div className={!hasScrolledUp && scrollDirection === 'down' ? 'relative grid auto-cols-fr grid-cols-1 gap-6 md:gap-0' : 'grid gap-4 md:gap-5 lg:gap-6'}>
           {windows.map((window, index) => {
             const topOffset = 15 + (index * 3); // 15%, 18%, 21%, 24%, 27%
-            const isSticky = scrollDirection === 'down';
+            const isSticky = !hasScrolledUp && scrollDirection === 'down';
             const isExpanded = expandedWindows.has(window.id);
-            const showMacOS = scrollDirection === 'up';
+            const showMacOS = hasScrolledUp; // Show macOS controls once user has scrolled up
 
             return (
             <Card
@@ -235,7 +237,7 @@ export function Layout410() {
               className={`overflow-hidden bg-white shadow-2xl rounded-2xl border-4 border-neutral-light/60 transition-all duration-500 ${isSticky ? 'md:sticky md:mb-[15vh] md:h-[70vh] content-center' : isExpanded ? 'hover:shadow-brand-primary/30' : ''}`}
               style={isSticky ? { top: `${topOffset}%` } : {}}
             >
-              {/* macOS Window Controls - only show when scrolling up */}
+              {/* macOS Window Controls - only show once user has scrolled up */}
               {showMacOS && (
                 <MacOSWindowControls
                   title={window.label}
@@ -246,7 +248,7 @@ export function Layout410() {
               )}
 
               {/* Window Content - hide when in macOS mode and not expanded */}
-              {(isSticky || isExpanded) && (
+              {(!hasScrolledUp || isExpanded) && (
                 <div className={`grid grid-cols-1 md:grid-cols-2 ${isSticky ? 'h-full' : ''} ${window.bgColor}`}>
                 {/* Content Side */}
                 <div className={`flex flex-col justify-center p-6 md:p-8 lg:p-12 ${window.mediaFirst ? 'md:order-last' : 'md:order-first'}`}>
