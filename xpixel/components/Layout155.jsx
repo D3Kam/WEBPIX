@@ -33,6 +33,12 @@ export function Layout155() {
     }
   };
 
+  const handleAreaSelect = (width, height) => {
+    if (window.markArea) {
+      window.markArea(width, height);
+    }
+  };
+
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container flex flex-col items-center text-center">
@@ -101,6 +107,61 @@ export function Layout155() {
                     </div>
                   </div>
                   <span id="fileName" className="file-name" aria-live="polite"></span>
+                </div>
+
+                {/* Area Size Selection */}
+                <div className="area-size mt-6">
+                  <h2 className="text-h6 font-bold mb-4 text-center">Select Area Size</h2>
+                  <div className="grid grid-cols-4 gap-3 max-w-2xl mx-auto">
+                    <button
+                      onClick={() => handleAreaSelect(10, 10)}
+                      className="btn btn-accent flex items-center justify-center py-3 px-4 text-sm font-semibold rounded-lg transition-all hover:scale-105"
+                    >
+                      1×1
+                    </button>
+                    <button
+                      onClick={() => handleAreaSelect(10, 20)}
+                      className="btn btn-accent flex items-center justify-center py-3 px-4 text-sm font-semibold rounded-lg transition-all hover:scale-105"
+                    >
+                      1×2
+                    </button>
+                    <button
+                      onClick={() => handleAreaSelect(10, 30)}
+                      className="btn btn-accent flex items-center justify-center py-3 px-4 text-sm font-semibold rounded-lg transition-all hover:scale-105"
+                    >
+                      1×3
+                    </button>
+                    <button
+                      onClick={() => handleAreaSelect(10, 40)}
+                      className="btn btn-accent flex items-center justify-center py-3 px-4 text-sm font-semibold rounded-lg transition-all hover:scale-105"
+                    >
+                      1×4
+                    </button>
+                    <button
+                      onClick={() => handleAreaSelect(10, 50)}
+                      className="btn btn-accent flex items-center justify-center py-3 px-4 text-sm font-semibold rounded-lg transition-all hover:scale-105"
+                    >
+                      1×5
+                    </button>
+                    <button
+                      onClick={() => handleAreaSelect(10, 60)}
+                      className="btn btn-accent flex items-center justify-center py-3 px-4 text-sm font-semibold rounded-lg transition-all hover:scale-105"
+                    >
+                      1×6
+                    </button>
+                    <button
+                      onClick={() => handleAreaSelect(20, 30)}
+                      className="btn btn-accent flex items-center justify-center py-3 px-4 text-sm font-semibold rounded-lg transition-all hover:scale-105"
+                    >
+                      2×3
+                    </button>
+                    <button
+                      onClick={() => handleAreaSelect(30, 20)}
+                      className="btn btn-accent flex items-center justify-center py-3 px-4 text-sm font-semibold rounded-lg transition-all hover:scale-105"
+                    >
+                      3×2
+                    </button>
+                  </div>
                 </div>
               </div>
           </div>
