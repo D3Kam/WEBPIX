@@ -21,12 +21,6 @@ export function Layout155() {
     };
   }, []);
 
-  const handleReposition = (position) => {
-    if (window.repositionArea) {
-      window.repositionArea(position);
-    }
-  };
-
   const handleImageUpload = (event) => {
     if (window.uploadImage) {
       window.uploadImage(event);
